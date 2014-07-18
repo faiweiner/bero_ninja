@@ -3,18 +3,33 @@ $(document).ready(function() {
 	var locations = function() {
 
 		if (navigator.geolocation) {
-		  var timeoutVal = 4500;
+		  // var timeoutVal = 4500;
 		  navigator.geolocation.getCurrentPosition(
 		    displayPosition, 
-		    displayError
-		    // { enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+		    displayError,
+		    { enableHighAccuracy: true, maximumAge: 0 }
 		  );
 		}	else {
 		  alert("Geolocation is not supported by this browser");
 		}
 
 		function displayPosition(position) {
+			var user_lat = position.coords.latitude;
+			var user_lng = position.coords.longitude;
 		  console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+				
+				$.ajax({
+					url: '/location',
+					type: 'POST',
+					dataType: 'JSON',
+					data: {
+						user_lat: user_lat,
+						user_lng: user_lng
+					},
+					success: function(response) {
+						console.log("response");
+					}
+				});
 		};
 
 		function displayError(error) {
@@ -23,11 +38,15 @@ $(document).ready(function() {
 		    2: 'Position unavailable',
 		    3: 'Request timeout'
 		  };
-		  alert("Error: " + errors[error.code]);
+		  console.log("Error: " + errors[error.code]);
 		};
 	};
-		window.setInterval(locations, 5000);
+		window.setInterval(locations, 1000);
+
+
 });
+
+
 
 // AJAX BASIC GUIDE FROM JOEL
 // $.ajax({
