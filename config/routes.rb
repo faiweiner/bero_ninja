@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :pages
-  
+  resources :places
+
 
 end
 
@@ -35,3 +36,11 @@ end
 #              PATCH  /pages/:id(.:format)         pages#update
 #              PUT    /pages/:id(.:format)         pages#update
 #              DELETE /pages/:id(.:format)         pages#destroy
+#       places GET    /places(.:format)            places#index
+#              POST   /places(.:format)            places#create
+#    new_place GET    /places/new(.:format)        places#new
+#   edit_place GET    /places/:id/edit(.:format)   places#edit
+#        place GET    /places/:id(.:format)        places#show
+#              PATCH  /places/:id(.:format)        places#update
+#              PUT    /places/:id(.:format)        places#update
+#              DELETE /places/:id(.:format)        places#destroy
