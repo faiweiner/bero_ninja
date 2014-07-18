@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'underscore-rails'
 gem 'geocoder'
 gem 'modernizr-rails'
+gem 'haml'
 
 group :development do
   gem 'pry-rails'
