@@ -1,17 +1,18 @@
-class SessionsController < ApplicationController::Base
+class SessionsController < ApplicationController
   def new
     # Login Form
   end
   def create
     # Login attempt
-    @user = User.where(:user_id => params[:user_id]).first
+    raise params.inspect
+    @user = User.where(:username => params[:username]).first
     if @user.present? && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "Welcome back!"
       redirect_to(root_path)
     else
       flash[:notice] = "Invalid login. Please try again."
-      redirect_to(login_path)
+      redirect_to(new_session_path)
     end
   end 
    

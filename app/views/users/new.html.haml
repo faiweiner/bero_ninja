@@ -1,16 +1,17 @@
-/ = form_for @user do |f| 
-/   = f.label :username
-/   = f.text_field :username
+%h3 Sign Up
 
-/   = f.label :password_confirmation
-/   = f.password_field :password_confirmation
+= form_for @user do |f| 
+  = f.label :username
+  = f.text_field :username
 
-/   = f.label :profile_picture
-/   = f.text_field :profile_picture
+  = f.label :password
+  = f.password_field :password
 
-/   = f.label :password
-/   = f.password_field :password
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
 
-/   = f.submit
+  = f.label :profile_picture
+  = f.text_field :profile_picture
 
-%h1 Hi
+
+  = f.submit
