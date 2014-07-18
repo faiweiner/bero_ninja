@@ -18,15 +18,15 @@ ActiveRecord::Schema.define(version: 20140718042207) do
 
   create_table "friends", force: true do |t|
     t.integer  "user_id"
-    t.string   "latitude"
-    t.string   "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "places", force: true do |t|
-    t.string  "latitude"
-    t.string  "longitude"
+    t.float   "latitude"
+    t.float   "longitude"
     t.integer "user_id"
     t.string  "address"
     t.string  "category"
@@ -40,8 +40,6 @@ ActiveRecord::Schema.define(version: 20140718042207) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_online"
-    t.string   "latest_latitude"
-    t.string   "latest_longitude"
   end
 
 end
