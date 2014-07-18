@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'underscore-rails'
 gem 'geocoder'
+gem 'modernizr-rails'
 
 group :development do
   gem 'pry-rails'
