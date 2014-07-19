@@ -13,12 +13,12 @@ class LocationsController < ApplicationController
     # @compass = Geocoder::Calculations.compass_point(@bearing) #=> "NE"
 
     # # #distance between points
-    # @distance = Geocoder::Calculations.distance_between([@coordinates.user_lat, @coordinates.user_lng],[-31.23, 139]) # => "1.06" in miles
+    @distance = Geocoder::Calculations.distance_between([@coordinates["user_lat"], @coordinates["user_lng"]],[-31.23, 139]) # => "1.06" in miles
 
     # # #to km
     # @distance = Geocoder::Calcualtions.to_kilometers(@distance) # => "1.7" km
 
-    @location = {"coords" => @coordinates, "bearing" => @bearing}
+    @location = {"coords" => @coordinates, "bearing" => @bearing, "distance" => @distance};
     # @location << @coordinates << @compass << @distance
 
 

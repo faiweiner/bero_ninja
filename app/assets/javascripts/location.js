@@ -38,6 +38,7 @@ $(document).ready(function () {
 						$('#user_lat').text(response.coords.user_lat); // push data to user_lat id on page
 						$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
 						$('#bearing').text(response.bearing);
+						$('#distance').text(response.distance);
 					}
 				});
 		};
