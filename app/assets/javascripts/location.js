@@ -1,15 +1,17 @@
 $(document).ready(function () {
+
+	// Runs this javascipt only on the locations/index page. If not then returns nothing
 	if (window.location.pathname != '/locations/index') {
 		return;
 	}
-	console.log('abort abort')
-
+	// finds user location with HTML5 geolocation.
 	var locations = function() {
 
+		// checks if geolocation enabled
 		if (navigator.geolocation) {
 		  // var timeoutVal = 4500;
 		  navigator.geolocation.getCurrentPosition(
-		    displayPosition, 
+		    displayPosition,
 		    displayError
 		    // { enableHighAccuracy: true, maximumAge: 0 }
 		  );
@@ -22,7 +24,7 @@ $(document).ready(function () {
 			var user_lng = position.coords.longitude;
 
 		  // console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-				
+			// AJAX gets location data from device and converts for use in ruby.
 				$.ajax({
 					url: '/locations',
 					type: 'GET',
@@ -32,13 +34,15 @@ $(document).ready(function () {
 						user_lng: user_lng
 					},
 					success: function(response) {
-						// console.log(response);
-						$('#user_lat').text(response.user_lat);
-						$('#user_lng').text(response.user_lng);
+						console.log(response);
+						$('#user_lat').text(response.coords.user_lat); // push data to user_lat id on page
+						$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
+						$('#bearing').text(response.bearing);
 					}
 				});
 		};
 
+		// Error message disapayed
 		function displayError(error) {
 		  var errors = {
 		    1: 'Permission denied',
@@ -48,33 +52,8 @@ $(document).ready(function () {
 		  console.log("Error: " + errors[error.code]);
 		};
 	};
-		window.setInterval(locations, 1000);
+		// updates location every second
+		window.setInterval(locations, 5000);
 		// locations();
 
 });
-
-
-// AJAX BASIC GUIDE FROM JOEL
-// $.ajax({
-//   url: '/location',
-//   method: 'get',
-//   dataType: 'json',
-//   data: {
-//     originlatitude: something.lat,
-//     originlongitude: something.long,
-//     destinationlatitude: someother.lat,
-//     destinationlongitude: someother.long
-//   },
-//   success: function (response) {
-//     console.log(response.bearing); // update the page with the response somehow
-//   }
-// });
-
-// # routes
-// get '/location' => 'locations#lookup'
-
-// # locations_controller.rb
-// def lookup
-//   olat = params[originlatitude]
-//   olong = params[originlongitude]
-//   // etc
