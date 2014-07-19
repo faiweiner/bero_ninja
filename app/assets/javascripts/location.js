@@ -20,14 +20,14 @@ $(document).ready(function() {
 
 				$.ajax({
 					url: '/location',
-					type: 'POST',
+					type: 'GET',
 					dataType: 'JSON',
 					data: {
 						user_lat: user_lat,
 						user_lng: user_lng
 					},
 					success: function(response) {
-						console.log("response");
+						console.log(response);
 					}
 				});
 		};
