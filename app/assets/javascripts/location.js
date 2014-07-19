@@ -5,7 +5,7 @@ $(document).ready(function() {
 		if (navigator.geolocation) {
 		  // var timeoutVal = 4500;
 		  navigator.geolocation.getCurrentPosition(
-		    displayPosition, 
+		    displayPosition,
 		    displayError,
 		    { enableHighAccuracy: true, maximumAge: 0 }
 		  );
@@ -17,7 +17,7 @@ $(document).ready(function() {
 			var user_lat = position.coords.latitude;
 			var user_lng = position.coords.longitude;
 		  console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-				
+
 				$.ajax({
 					url: '/location',
 					type: 'POST',
@@ -33,7 +33,7 @@ $(document).ready(function() {
 		};
 
 		function displayError(error) {
-		  var errors = { 
+		  var errors = {
 		    1: 'Permission denied',
 		    2: 'Position unavailable',
 		    3: 'Request timeout'
@@ -45,7 +45,6 @@ $(document).ready(function() {
 
 
 });
-
 
 
 // AJAX BASIC GUIDE FROM JOEL
