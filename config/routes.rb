@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :pages
   resources :places
 
-  get '/location' => 'locations#lookup'
-
+  get '/locations' => 'locations#lookup'
+  get '/locations/index' => 'locations#index'
 end
 
 
