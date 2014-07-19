@@ -1,7 +1,15 @@
 class LocationsController < ApplicationController
 
 	def lookup
-		@user_lat = params[:user_lat]
-		@user_lng = params[:user_lat]
+
+		
+		@location = {"user_lat" => params[:user_lat], "user_lng" => params[:user_lng]}
+		render :json => @location
+		
 	end
+
+	def index
+
+	end
+
 end

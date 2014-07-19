@@ -1,4 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
+	if (window.location.pathname != '/locations/index') {
+		return;
+	}
+	console.log('abort abort')
 
 	var locations = function() {
 
@@ -6,8 +10,8 @@ $(document).ready(function() {
 		  // var timeoutVal = 4500;
 		  navigator.geolocation.getCurrentPosition(
 		    displayPosition, 
-		    displayError,
-		    { enableHighAccuracy: true, maximumAge: 0 }
+		    displayError
+		    // { enableHighAccuracy: true, maximumAge: 0 }
 		  );
 		}	else {
 		  alert("Geolocation is not supported by this browser");
@@ -16,10 +20,10 @@ $(document).ready(function() {
 		function displayPosition(position) {
 			var user_lat = position.coords.latitude;
 			var user_lng = position.coords.longitude;
-		  console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+		  // console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 				
 				$.ajax({
-					url: '/location',
+					url: '/locations',
 					type: 'GET',
 					dataType: 'JSON',
 					data: {
@@ -27,7 +31,9 @@ $(document).ready(function() {
 						user_lng: user_lng
 					},
 					success: function(response) {
-						console.log(response);
+						// console.log(response);
+						$('#user_lat').text(response.user_lat);
+						$('#user_lng').text(response.user_lng);
 					}
 				});
 		};
@@ -42,7 +48,7 @@ $(document).ready(function() {
 		};
 	};
 		window.setInterval(locations, 1000);
-
+		// locations();
 
 });
 
