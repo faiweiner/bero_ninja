@@ -20,6 +20,7 @@ $(document).ready(function () {
 		function displayPosition(position) {
 			var user_lat = position.coords.latitude;
 			var user_lng = position.coords.longitude;
+
 		  // console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
 				
 				$.ajax({
@@ -39,7 +40,7 @@ $(document).ready(function () {
 		};
 
 		function displayError(error) {
-		  var errors = { 
+		  var errors = {
 		    1: 'Permission denied',
 		    2: 'Position unavailable',
 		    3: 'Request timeout'
@@ -51,7 +52,6 @@ $(document).ready(function () {
 		// locations();
 
 });
-
 
 
 // AJAX BASIC GUIDE FROM JOEL
