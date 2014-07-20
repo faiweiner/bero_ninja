@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :places
 
   get '/locations' => 'locations#lookup'
-  post '/locations' => 'locations#add_place'
+  post '/locations' => 'locations#add_place' # removing a single resource, might want to change name of the controller action
   get '/locations/index' => 'locations#index'
 
   get '/login' => 'sessions#new'
