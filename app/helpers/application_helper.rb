@@ -5,7 +5,7 @@ module ApplicationHelper
     links += " | "
     if @current_user.present?
       links += "<li>"
-      links += link_to('Logout', sessions_path, :data => {:method => :delete, :confirm => 'Really logout?'})
+      links += link_to('Logout', login_path, :data => {:method => :delete, :confirm => 'Really logout?'})
       links += "</li>"
       links += " | "
       links += "<li>"
