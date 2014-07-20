@@ -11,14 +11,14 @@ module ApplicationHelper
       links += link_to("Welcome #{@current_user.username}", user_path(@current_user))
       links += "</li>"
     else
-      links += "<li>#{ link_to('Sign up', new_user_path) }</li>"
-      links += "<li>#{ link_to('Sign in', new_session_path) }</li>"
+      links += "<div>#{ link_to('Sign up', new_user_path) }</div>"
+      links += "<div>#{ link_to('Sign in', new_session_path) }</div>"
     end
 
     links
   end
 
   def bero
-    "<li>#{ link_to('Bero', root_path) }</li>"
+    "<div class='doo-doo'>#{ link_to('Bero', root_path) }</div>"
   end
 end

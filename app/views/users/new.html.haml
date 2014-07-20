@@ -1,17 +1,19 @@
-%h3 Sign Up
+/ Form to sign up
+
+%h3.form-signin-heading Sign Up
 
 = form_for @user do |f| 
   = f.label :username
-  = f.text_field :username
+  = f.text_field :username, :class => "form-control", :required => true, :autofocus => true
 
   = f.label :password
-  = f.password_field :password
+  = f.password_field :password, :class => "form-control", :required => true
 
   = f.label :password_confirmation
-  = f.password_field :password_confirmation
+  = f.password_field :password_confirmation, :class => "form-control", :required => true
 
   = f.label :profile_picture
-  = f.text_field :profile_picture
+  = f.text_field :profile_picture, :class => "form-control"
 
 
-  = f.submit
+  = f.submit 'Sign Up', :class => "btn btn-lg btn-primary btn-block"
