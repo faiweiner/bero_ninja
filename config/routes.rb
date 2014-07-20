@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :places
 
   get '/locations' => 'locations#lookup'
+  post '/locations' => 'locations#add_place'
   get '/locations/index' => 'locations#index'
 
   get '/login' => 'sessions#new'

@@ -1,0 +1,24 @@
+<h4>Show User Page</h4>
+
+<p><%= "#{@user.username}" %></p>
+<p><%= "#{@user.profile_picture}" %></p>
+
+
+<!-- add a location form -->
+<!-- form > post '/locations' => 'locations#add_place' -->
+<h3>Add a location</h3>
+<%= form_tag '/locations' do %>
+<p>
+	<%= label_tag "Address" %>
+	<%= text_field_tag :address, :nil, :class => 'form-control', :require => true, :value => @user_ip.city %>
+	<%= submit_tag( "GO!", :id => "button", :class => "btn btn-default btn-lg", :data=>{"loading-text" => "Loading..."}) %>
+ <% end %>
+
+</section>
+
+<script>
+  $('#button').click(function () {
+    var btn = $(this)
+    btn.button('loading')
+  });
+</script>

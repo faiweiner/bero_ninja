@@ -1,5 +1,12 @@
 class LocationsController < ApplicationController
 
+    def add_place
+        @place_coordinates = Geocoder.coordinates(params[:address])
+        
+        # place holder so we don't see an error.
+        render :index
+    end
+
 	def lookup
 		@coordinates = {"user_lat" => params[:user_lat], "user_lng" => params[:user_lng]}
 

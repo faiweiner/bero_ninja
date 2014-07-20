@@ -17,6 +17,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def show
+    @user_ip = request.location
+    @user = User.find params[:id]
+
+  end
+
   private
 
   def user_params
