@@ -70,6 +70,13 @@ var display_map = function (latitude, longitude, zoom) {
   });
 
   function placeMarker(position, map) {
+     var pin = {
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 5,
+    strokeColor: '#1D5170',
+    strokeWeight: 5
+  };
+
     var marker = new google.maps.Marker({
       position: position,
       map: map,
