@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :pages
+  resources :pages, only: [:index] 
+
   resources :places
 
   get '/locations' => 'locations#lookup'

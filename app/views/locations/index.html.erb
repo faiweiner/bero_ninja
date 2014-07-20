@@ -1,9 +1,16 @@
 
 <!-- <canvas width="1276" height="344"></canvas> -->
-Lat: <span id="user_lat"></span>
-Lng: <span id="user_lng"></span>
+<% if flash[:notice] %>
+  <div class="notice">
+    <h3 class="page-header"><%= flash[:notice] %></h3>
+  </div>
+<% end %>
 
-bearing: <span id="bearing"></span>
-distance: <span id="distance"></span>
-heading: <span id="heading"></span>
+<h2 class="page-header">Current Location:</h2>
+<p>Lat: <span id="user_lat"></span></p>
+<p>Lng: <span id="user_lng"></span></p>
+
+<p>bearing: <span id="bearing"></span></p>
+<p>distance: <span id="distance"></span></p>
+<p>heading: <span id="heading"></span></p>
 

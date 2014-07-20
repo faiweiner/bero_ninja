@@ -1,16 +1,13 @@
 class LocationsController < ApplicationController
 
-    def add_place
-        @place_coordinates = Geocoder.coordinates(params[:address])
-        
-        # place holder so we don't see an error.
-        render :index
+  def add_place
+    @place_coordinates = Geocoder.coordinates(params[:address])
+    # place holder so we don't see an error.
+    render :index
     end
 
 	def lookup
 		@coordinates = {"user_lat" => params[:user_lat], "user_lng" => params[:user_lng]}
-
-
 
     # binding.pry
     @bearing = Geocoder::Calculations.bearing_between([@coordinates["user_lat"], @coordinates["user_lng"]],[-33.8587, 151.2140]) # =>  "45"
@@ -32,14 +29,12 @@ class LocationsController < ApplicationController
 
     render :json => @location
     # render :json => @bearing
-
-
   end
 
   def index
     # @bearing = Geocoder::Calculations.bearing_between([@coordinates["user_lat"], @coordinates["user_lng"]],[-31.23, 139]) # =>  "45"
     # raise params.inspect
     # @bearing = Geocoder::Calculations.bearing_between([@location.user_lat, @location.user_lng],[-31.23, 139])
-	end
+  end
 
 end

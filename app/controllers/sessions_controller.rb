@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     # Login attempt
     # raise params.inspect
-    @user = User.find_by(:username => params[:username])
+    @user = User.find_by(username: params[:username])
     if @user.present? && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "Welcome back!"

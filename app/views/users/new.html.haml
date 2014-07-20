@@ -1,19 +1,21 @@
-/ Form to sign up
+/.Form to sign up
 
-%h3.page-header.form-signin-heading Sign Up
+%h3.page-header.form-signup-heading Sign Up
 
-= form_for @user do |f| 
-  = f.label :username
-  = f.text_field :username, :class => "form-control", :required => true, :autofocus => true
+= form_for @user, :class => "form-signin" do |f| 
+  .input-group
+    = f.label :username
+    = f.text_field :username, :class => "form-control", :required => true, :autofocus => true
+  .input-group
+    = f.label :password
+    = f.password_field :password, :class => "form-control", :required => true
+  .input-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, :class => "form-control", :required => true
+  .input-group
+    = f.label :profile_picture
+    = f.text_field :profile_picture, :class => "form-control"
+  .input-group
+    = f.submit 'Sign Up', :class => "btn btn-lg btn-primary"
 
-  = f.label :password
-  = f.password_field :password, :class => "form-control", :required => true
-
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation, :class => "form-control", :required => true
-
-  = f.label :profile_picture
-  = f.text_field :profile_picture, :class => "form-control"
-
-
-  = f.submit 'Sign Up', :class => "btn btn-lg btn-primary btn-block"
+= button_to('Instagram', "https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code", :class => "btn btn-lg btn-primary")
