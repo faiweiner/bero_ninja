@@ -1,0 +1,8 @@
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCOyQtlbaBQsKX9Q3BGWIl_FVU5MGCKguM"
+
+%div#map_canvas
+%script
+  = "$(document).ready(function () {"
+  - @places.each do |place|
+    = "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');"
+  = "});"

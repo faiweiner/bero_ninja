@@ -45,7 +45,7 @@ $(document).ready(function () {
 
 					}
 				});
-				compassDisplay();
+				// compassDisplay();
 		};
 
 		// Error message disapayed
