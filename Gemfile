@@ -31,6 +31,8 @@ gem 'underscore-rails'
 gem 'geocoder'
 gem 'modernizr-rails'
 gem 'haml'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 
 group :development do
   gem 'pry-rails'
