@@ -39,6 +39,7 @@ $(document).ready(function () {
 						$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
 						$('#bearing').text(response.bearing);
 						$('#distance').text(response.distance);
+						$('#heading').text(response.compass);
 					}
 				});
 		};
