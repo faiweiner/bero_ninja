@@ -1,6 +1,6 @@
 / Form to sign in
 
-%h3.form-signin-heading Sign In
+%h3.page-header.form-signin-heading Sign In
 = form_tag sessions_path, :class => "form-signin", :roll => "form" do
   = label_tag :username
   = text_field_tag :username, nil, :class => "form-control", :required => true, :autofocus => true
