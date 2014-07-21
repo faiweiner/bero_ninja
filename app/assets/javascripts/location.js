@@ -15,7 +15,6 @@ $(document).ready(function() {
 		var pathArray = window.location.pathname.split( '/' );
 		var pathId = pathArray[2];
 
-		var id = 19
 		var stitchURL = "/places/" + pathId + "/lookup";
 		// AJAX gets location data from device and converts for use in ruby.
 		$.ajax({
