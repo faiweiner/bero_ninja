@@ -1,6 +1,6 @@
 var showPlaces = function(){
 
-display_map(-33.8698426, 151.2061608, 17);
+display_map(-33.8698426, 151.2061608, 12);
 add_marker(-33.8698426, 151.2061608, "GA");
 
   $('#new_place').on('ajax:success', function (event,place){
