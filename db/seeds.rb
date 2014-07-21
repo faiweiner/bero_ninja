@@ -1,4 +1,4 @@
-# User.destroy_all
+User.destroy_all
 Place.destroy_all
 
 u1 = User.create :username => "Ros", :password => "ros", :password_confirmation => "ros"
@@ -9,4 +9,8 @@ p1 = Place.create :latitude => -33.888122, :longitude => 151.213237, :address =>
 p2 = Place.create :latitude => -33.862721, :longitude => 151.173475, :address => "The Welcome Hotel", :category => 'Pub', :favorite => true
 p3 = Place.create :latitude => -33.860082, :longitude => 151.208894, :address => "Museum of Contemporary Art", :category => 'Art Gallery', :favorite => true
 
-# u1.places << p1 << p2 << p3
+u1.places << p1 << p2 << p3
+
+u2.places << p1 << p2 << p3
+
+u3.places << p1 << p2 << p3

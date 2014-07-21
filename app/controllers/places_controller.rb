@@ -1,6 +1,16 @@
 class PlacesController < ApplicationController
+
   def index
-    # @places = @current_user.places
-    @places = Place.all
+    @places = @current_user.places
+    # @places = Place.all
   end
+
+  def create
+
+  end
+
+  private
+    def check_if_logged_in
+      redirect_to(root_path) unless @current_user
+    end
 end
