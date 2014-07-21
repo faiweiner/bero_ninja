@@ -86,7 +86,8 @@ var display_map = function (latitude, longitude, zoom) {
     var marker = new google.maps.Marker({
       position: position,
       map: map,
-      icon: pin
+      icon: pin,
+      animation: google.maps.Animation.BOUNCE
     });
   }
 };
@@ -104,6 +105,7 @@ var add_marker = function (latitude, longitude, address) {
     position: latlng,
     map: map,
     address: address,
-    icon: pin
+    icon: pin,
+    animation: google.maps.Animation.BOUNCE
   });
 };
