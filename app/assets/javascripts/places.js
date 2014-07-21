@@ -1,11 +1,11 @@
+$(document).ready(function() {
+display_map(-33.8698426, 151.2061608, 17);
+add_marker(-33.8698426, 151.2061608, "GA");
 
-  // display_map(-33.8698426, 151.2061608, 17);
-  // add_marker(-33.8698426, 151.2061608, "GA");
-
-  // $('#new_place').on('ajax:success', function (event,place){
-  //   $('#new_place').get(0).reset();
-  //   add_marker(place.latitude, place.longitude, place.address);
-  // });
+$('#new_place').on('ajax:success', function (event,place){
+  $('#new_place').get(0).reset();
+  add_marker(place.latitude, place.longitude, place.address);
+});
 
 var map;
 
