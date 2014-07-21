@@ -1,66 +1,84 @@
-$(document).ready(function () {
+var testFunction = function(){
+	console.log("is this happening in Test Function?");
+};
 
-	// Runs this javascipt only on the locations/index page. If not then returns nothing
-	if (window.location.pathname != '/locations/index') {
-		return;
-	}
-	// finds user location with HTML5 geolocation.
-	var locations = function() {
+var currentPosition = function() {
 
-		// checks if geolocation enabled
-		if (navigator.geolocation) {
-		  // var timeoutVal = 4500;
-		  navigator.geolocation.getCurrentPosition(
-		    displayPosition,
-		    displayError
+};
+
+var hardwareDetection = function() {
+// checks if geolocation enabled
+	if (navigator.geolocation) {
+		// var timeoutVal = 4500;
+		navigator.geolocation.getCurrentPosition(
+		);
+	} else {
+		alert("Geolocation is not supported by this browser");
+		// PUSH THIS INTO THE PAGE!!!
+	};
+};
+
+// Detecting whether hardware is compatible with app
+var location = function() {
+	
+			// if geolocation == true
+			displayPosition,
+			// BUT if there's an error
+		  displayError
 		    // { enableHighAccuracy: true, maximumAge: 0 }
 		  );
-		}	else {
-		  alert("Geolocation is not supported by this browser");
+};
+
+var displayPosition = function(position) {
+	var user_lat = position.coords.latitude;
+	var user_lng = position.coords.longitude;
+
+	// AJAX gets location data from device and converts for use in ruby.
+	$.ajax({
+		// Step 1
+		url: '/locations',
+		type: 'GET',
+		dataType: 'JSON',
+		data: {
+			user_lat: user_lat,
+			user_lng: user_lng
+		},
+		// Step 2
+		success: function(response) {
+			console.log(response);
+			$('#user_lat').text(response.coords.user_lat); // push data to user_lat id on page
+			$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
+			$('#bearing').text(response.bearing);
+			$('#distance').text(response.distance);
+			$('#heading').text(response.compass);
 		}
+	});
+};
 
-		function displayPosition(position) {
-			var user_lat = position.coords.latitude;
-			var user_lng = position.coords.longitude;
 
-		  // console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
-			// AJAX gets location data from device and converts for use in ruby.
-				$.ajax({
-					url: '/locations',
-					type: 'GET',
-					dataType: 'JSON',
-					data: {
-						user_lat: user_lat,
-						user_lng: user_lng
-					},
-					success: function(response) {
-						console.log(response);
-						$('#user_lat').text(response.coords.user_lat); // push data to user_lat id on page
-						$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
-						$('#bearing').text(response.bearing);
-						// window.bearing = response.bearing
+// Error message disapayed
+var displayError = function(error) {
+  var errors = {
+    1: 'Permission denied',
+    2: 'Position unavailable',
+    3: 'Request timeout'
+  };
+  console.log("Error: " + errors[error.code]);
+  var errorMessage = "Error: " + errors[error.code];
+	$('#location-error').addClass("alert alert-warning");
+  $('#location-error').text(errors[error.code]);
+};
 
-						$('#distance').text(response.distance);
-						$('#heading').text(response.compass);
+window.setInterval(location, 5000);
 
-					}
-				});
-				// compassDisplay();
-		};
-
-		// Error message disapayed
-		function displayError(error) {
-		  var errors = {
-		    1: 'Permission denied',
-		    2: 'Position unavailable',
-		    3: 'Request timeout'
-		  };
-		  console.log("Error: " + errors[error.code]);
-		};
-	};
-		// updates location every second
-		window.setInterval(locations, 5000);
-		// locations();
+	// Runs this javascipt only on the locations/index page. If not then returns nothing
+	// if (window.location.pathname != '/locations/index') {
+	// 	return;
+	// }
+	// finds user location with HTML5 geolocation.
+	
+	// updates location every second
+	// locations();
 
 
 // var compassDisplay = function(response) {
@@ -187,4 +205,3 @@ $(document).ready(function () {
 //     	console.log(screenX);
 //     	compassDisplay();
 //   	});
-});
