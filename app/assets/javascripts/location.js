@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	if (window.location.pathname != '/locations/index') {
+	if (window.location.pathname != '/places/57') {
 		return;
 	}
 
@@ -10,7 +10,7 @@ $(document).ready(function() {
 		// AJAX gets location data from device and converts for use in ruby.
 		$.ajax({
 			// Step 1
-			url: '/locations',
+			url: '/places/lookup',
 			type: 'GET',
 			dataType: 'JSON',
 			data: {
@@ -66,7 +66,7 @@ $(document).ready(function() {
 	// 	return;
 	// }
 	// finds user location with HTML5 geolocation.
-	
+
 	// updates location every second
 	// locations();
 

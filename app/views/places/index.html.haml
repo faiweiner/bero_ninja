@@ -5,7 +5,9 @@
 
 %ul
 -@places.each do |place|
-  %li= place.address
+  %li
+    = link_to("#{place.address}", "/places/#{place.id}")
+
 
 %a.btn.btn-danger.btn-lg{:href => '/places/new'}> Add a Place
 

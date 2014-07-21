@@ -3,12 +3,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :pages, only: [:index] 
+  resources :pages, only: [:index]
 
   resources :places
 
-  get '/locations' => 'locations#lookup'
-  get '/locations/index' => 'locations#index'
+  get '/places/lookup' => 'places#lookup'
+  # get '/places/index' => 'locations#index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

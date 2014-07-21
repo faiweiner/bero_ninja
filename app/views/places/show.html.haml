@@ -1,0 +1,29 @@
+%h1 hello
+
+%div
+  %h3 Address
+  = @place.address
+  %h3 Latitude
+  = @place.latitude
+  %h3 Longitude
+  = @place.longitude
+
+  %h3
+  = @bearing
+
+%h2.page-header Current Location:
+%p
+  Lat:
+  %span#user_lat
+%p
+  Lng:
+  %span#user_lng
+%p
+  bearing:
+  %span#bearing
+%p
+  distance:
+  %span#distance
+%p
+  heading:
+  %span#heading
