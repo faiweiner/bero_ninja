@@ -15,7 +15,7 @@ $(document).ready(function() {
 		// AJAX gets location data from device and converts for use in ruby.
 		$.ajax({
 			// Step 1
-			url: stitchURL,
+			url: '/palces/58/lookup',
 			type: 'GET',
 			dataType: 'JSON',
 			data: {
