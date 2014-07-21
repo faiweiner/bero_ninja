@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :places
 
-  get '/places/lookup' => 'places#lookup'
+  get '/places/:id/lookup' => 'places#lookup'
   # get '/places/index' => 'locations#index'
 
   get '/login' => 'sessions#new'

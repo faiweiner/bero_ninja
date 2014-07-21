@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	if (window.location.pathname != '/places/57') {
+	if (window.location.pathname != '/places/58') {
 		return;
 	}
 
@@ -10,7 +10,7 @@ $(document).ready(function() {
 		// AJAX gets location data from device and converts for use in ruby.
 		$.ajax({
 			// Step 1
-			url: '/places/lookup',
+			url: '/places/58/lookup',
 			type: 'GET',
 			dataType: 'JSON',
 			data: {
