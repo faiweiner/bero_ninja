@@ -1,12 +1,13 @@
-%h1 hello
+%h1
+  =@place.address
 
 %div
-  %h3 Address
-  = @place.address
   %h3 Latitude
-  = @place.latitude
+  %p#location_latitude
+    = @place.latitude
   %h3 Longitude
-  = @place.longitude
+  %p#location_longitude
+    = @place.longitude
 
   %h3
   = @bearing

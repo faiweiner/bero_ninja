@@ -8,9 +8,22 @@ var screenDetect = function() {
 };
 
 // Hide element if on Desktop
-var elementHideOnDesktop = function(element) {
+var elementForMobile = function(element) {
 	var screenType = screenDetect();
-	if (screenType === "desktop") { $(element).hide() };
+	if (screenType === "desktop") { 
+		$(element).hide(); 
+	} else if (screenType === "mobile") {
+		$(element).show();
+	};
+};
+
+var elementForDesktop = function(element) {
+	var screenType = screenDetect();
+	if (screenType === "desktop") { 
+		$(element).show(); 
+	} else if (screenType === "mobile") {
+		$(element).hide();
+	};
 };
 
 var elementAppendText = function(element, newClass, message) {
