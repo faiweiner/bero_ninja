@@ -6,12 +6,7 @@ class PlacesController < ApplicationController
 
   def new
     @places = @current_user.places
-<<<<<<< HEAD
-    user_location = request.location
-    @current_location = Geocoder.search(user_location)
-=======
     @place = Place.new
->>>>>>> 1a196cda1b7ff29b45fe324c76ab38a10a5c9f7d
   end
 
   def create
