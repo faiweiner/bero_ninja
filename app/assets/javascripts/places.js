@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  display_map(-33.8698426, 151.2061608, 12);
+  display_map(-33.8698426, 151.2061608, 17);
   add_marker(-33.8698426, 151.2061608, "GA");
 });
 
