@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// 	return;
 	// }
 
-	if (window.location.pathname.indexOf("/places", 0) == 0) {
+	if (window.location.pathname.indexOf("/places/", 0) == 0) {
 		console.log("this url has places in it");
 
 		var displayPosition = function(position) {
