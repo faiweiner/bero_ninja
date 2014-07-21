@@ -3,6 +3,14 @@ var hardwareDetection = function() {
     var message = "Geolocation detected - you're ready to Bero!"
     $('#hardware-error').addClass("alert alert-success");
     $('#hardware-error').text(message);
+    // The following code hides/shows elements depending on the size
+    if ($('#desktopTest').is(':hidden')) {
+      console.log("mobile + tablet"); 
+    } else {
+      console.log("desktop"); 
+      $('#find-places').hide();
+      $('#find-friends').hide();
+    };
   } else {
     var message = "Geolocation not available - please use another geolocation-enabled device."
     $('#hardware-error').addClass("alert alert-danger");

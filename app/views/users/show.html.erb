@@ -5,6 +5,8 @@
       <h3 class="page-header"><%= flash[:notice] %></h3>
     </div>
   <% end %>
+  <div class="notice" id="hardware-error" role="alert">
+  </div>
   <p>
     <%= button_to "Find Places", places_path, :id => "find-places",
         :class => "btn btn-lg btn-success btn-block", :method => :get %>
@@ -12,8 +14,6 @@
   <%= button_to "Find Friends", places_path, :id => "find-friends",
       :class => "btn btn-lg btn-success btn-block", :method => :get %>
   </p>
-  <div class="notice" id="hardware-error" role="alert">
-  </div>
 </div>
 
 <script>
