@@ -3,6 +3,7 @@ $(document).ready(function () {
   add_marker(-33.8698426, 151.2061608, "GA");
 
   $('#new_place').on('ajax:success', function (event,place){
+    console.log('putting onto map success');
     $('#new_place').get(0).reset();
     add_marker(place.latitude, place.longitude, place.address);
   });

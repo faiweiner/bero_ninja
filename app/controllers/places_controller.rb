@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
 
   def index
     @places = @current_user.places
-
+     @place = Place.new
   end
 
   def new
