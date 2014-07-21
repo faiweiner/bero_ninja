@@ -9,3 +9,8 @@
   - @places.each do |place|
     = "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');"
   = "});"
+
+%script
+  = "$(document).ready(function() {"
+  = "showPlaces();"
+  = "});"
