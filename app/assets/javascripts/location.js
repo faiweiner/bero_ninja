@@ -11,7 +11,6 @@ $(document).ready(function() {
 		var user_lat = position.coords.latitude;
 		var user_lng = position.coords.longitude;
 
-		var pathName = window.location.pathname;
 		var pathArray = window.location.pathname.split( '/' );
 		var pathId = pathArray[2];
 

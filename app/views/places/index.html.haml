@@ -3,11 +3,11 @@
 
 %ul
 -@places.each do |place|
-  %li
+  %li.lead.btn-block.text-center
     = link_to("#{place.address}", "/places/#{place.id}")
 
 
-%a.btn.btn-danger.btn-lg{:href => '/places/new'}> Add a Place
+%a.btn.btn-danger.btn-lg.btn-block{:href => '/places/new'}> Add a Place
 
 %script
   = "$(document).ready(function() {"
