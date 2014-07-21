@@ -1,22 +1,16 @@
 $(document).ready(function() {
-	// if (window.location.pathname != '/places/58') {
-	// 	return;
-	// }
+	if (window.location.pathname != '/places/58') {
+		return;
+	}
 
-	if (window.location.pathname.indexOf("/places", 0) == 0) {
-		console.log("this url has places in it");
-
-		var displayPosition = function(position) {
+	var displayPosition = function(position) {
 		var user_lat = position.coords.latitude;
 		var user_lng = position.coords.longitude;
 
-		var id = 58; // need to somehow pull the places_id from the DB
-		
-		var stitchURL = "/places/" + id + "/lookup";
 		// AJAX gets location data from device and converts for use in ruby.
 		$.ajax({
 			// Step 1
-			url: stitchURL,
+			url: '/places/58/lookup',
 			type: 'GET',
 			dataType: 'JSON',
 			data: {
@@ -46,8 +40,8 @@ $(document).ready(function() {
 	  var errorMessage = "Error: " + errors[error.code];
 	};
 
-	// checks if geolocation enabled
 	var userLocation = function() {
+	// checks if geolocation enabled
 		// STEP 1 - DETECTING GEOLOCATION
 		if (navigator.geolocation) {
 			// var timeoutVal = 4500;
@@ -64,16 +58,8 @@ $(document).ready(function() {
 		};
 	};
 
-	// window.setInterval(userLocation, 2000);
-
-	} else {
-		console.log("this url does not have 'places' in it");
-	};
-
+	window.setInterval(userLocation, 2000);
 });
-
-
-
 
 	// Runs this javascipt only on the locations/index page. If not then returns nothing
 	// if (window.location.pathname != '/locations/index') {
@@ -208,4 +194,4 @@ $(document).ready(function() {
 //     	var screenX = event.screenX/10
 //     	console.log(screenX);
 //     	compassDisplay();
-//   	});
+//   	});	
