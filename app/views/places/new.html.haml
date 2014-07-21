@@ -1,21 +1,10 @@
 = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCOyQtlbaBQsKX9Q3BGWIl_FVU5MGCKguM"
 = form_for @place, :remote => true do |f|
   = f.label :address, "Add Yo Place!"
-  = f.text_field :address, :class => 'form-control'
+  = f.text_field :address, :class => 'form-control', :required => true
   = f.submit :value =>"Add Place", :class => "btn btn-lg btn-primary btn-block"
-<<<<<<< HEAD
-#map_canvas
-%script
-  = "$(document).ready(function () {"
-  / if lat.long then do this
-  - @places.each do |place|
-    = "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');"
-  = "});"
-  / if lat.long is blank, do this
-=======
 %div#map_canvas
 
->>>>>>> b81ff59cb72313ba28c61cc4f920fb8ed3782983
 %script
   = "$(document).ready(function() {"
   = "showPlaces();"
