@@ -1,6 +1,10 @@
-$(document).ready(function () {
-  display_map(-33.8698426, 151.2061608, 12);
-  add_marker(-33.8698426, 151.2061608, "GA");
+$(document).ready(function() {
+display_map(-33.8698426, 151.2061608, 17);
+add_marker(-33.8698426, 151.2061608, "GA");
+
+$('#new_place').on('ajax:success', function (event,place){
+  $('#new_place').get(0).reset();
+  add_marker(place.latitude, place.longitude, place.address);
 });
 
 var map;
@@ -80,7 +84,8 @@ var display_map = function (latitude, longitude, zoom) {
     var marker = new google.maps.Marker({
       position: position,
       map: map,
-      icon: pin
+      icon: pin,
+      animation: google.maps.Animation.BOUNCE
     });
   }
 };
@@ -98,6 +103,7 @@ var add_marker = function (latitude, longitude, address) {
     position: latlng,
     map: map,
     address: address,
-    icon: pin
+    icon: pin,
+    animation: google.maps.Animation.BOUNCE
   });
 };
