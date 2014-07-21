@@ -3,14 +3,15 @@
   = f.label :address, "Add Yo Place!"
   = f.text_field :address, :class => 'form-control'
   = f.submit :value =>"Add Place", :class => "btn btn-lg btn-primary btn-block"
-#map_canvas
-%script
-  = "$(document).ready(function () {"
-  - @places.each do |place|
-    = "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');"
-  = "});"
+%div#map_canvas
 
 %script
   = "$(document).ready(function() {"
   = "showPlaces();"
+  = "});"
+
+%script
+  = "$(document).ready(function () {"
+  - @places.each do |place|
+    = "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');"
   = "});"
