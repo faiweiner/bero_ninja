@@ -1,24 +1,33 @@
-<h4>Show User Page</h4>
+<div class="inner-container">
 
-<p><%= "#{@user.username}" %></p>
-<p><%= "#{@user.profile_picture}" %></p>
+  <% if flash[:notice] %>
+    <div class="notice">
+      <h3 class="page-header"><%= flash[:notice] %></h3>
+    </div>
+  <% end %>
+
+  <h3 class="page-header">Fais' fav</h3>
+  <%= button_to "Find Places", places_Path, :id => "find-places",
+      :class => "btn btn-lg btn-success btn-block", :method => :get %>
+<!--   <button class="btn btn-lg btn-success btn-block"> if mobile, btn-block! else just normal button
+    Find Places
+  </button>
+ -->
+
+  <h3 class="page-header">Current Location:</h3>
+  <p>Lat: <span id="user_lat"></span></p>
+  <p>Lng: <span id="user_lng"></span></p>
+
+  <p>bearing: <span id="bearing"></span></p>
+  <p>distance: <span id="distance"></span></p>
+  <p>heading: <span id="heading"></span></p>
+
+  <% if flash[:notice] %>
+    <div class="notice">
+      <h3 class="page-header"><%= flash[:notice] %></h3>
+    </div>
+  <% end %>
+
+</div>
 
 
-<!-- add a location form -->
-<!-- form > post '/locations' => 'locations#add_place' -->
-<h3>Add a location</h3>
-<%= form_tag '/locations' do %>
-<p>
-	<%= label_tag "Address" %>
-	<%= text_field_tag :address, :nil, :class => 'form-control', :require => true, :value => @user_ip.city %>
-	<%= submit_tag( "GO!", :id => "button", :class => "btn btn-default btn-lg", :data=>{"loading-text" => "Loading..."}) %>
- <% end %>
-
-</section>
-
-<script>
-  $('#button').click(function () {
-    var btn = $(this)
-    btn.button('loading')
-  });
-</script>

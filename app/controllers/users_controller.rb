@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user_ip = request.location
     @user = User.find params[:id]
 
+    # DETECT HARDWARE CAPABILITY!
   end
 
   private
