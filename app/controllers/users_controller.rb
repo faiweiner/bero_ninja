@@ -23,8 +23,7 @@ class UsersController < ApplicationController
   def show
     @user_ip = request.location
     @user = User.find params[:id]
-
-    # DETECT HARDWARE CAPABILITY!
+    @places = @current_user.places
   end
 
   private
