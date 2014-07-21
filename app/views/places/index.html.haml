@@ -1,14 +1,13 @@
 = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCOyQtlbaBQsKX9Q3BGWIl_FVU5MGCKguM"
 
 %div.col-sm-12
-%div#map_canvas.col-lg-1
+%div#map_canvas.col-sm-1
 
 %ul
 -@places.each do |place|
   %li= place.address
 
 %button.btn.btn-danger.btn-lg Add a Place
-
 	
 %script
   = "$(document).ready(function () {"
