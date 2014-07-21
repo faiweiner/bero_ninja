@@ -38,8 +38,6 @@ $(document).ready(function() {
 	  };
 	  console.log("Error: " + errors[error.code]);
 	  var errorMessage = "Error: " + errors[error.code];
-		$('#location-error').addClass("alert alert-warning");
-	  $('#location-error').text(errors[error.code]);
 	};
 
 	var userLocation = function() {

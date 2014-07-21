@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user.present? && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      flash[:notice] = "Welcome back!"
+      flash[:notice] = "Welcome back, #{@user.username}!"
       redirect_to(user_path(@user.id))
     else
       flash[:notice] = "Invalid login. Please try again."
