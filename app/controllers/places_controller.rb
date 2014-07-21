@@ -32,7 +32,7 @@ class PlacesController < ApplicationController
     # @distance = Geocoder::Calculations.distance_between([@coordinates["user_lat"], @coordinates["user_lng"]],[-33.8587, 151.2140]) # => "1.06" in miles
     @distance = Geocoder::Calculations.distance_between([@coordinates["user_lat"], @coordinates["user_lng"]],[@place.latitude,@place.longitude]) # => "1.06" in miles
     # # #to km
-    # @distance = Geocoder::Calcualtions.to_kilometers(@distance) # => "1.7" km
+    @distance= Geocoder::Calculations.to_kilometers(@distance) # => "1.7" km
 
     @location = {"coords" => @coordinates, "bearing" => @bearing, "distance" => @distance, "compass" => @compass};
     # @location << @coordinates << @compass << @distance
