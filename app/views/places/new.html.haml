@@ -1,6 +1,6 @@
 = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCOyQtlbaBQsKX9Q3BGWIl_FVU5MGCKguM"
 = form_for @place, :remote => true do |f|
-  = f.label :address, "Add Yo Place!"
+  = f.label :address => "Add Yo Place!"
   = f.text_field :address, :class => 'form-control'
   = f.submit :value =>"Add Place", :class => "btn btn-lg btn-primary btn-block"
 %div#map_canvas

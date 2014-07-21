@@ -28,10 +28,10 @@ module ApplicationHelper
       links += "</li>"
 
       links += "<li>"
-      links += link_to('Logout', login_path, :data => {:method => :delete, :confirm => 'Really logout?'})
+      links += link_to("#{@current_user.username}", user_path(@current_user))
       links += "</li>"
       links += "<li>"
-      links += link_to("Welcome #{@current_user.username}", user_path(@current_user))
+      links += link_to('Logout', login_path, :data => {:method => :delete, :confirm => 'Are you sure you want to log out?'})
       links += "</li>"
     else
       # display nothing
