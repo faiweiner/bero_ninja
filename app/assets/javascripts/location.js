@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// 	return;
 	// }
 
-	if (window.location.pathname.indexOf("/places", 0) == 0) {
+	if (window.location.pathname.indexOf("/places/", 0) == 0) {
 		console.log("this url has places in it");
 
 		var displayPosition = function(position) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
 		// AJAX gets location data from device and converts for use in ruby.
 		$.ajax({
 			// Step 1
-			url: '/palces/58/lookup',
+			url: stitchURL,
 			type: 'GET',
 			dataType: 'JSON',
 			data: {
