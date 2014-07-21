@@ -5,7 +5,9 @@ module ApplicationHelper
       links += "<li class='dropdown'>"
       links +=   "<a href=' class='dropdown-toggle' data-toggle='dropdown'>Places <span class='caret'></span></a>"
       links +=   "<ul class='dropdown-menu' role='menu'>"
-      links +=     "<li><a href='#'>Favorites</a></li>"
+      links +=     "<li>"
+      links +=      link_to(Favorites, places_path)
+      links +=     "</li>"
       links +=     "<li><a href='#'>Nearby Places</a></li>"
       links +=     "<li><a href='#'>Something else here</a></li>"
       links +=     "<li class='divider'></li>"

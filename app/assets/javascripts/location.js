@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-	// if (window.location.pathname != '/places/58') {
-	// 	return;
-	// }
+	if (window.location.pathname == '/places/new') {
+		return;
+	}
 
 	if (window.location.pathname.indexOf("/places/", 0) == 0) {
 		console.log("this url has places in it");
