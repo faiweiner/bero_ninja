@@ -7,9 +7,9 @@
 -@places.each do |place|
   %li= place.address
 
-%button.btn.btn-danger.btn-lg Add a Place
+%a.btn.btn-danger.btn-lg{:href => '/places/new'}> Add a Place
 
-	
+
 %script
   = "$(document).ready(function () {"
   - @places.each do |place|
