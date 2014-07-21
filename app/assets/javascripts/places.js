@@ -7,7 +7,6 @@ add_marker(-33.8698426, 151.2061608, "GA");
     add_marker(place.latitude, place.longitude, place.address);
   });
 });
-
 var map;
 
 var display_map = function (latitude, longitude, zoom) {
