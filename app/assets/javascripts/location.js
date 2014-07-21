@@ -1,78 +1,78 @@
 $(document).ready(function() {
-  // if (window.location.pathname != '/places/58') {
-  //  return;
-  // }
 
-  if (window.location.pathname.indexOf("/places", 0) == 0) {
-    console.log("this url has places in it");
+	// if (window.location.pathname != '/places/58') {
+	// 	return;
+	// }
 
-    var displayPosition = function(position) {
-    var user_lat = position.coords.latitude;
-    var user_lng = position.coords.longitude;
+	if (window.location.pathname.indexOf("/places/", 0) == 0) {
+		console.log("this url has places in it");
 
-    var pathName = window.location.pathname;
-    var pathArray = window.location.pathname.split( '/' );
-    var pathId = pathArray[2];
+		var displayPosition = function(position) {
+		var user_lat = position.coords.latitude;
+		var user_lng = position.coords.longitude;
 
-    var id = 19
-    var stitchURL = "/places/" + pathId + "/lookup";
-    // AJAX gets location data from device and converts for use in ruby.
-    $.ajax({
-      // Step 1
-      url: '/places/58/lookup',
-      type: 'GET',
-      dataType: 'JSON',
-      data: {
-        user_lat: user_lat,
-        user_lng: user_lng
-      },
-      // Step 2
-      success: function(response) {
-        console.log(response);
-        $('#user_lat').text(response.coords.user_lat); // push data to user_lat id on page
-        $('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
-        $('#bearing').text(response.bearing);
-        $('#distance').text(response.distance);
-        $('#heading').text(response.compass);
-      }
-    });
-  };
+		var pathName = window.location.pathname;
+		var pathArray = window.location.pathname.split( '/' );
+		var pathId = pathArray[2];
 
-  // Error message disapayed
-  var displayError = function(error) {
-    var errors = {
-      1: 'Permission denied',
-      2: 'Position unavailable',
-      3: 'Request timeout'
-    };
-    console.log("Error: " + errors[error.code]);
-    var errorMessage = "Error: " + errors[error.code];
-  };
+		var id = 19
+		var stitchURL = "/places/" + pathId + "/lookup";
+		// AJAX gets location data from device and converts for use in ruby.
+		$.ajax({
+			// Step 1
+			url: stitchURL,
+			type: 'GET',
+			dataType: 'JSON',
+			data: {
+				user_lat: user_lat,
+				user_lng: user_lng
+			},
+			// Step 2
+			success: function(response) {
+				console.log(response);
+				$('#user_lat').text(response.coords.user_lat); // push data to user_lat id on page
+				$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
+				$('#bearing').text(response.bearing);
+				$('#distance').text(response.distance);
+				$('#heading').text(response.compass);
+			}
+		});
+	};
 
-  // checks if geolocation enabled
-  var userLocation = function() {
-    // STEP 1 - DETECTING GEOLOCATION
-    if (navigator.geolocation) {
-      // var timeoutVal = 4500;
-      navigator.geolocation.getCurrentPosition(
-        // if success
-        displayPosition,
-        // if error
-        displayError
-         // options { enableHighAccuracy: true, maximumAge: 0 }
-      );
-    } else {
-      alert("Geolocation is not supported by this browser");
-      // PUSH THIS INTO THE PAGE!!!
-    };
-  };
+	// Error message disapayed
+	var displayError = function(error) {
+	  var errors = {
+	    1: 'Permission denied',
+	    2: 'Position unavailable',
+	    3: 'Request timeout'
+	  };
+	  console.log("Error: " + errors[error.code]);
+	  var errorMessage = "Error: " + errors[error.code];
+	};
 
-  window.setInterval(userLocation, 10000);
+	// checks if geolocation enabled
+	var userLocation = function() {
+		// STEP 1 - DETECTING GEOLOCATION
+		if (navigator.geolocation) {
+			// var timeoutVal = 4500;
+			navigator.geolocation.getCurrentPosition(
+				// if success
+				displayPosition,
+				// if error
+			  displayError
+			   // options { enableHighAccuracy: true, maximumAge: 0 }
+			);
+		} else {
+			alert("Geolocation is not supported by this browser");
+			// PUSH THIS INTO THE PAGE!!!
+		};
+	};
 
-  } else {
-    console.log("this url does not have 'places' in it");
-  };
+	window.setInterval(userLocation, 2000);
 
+	} else {
+		console.log("this url does not have 'places' in it");
+	};
 
 });
 
