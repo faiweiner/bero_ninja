@@ -1,4 +1,5 @@
-$(document).ready(function() {
+var showPlaces = function(){
+
 display_map(-33.8698426, 151.2061608, 17);
 add_marker(-33.8698426, 151.2061608, "GA");
 
@@ -6,7 +7,7 @@ add_marker(-33.8698426, 151.2061608, "GA");
     $('#new_place').get(0).reset();
     add_marker(place.latitude, place.longitude, place.address);
   });
-});
+};
 var map;
 
 var display_map = function (latitude, longitude, zoom) {
