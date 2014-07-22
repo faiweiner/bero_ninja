@@ -33,6 +33,7 @@ gem 'modernizr-rails'
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'instagram'
 
 group :development do
   gem 'pry-rails'
