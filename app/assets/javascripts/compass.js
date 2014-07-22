@@ -40,7 +40,7 @@ var compassDisplay = function(response) {
  }
 
  function drawRose(ctx, north){
-    // north = compass.bearing
+    // north = 0
    function polar(a, r){
      return [Math.cos(a/180*Math.PI)*r,
          Math.sin(a/180*Math.PI)*r];
