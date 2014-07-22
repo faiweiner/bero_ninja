@@ -29,4 +29,4 @@ function init() {
         }
       }
 
- window.setTimeout(init, 6000, false);
+ window.setTimeout(init, 1500, false);
