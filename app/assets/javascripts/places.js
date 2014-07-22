@@ -1,7 +1,20 @@
-var showPlaces = function(){
+var showPlaces = function(userLocation){
+  
+// Gets current user loction, passed into showPlace and used to center the map
+// and drop a marker on current location.
+var success = function(position) {
+  var userLocation = position.coords;
+  showPlaces(userLocation);
+};
 
-display_map(-33.8698426, 151.2061608, 12);
-add_marker(-33.8698426, 151.2061608, "GA");
+var error = function(err) {
+  alert("We can't find you :(")
+};
+
+navigator.geolocation.getCurrentPosition(success, error);
+
+display_map(userLocation.latitude, userLocation.longitude, 12);
+add_marker(userLocation.latitude, userLocation.longitude, "ME");
 
   $('#new_place').on('ajax:success', function (event,place){
     $('#new_place').get(0).reset();
@@ -86,7 +99,7 @@ var display_map = function (latitude, longitude, zoom) {
       position: position,
       map: map,
       icon: pin,
-      animation: google.maps.Animation.BOUNCE
+      animation: google.maps.Animation.DROP
     });
   }
 };
@@ -105,6 +118,6 @@ var add_marker = function (latitude, longitude, address) {
     map: map,
     address: address,
     icon: pin,
-    animation: google.maps.Animation.BOUNCE
+    animation: google.maps.Animation.DROP
   });
 };

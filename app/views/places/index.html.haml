@@ -1,21 +1,22 @@
-%div.col-sm-12
-%div#map_canvas.col-sm-1
+/ THIS TINY THING CALLS THE WHOLE MAP!
+%div#map_canvas
+%div.container
+	%ul
+		-@places.each do |place|
+			%li.lead.text-center
+				= link_to("#{place.address}", "/places/#{place.id}")
 
-%ul
--@places.each do |place|
-  %li.lead.btn-block.text-center
-    = link_to("#{place.address}", "/places/#{place.id}")
 
+	%a.btn.btn-danger.btn-lg.btn-block{:href => '/places/new'}> Add a Place
 
-%a.btn.btn-danger.btn-lg.btn-block{:href => '/places/new'}> Add a Place
-
-%script
-  = "$(document).ready(function() {"
-  = "showPlaces();"
-  = "});"
 
 %script
-  = "$(document).ready(function () {"
-  - @places.each do |place|
-    = "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');"
-  = "});"
+	= "$(document).ready(function() {"
+	= "showPlaces();"
+	= "});"
+
+%script
+	= "$(document).ready(function () {"
+	- @places.each do |place|
+		= "add_marker(#{place.latitude}, #{place.longitude}, #{place.address});"
+		= "});"

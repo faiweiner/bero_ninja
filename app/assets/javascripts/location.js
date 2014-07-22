@@ -38,6 +38,8 @@ $(document).ready(function() {
 				$('#heading').text(response.compass);
 				userCompass.bearing = response.bearing;
 				userCompass.distance = response.distance;
+				userCompass.lat = response.coords.user_lat;
+				userCompass.lng = response.coords.user_lng;
 
 			}
 		});

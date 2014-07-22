@@ -17,4 +17,21 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+	/*input[type="submit"].btn-block{
+		width: 90%;
+	}*/
+/* .btn{
+ 	box-sizing:border-box;
+ 	margin: 0 auto; 
+ }
+
+ .btn-block{
+ 	width: 90%;
+ }*/
+ ul{
+ 	padding: 0;
+ }
+ li{
+ 	list-style: none;
+ }
  /* Smartphones ----------- */

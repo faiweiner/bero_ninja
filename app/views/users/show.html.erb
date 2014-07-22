@@ -1,4 +1,4 @@
-<div class="inner-container">
+<div class="container">
 
 	<% if flash[:notice] %>
 		<div class="notice">
@@ -14,9 +14,8 @@
 	<%= button_to "Find Friends", places_path, :id => "find-friends",
 			:class => "btn btn-lg btn-success btn-block", :method => :get %>
 	</p>
-	<div id="map_canvas">
-		
-	</div>
+
+<div id="canvas_map"></div>
 
 </div>
 
@@ -28,9 +27,10 @@
 		elementForMobile("#hardware-error");
 		showPlaces();
 		<% @places.each do |place| %>
-    <%= "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');" %>
+    <%= "add_marker(#{place.latitude}, #{place.longitude}, #{place.address});" %>
     <% end %>
     elementForMobile("#hardware-error");
  		elementForDesktop("#map_canvas");
 	});
 </script>
+s
