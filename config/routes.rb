@@ -1,23 +1,24 @@
 Rails.application.routes.draw do
-  root :to => 'pages#index'
+	root :to => 'pages#index'
 
-  resources :users
-  # Instagram Authentication
-  get '/oauth/connect' => 'users#connect'
-  get '/oauth/callback' => 'users#callback'
+	resources :users
+	# Instagram Authentication
+	get '/oauth/authorize' => 'users#authorize'
+	get '/oauth/callback' => 'users#callback'
+	post '/oauth/callback' => 'users#confirm'
 
-  resources :sessions
-  resources :pages, only: [:index]
-  resources :places
-  resources :friendships
-  
-  get '/places/:id/lookup' => 'places#lookup'
-  # get '/places/index' => 'locations#index'
+	resources :sessions
+	resources :pages, only: [:index]
+	resources :places
+	resources :friendships
+	
+	get '/places/:id/lookup' => 'places#lookup'
+	# get '/places/index' => 'locations#index'
 
 
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  delete '/login' => 'sessions#destroy'
+	get '/login' => 'sessions#new'
+	post '/login' => 'sessions#create'
+	delete '/login' => 'sessions#destroy'
 end
 
 #       Prefix Verb   URI Pattern                  Controller#Action

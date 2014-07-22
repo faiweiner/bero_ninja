@@ -1,0 +1,23 @@
+<%= form_for @user, :class => "form-signup", :remote => true do |f|  %>
+  <div class="input-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, :class => "form-control", :value => session[:instagram_username], :readonly => true %>
+  </div>
+  <div class="input-group">
+    <%= f.label :profile_picture %>
+    <%= f.text_field :profile_picture, :class => "form-control", :value => session[:profile_picture], :readonly => true%>
+  </div>
+  <div class="input-group">
+    <%= f.hidden_field :instagram_id, :class => "form-control", :value => session[:instagram_id] %>
+  </div>  
+  <div class="input-group">
+    <%= f.hidden_field :password, :class => "form-control", :value => nil %>
+  </div>
+  <div class="input-group">
+    <%= f.hidden_field :password_confirmation, :class => "form-control", :value => nil %>
+  </div>
+  <br>
+  <div class="input-group">
+    <%= f.submit 'Confirm Signup', :class => "btn btn-md btn-primary", :method => "post" %>
+  </div>
+<% end %>
