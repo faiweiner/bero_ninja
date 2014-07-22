@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @user = User.new  
   end
 
-  def instagram
-      # redirect_to(Instagram.authorize_url(:redirect_uri => CALLBACK_URL))
+  def connect
+    # redirect_to(Instagram.authorize_url(:redirect_uri => CALLBACK_URL))
     
   end
 
