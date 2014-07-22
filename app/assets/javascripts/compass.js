@@ -102,10 +102,11 @@ var compassDisplay = function(response) {
    }
 
 
-   text("Bearing", compass.bearing, r, r/4, "black");
+   text("N", 0, r, r/4, "black");
    text("E", 90, r, r/4, "black");
    text("S", 180, r, r/4, "black");
    text("W", 270, r, r/4, "black");
+   text("∆", compass.bearing, r, r/4, "green");
 
    ctx.restore();
  }
