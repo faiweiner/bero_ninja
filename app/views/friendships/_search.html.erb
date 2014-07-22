@@ -1,2 +1,23 @@
 <h3 class="page-header">Search Friend</h3>
-
+	<h4 class="page-header">List of All Users</h4>
+	<div id="users_list col-md-6">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Online</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @all_users.each do |user| %>
+					<tr>
+						<td><%= user.username %></td>
+						<td><%= user.is_online %></td>
+						<td><%= link_to "Follow", friendships_path(:friend_id => user.id), :method => :post %></td>
+					</tr>
+				<% end %>
+				
+			</tbody>
+		</table> 	
+	</div>

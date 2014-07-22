@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
 	def index	
 		@all_users = User.all
-	
+
 	end
 
   def create
@@ -10,7 +10,8 @@ class FriendshipsController < ApplicationController
   		flash[:notice] = "Friend successfully added."
   		redirect_to friendships_path
   	else
-  		render :action => 'new'
+  		 flash[:error] = "Unable to add friend."
+  		redirect_to friendships_path
   	end
   end
    

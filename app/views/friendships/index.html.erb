@@ -1,14 +1,31 @@
 <div class="inner-container">
-	<h3 class="page-header">Friends (<%= @current_user.username %>)</h3>
+	<h3 class="page-header"><%= @current_user.username %>'s Friends</h3>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Online</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @current_user.friends do |friend| %>
+				<tr>
+					<td><%= friend.username %></td>
+					<td><%= friend.is_online %></td>
+					<td><%= link_to "Follow", friendships_path(:friend_id => user.id), :method => :post %></td>
+				</tr>
+			<% end %>
+			
+		</tbody>
+	</table> 	
+
 	<div>
 		<%= render partial: "search", locals: { account: @current_user } %>
 	</div>
 	<div>
 		<%= render partial: "list", locals: { account: @current_user } %>
 	</div>
-<!-- 	<div>
-		<%= link_to "Find Friend", new_friendship_path, :method => :get %>
-	</div> -->
 </div>
 
 
