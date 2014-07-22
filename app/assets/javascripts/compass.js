@@ -1,6 +1,14 @@
-function init() {
+$(document).ready(function() {
+
+  if (window.location.pathname == '/places/new') {
+    return;
+  }
+
+  if (window.location.pathname.indexOf("/places/", 0) == 0) {
+
+
+    function init() {
         var compass = document.getElementById('compass');
-        console.log(userCompass.bearing);
         if(window.DeviceOrientationEvent) {
  
           window.addEventListener('deviceorientation', function(event) {
@@ -27,6 +35,8 @@ function init() {
                 compass.style.MozTransform = 'rotate(-' + alpha + 'deg)'; 
               }, false);
         }
-      }
+      } 
 
- window.setTimeout(init, 1500, false);
+    window.setTimeout(init, 1500);
+  }
+}); 
