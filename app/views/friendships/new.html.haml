@@ -1,0 +1,7 @@
+%div#inner-container 
+	%h3.page-header Add Friend
+	
+/ = form_for @friendship, :remote => true do |f|
+/   = f.label :friend_username, "Add Yo Place!"
+/   = f.text_field :friend_username, :class => 'form-control', :required => true
+/   = f.submit :value =>"Add Friend", :class => "btn btn-lg btn-primary btn-block"
