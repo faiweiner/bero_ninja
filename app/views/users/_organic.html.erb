@@ -1,0 +1,22 @@
+<%= form_for @user, :class => "form-signup" do |f|  %>
+  <div class="input-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, :class => "form-control", :required => true, :autofocus => true %>
+  </div>
+  <div class="input-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, :class => "form-control", :required => true %>
+  </div>
+  <div class="input-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :class => "form-control", :required => true %>
+  </div>
+  <div class="input-group">
+    <%= f.label :profile_picture %>
+    <%= f.text_field :profile_picture, :class => "form-control" %>
+  </div>
+  <br>
+  <div class="input-group">
+    <%= f.submit 'Sign Up', :class => "btn btn-md btn-primary" %>
+  </div>
+<% end %>

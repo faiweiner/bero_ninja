@@ -1,0 +1,28 @@
+<h3>Sign Up</h3>
+
+<div class="panel panel-primary">
+	<div class="panel-heading" id="signup-organic">
+		<h3 class="panel-title">Create a username</h3>
+	</div>
+	<div class="panel-body" id="#organic" >
+		<%= render partial: "organic" %>
+	</div>
+</div>
+<div class="panel panel-primary">
+	<div class="panel-heading" id="signup-inst">
+		<h3 class="panel-title">Sign up with social media</h3>
+	</div>
+	<div class="panel-body" id="inst" >
+		<%= render partial: "inst" %>
+	</div>
+</div>
+
+<script>
+	$(".panel-body").hide();
+	$("#signup-organic").click( function() {
+		$("#signup-organic").siblings($(".panel-body")).toggle();
+	});
+	$("#signup-inst").click( function() {
+  	$("#inst").toggle();
+	});
+</script>
