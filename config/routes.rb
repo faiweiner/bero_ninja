@@ -3,9 +3,9 @@ Rails.application.routes.draw do
 
   resources :users
   # Instagram Authentication
-  get '/oauth/connect' => 'users#instagram'
+  get '/users/connect' => 'users#instagram'
   get '/oauth/callback' => 'users#instagram_callback'
-  
+
   resources :sessions
   resources :pages, only: [:index]
   resources :places
