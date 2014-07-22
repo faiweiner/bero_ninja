@@ -1,5 +1,11 @@
 <div class="inner-container">
-	<h3 class="page-header">View Friends</h3>
+	<h3 class="page-header">Friends (<%= @current_user.username %>)</h3>
+	<div>
+		<%= render partial: "search", locals: { account: @current_user } %>
+	</div>
+	<div>
+		<%= render partial: "list", locals: { account: @current_user } %>
+	</div>
 	<div>
 		<%= link_to "Add Friend", new_friendship_path, :method => :get %>
 	</div>
