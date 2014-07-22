@@ -36,9 +36,9 @@ $(document).ready(function() {
 			  }
   		});
 
-			console.log($.ajax);
+  		var url = "/users/" + 17
 			debugger
-			redirect_to(users_path);
+			$(location).attr('href',url);
 		});
 
 	};

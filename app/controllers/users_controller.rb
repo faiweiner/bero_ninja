@@ -28,24 +28,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def confirm
-		@user = User.new
-	end
-
-	# def connect
-	# 	raise "did I get here?"
-	# 	if @user.save
-	# 		raise "did it work"
-	# 		session[:user_id] = @user.id #auto-login
-	# 		redirect_to root_path
-	# 	else
-	# 		raise "did it go new?"
-	# 		render :new
-	# 	end
-	# end
-	# 	# response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL) # => a hash inside a hash {:access_token=> "",:user => {:id => "", :username => ""} }
-	# end
-
 	def create
 		@user = User.new user_params
 		if @user.save
