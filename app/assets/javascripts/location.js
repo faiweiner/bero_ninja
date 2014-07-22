@@ -1,4 +1,4 @@
-var compass = {};
+var userCompass = {};
 
 
 $(document).ready(function() {
@@ -36,8 +36,8 @@ $(document).ready(function() {
 				$('#bearing').text(response.bearing);
 				$('#distance').text(response.distance);
 				$('#heading').text(response.compass);
-				compass.bearing = response.bearing;
-				compass.distance = response.distance;
+				userCompass.bearing = response.bearing;
+				userCompass.distance = response.distance;
 
 			}
 		});
@@ -72,7 +72,7 @@ $(document).ready(function() {
 		};
 	};
 
-	window.setInterval(userLocation, 2000);
+	window.setInterval(userLocation, 1000);
 
 	} else {
 		console.log("this url does not have 'places' in it");
