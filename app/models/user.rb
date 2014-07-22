@@ -9,9 +9,11 @@
 #  created_at      :datetime
 #  updated_at      :datetime
 #  is_online       :boolean
+#  instagram_id    :string(255)
 #
 
 class User < ActiveRecord::Base
+	# validates :username, :presence => true, :length => { :minimum => 3 }, :uniqueness => true
   has_secure_password
   has_many :places
   has_many :friendships
