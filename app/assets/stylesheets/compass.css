@@ -1,6 +1,6 @@
 #compass{
   width:100%;
-  font-size:50em;
+  /*font-size:50em;*/
   text-align:center;
   padding:0;
   background: -webkit-gradient(radial, 100 0 , 100, 0 0, 900, from(#FF213D), to(#0E213D));
@@ -11,8 +11,12 @@
   -moz-transform-origin: 50% 50%;
 }
 
-#compassContainer {
+#compass img {
+  width:90%;
+}
+
+/*#compassContainer {
   width:60em;
   height:60em;
   margin:0 auto;
-}
+}*/
