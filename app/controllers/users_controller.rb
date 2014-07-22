@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   end
 
   def instagram
-    redirect_to("https://api.instagram.com/oauth/authorize/?client_id=09064336ee50416792fe11b37ebb9241&redirect_uri=http://bero.herokuapp.com/users/new/&response_type=code") 
       # redirect_to(Instagram.authorize_url(:redirect_uri => CALLBACK_URL))
     
   end
