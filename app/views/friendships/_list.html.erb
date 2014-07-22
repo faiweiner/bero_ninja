@@ -1,3 +1,21 @@
 <div class="inner-container">
-
+	<h3 class="page-header">People who have friended <%= @current_user.username %></h3>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Online</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @current_user.inverse_friends.each do |friendship| %>
+				<tr>
+					<td><%= friendship.username %></td>
+					<td><%= friendship.is_online %></td>
+					<td><%= link_to "Unfollow", friendship, :method => :delete %></td>
+				</tr>
+			<% end%>
+		</tbody>
+	</table> 	
 </div>

@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
 	def index	
 		@all_users = User.all
-
+		@all_friends = @current_user.friendships.all
 	end
 
   def create
@@ -17,14 +17,14 @@ class FriendshipsController < ApplicationController
    
   def new
 
-		# raise params.inspect
+
   end
 
   def destroy
-  	@friendship = Friendship.find(params[:id])
+  	@friendship = @current_user.friendships.find(params[:id])
   	@friendship.destroy
   	flash[:notice] = "Successfully deleted friendship."
-  	redirect_to friendships_path
+  	redirect_to :root
   end
 
 end
