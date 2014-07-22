@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720232214) do
+ActiveRecord::Schema.define(version: 20140722063507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140720232214) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_online"
+    t.string   "instagram_id"
   end
 
 end

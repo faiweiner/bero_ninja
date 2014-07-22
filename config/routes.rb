@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root :to => 'pages#index'
 
   resources :users
+  # Instagram Authentication
+  get '/oauth/connect' => 'users#instagram'
+  get '/oauth/callback' => 'users#instagram_callback'
+  
   resources :sessions
   resources :pages, only: [:index]
   resources :places
@@ -9,6 +13,7 @@ Rails.application.routes.draw do
   
   get '/places/:id/lookup' => 'places#lookup'
   # get '/places/index' => 'locations#index'
+
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

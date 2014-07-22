@@ -9,11 +9,11 @@
 	</div>
 </div>
 <div class="panel panel-primary">
-	<div class="panel-heading" id="signup-inst">
+	<div class="panel-heading" id="signup-social">
 		<h3 class="panel-title">Sign up with social media</h3>
 	</div>
-	<div class="panel-body" id="inst" >
-		<%= render partial: "inst" %>
+	<div class="panel-body" id="social" >
+		<%= render partial: "social" %>
 	</div>
 </div>
 
@@ -22,7 +22,7 @@
 	$("#signup-organic").click( function() {
 		$("#signup-organic").siblings($(".panel-body")).toggle();
 	});
-	$("#signup-inst").click( function() {
-  	$("#inst").toggle();
+	$("#signup-social").click( function() {
+  	$("#social").toggle();
 	});
 </script>
