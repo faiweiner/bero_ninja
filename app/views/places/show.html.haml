@@ -1,35 +1,36 @@
-%h1
-  =@place.address
+%div#container
+  %h1
+    =@place.address
 
-%div
-  %h3 Latitude
-  %p#location_latitude
-    = @place.latitude
-  %h3 Longitude
-  %p#location_longitude
-    = @place.longitude
+  %div
+    %h3 Latitude
+    %p#location_latitude
+      = @place.latitude
+    %h3 Longitude
+    %p#location_longitude
+      = @place.longitude
 
-  %h3
-  = @bearing
+    %h3
+    = @bearing
 
-%h2.page-header Current Location:
-%p
-  Lat:
-  %span#user_lat
-%p
-  Lng:
-  %span#user_lng
-%p
-  bearing:
-  %span#bearing
-%p
-  distance:
-  %span#distance
-%p
-  heading:
-  %span#heading
+  %h2.page-header Current Location:
+  %p
+    Lat:
+    %span#user_lat
+  %p
+    Lng:
+    %span#user_lng
+  %p
+    bearing:
+    %span#bearing
+  %p
+    distance:
+    %span#distance
+  %p
+    heading:
+    %span#heading
 
-%div.row
-  %div#compassContainer
-    %div#compass
-      =image_tag('http://www.clipartbest.com/cliparts/zxT/gkL/zxTgkLXiA.png');
+  %div.row
+    %div#compassContainer
+      %div#compass
+        =image_tag('http://www.clipartbest.com/cliparts/zxT/gkL/zxTgkLXiA.png');
