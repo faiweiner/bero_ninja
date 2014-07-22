@@ -15,6 +15,9 @@
     <%= f.label :profile_picture %>
     <%= f.text_field :profile_picture, :class => "form-control" %>
   </div>
+    <div class="input-group">
+    <%= f.hidden_field :instagram_id , :class => "form-control" %>
+  </div>
   <br>
   <div class="input-group">
     <%= f.submit 'Sign Up', :class => "btn btn-md btn-primary" %>
