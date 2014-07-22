@@ -7,13 +7,13 @@ var screenDetect = function() {
 	};
 };
 
-var screenDetectByOrientation = function() {
-	if Modernizr.hasEvent('DeviceOrientation') { 		
-		return "mobile";
-	} else { 		
-		return "desktop"; 	
-	};
-};
+// var screenDetectByOrientation = function() {
+// 	if Modernizr.hasEvent('DeviceOrientation') { 		
+// 		return "mobile";
+// 	} else { 		
+// 		return "desktop"; 	
+// 	};
+// };
 
 // Hide element if on Desktop
 var elementForMobile = function(element) {

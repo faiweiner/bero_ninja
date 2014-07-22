@@ -26,8 +26,12 @@ module ApplicationHelper
 			links +=		"<li><a href='#'>Something else here</a></li>"
 			links +=		"<li class='divider'></li>"
 			links +=		"<li class='dropdown-header'>Manage Friends</li>"
-			links +=		"<li><a href='#'>Add</a></li>"
-			links +=		"<li><a href='#'>Edit</a></li>"
+			links +=			"<li>"
+			links +=				link_to("View", friendships_path)
+			links +=			"</li>"
+			links +=			"<li>"
+			links +=				link_to("Add", new_friendship_path)
+			links +=			"</li>"
 			links +=		"</ul>"
 			links += 	"</li>"
 			links += 	"<li>"

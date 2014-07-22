@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :pages, only: [:index]
-
   resources :places
-
+  resources :friendships
+  
   get '/places/:id/lookup' => 'places#lookup'
   # get '/places/index' => 'locations#index'
 
