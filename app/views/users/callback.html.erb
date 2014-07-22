@@ -1,23 +1,42 @@
-<%= form_for @user, :class => "form-signup", :remote => true do |f|  %>
-  <div class="input-group">
-    <%= f.label :username %>
-    <%= f.text_field :username, :class => "form-control", :value => session[:instagram_username], :readonly => true %>
+<div class="form-group col-sm-6">
+  <%= form_for @user, :class => "form-signup form-horizontal", :role => "form", :remote => true do |f|  %>
+  <div class="panel panel-default">
+  <!-- Data for server -->
+    <div class="input-group">
+      <%= f.hidden_field :username, :class => "form-control", :id => "username", :value => session[:instagram_username], :readonly => true %>
+    </div>
+    <div class="input-group">
+      <%= f.hidden_field :profile_picture, :class => "form-control", :id => "profile_picture", :value => session[:profile_picture], :readonly => true%>
+    </div>
+    <div class="input-group">
+      <%= f.hidden_field :instagram_id, :class => "form-control", :id => "instagram_id", :value => session[:instagram_id] %>
+    </div>  
+    <div class="input-group">
+      <%= f.hidden_field :password, :class => "form-control", :id => "password", :value => nil %>
+    </div>
+    <div class="input-group">
+      <%= f.hidden_field :password_confirmation, :class => "form-control", :id => "password_confirmation", :value => nil %>
+    </div>
+    
+  <!-- Display for user -->
+    <h3 class="text-center">Confirm Sign Up with Instagram</h3>
+    <div class="panel-heading text-centered row">
+      <div class="col-sm-3">
+        <%= image_tag("http://www.runappsonpc.com/wp-content/uploads/2014/07/Instagram-logo1.gif.png", alt: "profile picture", size: "75" ) %>
+      </div>
+      <div class="col-sm-3">
+        <%= image_tag(session[:profile_picture], alt: "profile picture", class: "img-circle", size: "75" ) %>
+      </div>
+    </div>
+    <div class="panel-body text-center row"> 
+      <p class="form-control-static"><%= session[:instagram_username] %></p>  
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil itaque dolore inventore quae error? Ut laborum dignissimos, omnis nulla, nam, sunt ipsa perferendis sequi nisi cumque magnam autem facilis placeat.</p>
+      <br>
+      <%= f.submit 'Confirm Signup', :class => "btn btn-md btn-primary", :id => "btn-confirm-submit", :method => "post" %>
+    </div>
   </div>
-  <div class="input-group">
-    <%= f.label :profile_picture %>
-    <%= f.text_field :profile_picture, :class => "form-control", :value => session[:profile_picture], :readonly => true%>
-  </div>
-  <div class="input-group">
-    <%= f.hidden_field :instagram_id, :class => "form-control", :value => session[:instagram_id] %>
-  </div>  
-  <div class="input-group">
-    <%= f.hidden_field :password, :class => "form-control", :value => nil %>
-  </div>
-  <div class="input-group">
-    <%= f.hidden_field :password_confirmation, :class => "form-control", :value => nil %>
-  </div>
-  <br>
-  <div class="input-group">
-    <%= f.submit 'Confirm Signup', :class => "btn btn-md btn-primary", :method => "post" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
+
+
+
