@@ -12,6 +12,11 @@ Rails.application.routes.draw do
 	# Instagram Authentication
 	get '/oauth/authorize' => 'users#authorize'
 	get '/oauth/callback' => 'users#callback'
+
+	# Require for loggin in, logging out
+	get '/login' => 'sessions#new'
+	post '/login' => 'sessions#create'
+	delete '/login' => 'sessions#destroy'
 end
 
 #          Prefix Verb   URI Pattern                     Controller#Action
