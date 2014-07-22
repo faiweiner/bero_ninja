@@ -6,13 +6,13 @@ function init() {
                 var alpha;
                 //Check for iOS property
                 if(event.webkitCompassHeading) {
-                  alpha = event.webkitCompassHeading;
+                  alpha = event.webkitCompassHeading + compass.bearing;
                   //Rotation is reversed for iOS
                   compass.style.WebkitTransform = 'rotate(-' + alpha + 'deg)';
                 }
                 //non iOS
                 else {
-                  alpha = event.alpha;
+                  alpha = event.alpha + compass.bearing;
                   webkitAlpha = alpha;
                   if(!window.chrome) {
                     //Assume Android stock (this is crude, but good enough for our example) and apply offset
@@ -27,5 +27,5 @@ function init() {
               }, false);
         }
       }
-      
+
  window.setTimeout(init, 6000, false);

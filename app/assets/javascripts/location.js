@@ -72,7 +72,7 @@ $(document).ready(function() {
 		};
 	};
 
-	window.setInterval(userLocation, 2000);
+	window.setInterval(userLocation, 1000);
 
 	} else {
 		console.log("this url does not have 'places' in it");
