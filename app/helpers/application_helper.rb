@@ -21,7 +21,7 @@ module ApplicationHelper
 			links +=	"<li class='dropdown'>"
 			links +=		"<a href=' class='dropdown-toggle' data-toggle='dropdown'>Friends <span class='caret'></span></a>"
 			links +=		"<ul class='dropdown-menu' role='menu'>"
-			links +=		"<li><a href='#'>Find nearby friends</a></li>"
+			links +=		"<li><a href='#'>Locate friends</a></li>"
 			links +=		"<li><a href='#'>Another action</a></li>"
 			links +=		"<li><a href='#'>Something else here</a></li>"
 			links +=		"<li class='divider'></li>"
