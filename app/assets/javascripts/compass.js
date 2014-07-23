@@ -19,7 +19,7 @@ $(document).ready(function() {
                 if(event.webkitCompassHeading) {
                   alpha = event.webkitCompassHeading;
                   //Rotation is reversed for iOS
-                  compass.style.WebkitTransform = 'rotate(-' + alpha  + 'deg)';
+                  compass.style.WebkitTransform = 'rotate(' + alpha  + 'deg)';
                 }
                 //non iOS
                 else {
