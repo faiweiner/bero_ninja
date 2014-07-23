@@ -18,7 +18,7 @@ $(document).ready(function() {
                 //Check for iOS property
                 if(event.webkitCompassHeading) {
                   
-                  alpha = event.webkitCompassHeading + userCompass.bearing;
+                  alpha = event.webkitCompassHeading - userCompass.bearing;
                   $('#alpha').text(event.webkitCompassHeading);
                   $('#accuracy').text(event.webkitCompassAccuracy);
                   $('#alphaWithBearing').text(alpha);
