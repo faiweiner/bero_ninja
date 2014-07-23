@@ -24,7 +24,6 @@ class FriendsController < ApplicationController
     @friend = User.find params[:id]
 
     @coordinates = {"user_lat" => params[:user_lat], "user_lng" => params[:user_lng]}
-
     # binding.pry
     @bearing = Geocoder::Calculations.bearing_between([@coordinates["user_lat"], @coordinates["user_lng"]],[@friend.locations.last.latitude, @friend.locations.last.longitude ]) # =>  "45"
     # @bearing = Geocoder::Calculations.bearing_between([@coordinates["user_lat"], @coordinates["user_lng"]],[-33.8587, 151.2140]) # =>  "45"
@@ -40,6 +39,10 @@ class FriendsController < ApplicationController
     @location = {"coords" => @coordinates, "bearing" => @bearing, "distance" => @distance, "compass" => @compass};
     # @location << @coordinates << @compass << @distance
     
+    # binding.pry
+    # @current_user.locations.update(@current_user.locations.last.id, :latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
+    update
+
     render :json => @location
     # render :json => @bearing
   end
@@ -56,6 +59,11 @@ class FriendsController < ApplicationController
   # def place_params
   #   params.require(:place).permit(:address, :category, :favorite)
   # end
+  def update
+    update_user_location = Location.new( :latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
+    @current_user.locations << update_user_location
+  end
+
 
   def check_if_logged_in
     redirect_to(root_path) unless @current_user
