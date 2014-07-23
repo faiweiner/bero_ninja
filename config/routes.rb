@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 	resources :friendships
 	resources :places
 	resources :friends
+	
+	# Current user location lookups
 	get '/places/:id/lookup' => 'places#lookup'
-	# get '/places/index' => 'locations#index'
+	get '/friends/:id/lookup' => 'friends#lookup'
 
 	# Instagram Authentication
 	get '/oauth/authorize' => 'users#authorize'
@@ -59,6 +61,7 @@ end
 #                 PUT    /friends/:id(.:format)          friends#update
 #                 DELETE /friends/:id(.:format)          friends#destroy
 #                 GET    /places/:id/lookup(.:format)    places#lookup
+#                 GET    /friends/:id/lookup(.:format)   friends#lookup
 # oauth_authorize GET    /oauth/authorize(.:format)      users#authorize
 #  oauth_callback GET    /oauth/callback(.:format)       users#callback
 #           login GET    /login(.:format)                sessions#new

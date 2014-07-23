@@ -2,12 +2,10 @@ class FriendsController < ApplicationController
 
   def index
     @friends = @current_user.friends
-    # @locations = @current_user.locations
-    # binding.pry
   end
 
   def create
-    @friends = @current_user.friends.build(:longitude => params[:user_lng], :latitude => params[:user_lat])
+    # @friends = @current_user.friends.build(:longitude => params[:user_lng], :latitude => params[:user_lat])
     # @friends = Friends.new
     # lat = params[:user_lat]
     # lng = params[:user_lng]
@@ -23,19 +21,19 @@ class FriendsController < ApplicationController
   end
 
   def lookup
-    @friend = Friends.find params[:user_id]
+    @friend = User.find params[:id]
 
     @coordinates = {"user_lat" => params[:user_lat], "user_lng" => params[:user_lng]}
 
     # binding.pry
-    @bearing = Geocoder::Calculations.bearing_between([@coordinates["user_lat"], @coordinates["user_lng"]],[@friend.latitude,@friend.longitude ]) # =>  "45"
+    @bearing = Geocoder::Calculations.bearing_between([@coordinates["user_lat"], @coordinates["user_lng"]],[@friend.locations.last.latitude, @friend.locations.last.longitude ]) # =>  "45"
     # @bearing = Geocoder::Calculations.bearing_between([@coordinates["user_lat"], @coordinates["user_lng"]],[-33.8587, 151.2140]) # =>  "45"
     # # # To get the compass from bearing
     @compass = Geocoder::Calculations.compass_point(@bearing) #=> "NE"
 
     # # #distance between points
     # @distance = Geocoder::Calculations.distance_between([@coordinates["user_lat"], @coordinates["user_lng"]],[-33.8587, 151.2140]) # => "1.06" in miles
-    @distance = Geocoder::Calculations.distance_between([@coordinates["user_lat"], @coordinates["user_lng"]],[@place.latitude,@place.longitude]) # => "1.06" in miles
+    @distance = Geocoder::Calculations.distance_between([@coordinates["user_lat"], @coordinates["user_lng"]],[@friend.locations.last.latitude, @friend.locations.last.longitude ]) # => "1.06" in miles
     # # #to km
     @distance= Geocoder::Calculations.to_kilometers(@distance) # => "1.7" km
 
@@ -48,7 +46,7 @@ class FriendsController < ApplicationController
 
   def show
     @friend = User.find params[:id]
-    binding.pry
+    # binding.pry
   end
 
 
