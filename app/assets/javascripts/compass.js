@@ -19,6 +19,7 @@ $(document).ready(function() {
                 if(event.webkitCompassHeading) {
                   
                   alpha = event.webkitCompassHeading - userCompass.bearing;
+                  alpha = Math.abs(alpha);
                   $('#alpha').text(event.webkitCompassHeading);
                   $('#accuracy').text(event.webkitCompassAccuracy);
                   $('#alphaWithBearing').text(alpha);
