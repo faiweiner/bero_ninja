@@ -14,10 +14,10 @@ $(document).ready(function() {
         if(window.DeviceOrientationEvent) {
 
           window.addEventListener('deviceorientation', function(event) {
-                var alpha - userCompass.bearing;
+                var alpha;
                 //Check for iOS property
                 if(event.webkitCompassHeading) {
-                  alpha = event.webkitCompassHeading;
+                  alpha = event.webkitCompassHeading - userCompass.bearing;
                   //Rotation is reversed for iOS
                   compass.style.WebkitTransform = 'rotate(-' + alpha  + 'deg)';
                 }
