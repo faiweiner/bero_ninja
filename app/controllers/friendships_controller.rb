@@ -1,8 +1,7 @@
 class FriendshipsController < ApplicationController
 	def index	
 		@all_users = User.all
-    # raise params.inspect
-		# @all_friends = @current_user.friendships.all
+		@all_friends = @current_user.friendships.all
 	end
 
   def create

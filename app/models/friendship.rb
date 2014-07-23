@@ -2,11 +2,10 @@
 #
 # Table name: friendships
 #
-#  id            :integer          not null, primary key
-#  friendable_id :integer
-#  friend_id     :integer
-#  blocker_id    :integer
-#  pending       :boolean          default(TRUE)
+#  id        :integer          not null, primary key
+#  user_id   :integer
+#  friend_id :integer
+#  approved  :boolean          default(FALSE)
 #
 
 class Friendship < ActiveRecord::Base
