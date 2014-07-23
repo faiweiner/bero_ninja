@@ -66,7 +66,8 @@ $(document).ready(function() {
 				displayPosition,
 				// if error
 			  displayError
-			   // options { enableHighAccuracy: true, maximumAge: 0 }
+
+			  // { enableHighAccuracy: true }
 			);
 		} else {
 			alert("Geolocation is not supported by this browser");
