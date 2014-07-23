@@ -14,6 +14,9 @@ f1 = Location.create :user_id => u1.id, :latitude => -33.888122, :longitude => 1
 f2 = Location.create :user_id => u2.id, :latitude => -33.862721, :longitude => 151.173475
 f3 = Location.create :user_id => u3.id, :latitude => -33.860082, :longitude => 151.208894
 
+fs1 = Friendship.create :user_id => u1.id, :friend_id => u3.id
+fs2 = Friendship.create :user_id => u3.id, :friend_id => u1.id
+
 u1.places << p1 << p2 << p3
 
 u2.places << p1 << p2 << p3
