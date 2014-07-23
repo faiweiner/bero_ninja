@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	root :to => 'pages#index'
 	resources :pages, only: [:index]
 
+	get '/users/current' => 'users#current'
 	resources :users, except: :update
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :friendships
