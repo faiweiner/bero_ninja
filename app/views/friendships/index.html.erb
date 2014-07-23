@@ -9,13 +9,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @current_user.friendships.each do |friendship| %>
-				<tr>
-					<td><%= friendship.friend.username %></td>
-					<td><%= friendship.friend.is_online %></td>
-					<td><%= link_to "Unfollow", friendship, :method => :delete %></td>
-				</tr>
-			<% end%>
+<!--  -->
 		</tbody>
 	</table> 	
 
