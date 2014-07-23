@@ -7,17 +7,10 @@ var screenDetect = function() {
 	};
 };
 
-// var screenDetectByOrientation = function() {
-// 	if Modernizr.hasEvent('DeviceOrientation') { 		
-// 		return "mobile";
-// 	} else { 		
-// 		return "desktop"; 	
-// 	};
-// };
-
 // Hide element if on Desktop
 var elementForMobile = function(element) {
 	var screenType = screenDetect();
+	console.log('screen type', screenType);
 	if (screenType === "desktop") { 
 		$(element).hide(); 
 	} else if (screenType === "mobile") {
@@ -41,8 +34,10 @@ var elementAppendText = function(element, newClass, message) {
 
 var hardwareDetection = function() {
 	if (navigator.geolocation) {
+		console.log("ready");
 		elementAppendText("#hardware-error", "alert alert-success", "Geolocation detected - you\'re ready to Bero!");
 	} else {
+		console.log("not ready");
 		elementAppendText("#hardware-error", "alert alert-danger", "Geolocation not available - please use another geolocation-enabled device.");
 		// The following code hides elements (features) when hardware is incompatible
 		elementAppendText("#find-places", "disabled", null);

@@ -5,6 +5,7 @@
 #  id        :integer          not null, primary key
 #  user_id   :integer
 #  friend_id :integer
+#  approved  :boolean          default(FALSE)
 #
 
 class Friendship < ActiveRecord::Base

@@ -1,7 +1,7 @@
-var userCompass = {};
-
+var userCompass = userCompass || {};
 
 $(document).ready(function() {
+// var userLocation = userLocation();
 
 	if (window.location.pathname == '/places/new') {
 		return;
@@ -57,11 +57,11 @@ $(document).ready(function() {
 	};
 
 	// checks if geolocation enabled
-	var userLocation = function() {
+	userCompass.userLocation = function() {
 		// STEP 1 - DETECTING GEOLOCATION
 		if (navigator.geolocation) {
 			// var timeoutVal = 4500;
-			navigator.geolocation.getCurrentPosition(
+			navigator.geolocation.watchPosition(
 				// if success
 				displayPosition,
 				// if error
@@ -74,7 +74,8 @@ $(document).ready(function() {
 		};
 	};
 
-	window.setInterval(userLocation, 1000);
+	// window.setInterval(userLocation, 1000);
+
 
 	} else {
 		console.log("this url does not have 'places' in it");

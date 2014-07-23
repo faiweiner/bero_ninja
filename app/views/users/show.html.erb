@@ -22,14 +22,9 @@
 <script>
 	$(document).ready(function () {
 		hardwareDetection();
-		elementForMobile("#find-places");
-		elementForMobile("#find-friends");
-		elementForMobile("#hardware-error");
 		showPlaces();
 		<% @places.each do |place| %>
     <%= "add_marker(#{place.latitude}, #{place.longitude}, #{place.address});" %>
     <% end %>
-    elementForMobile("#hardware-error");
- 		elementForDesktop("#map_canvas");
 	});
 </script>

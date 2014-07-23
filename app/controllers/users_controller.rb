@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-
-
 	def index
 		@users = User.all
 	end
@@ -17,7 +15,7 @@ class UsersController < ApplicationController
 		response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
 		session[:access_token] = response.access_token
 		existing_user = User.find_by(username: response.user.username)
-		if existing_user && session[:user_id].nil? #if signed out and user already exists
+		if existing_user && session[:user_id].nil? #if user already exists and (but) signed out
       session[:user_id] = existing_user.id #sign in with id
       redirect_to(root_path)
     elsif existing_user.nil?
@@ -50,9 +48,12 @@ class UsersController < ApplicationController
 		if @current_user == nil
 			redirect_to(root_path)
 		else
-			redirect_to(@current_user)
+			flash[:alert] = "SIGN IN!"
+			flash[:notice] = "Welcome back, #{@user.username}!"
+      redirect_to(user_path(@user.id))
 		end
 	end
+	
 	def edit
 	end
 
