@@ -17,10 +17,11 @@ $(document).ready(function() {
                 var alpha;
                 //Check for iOS property
                 if(event.webkitCompassHeading) {
+                  
                   alpha = event.webkitCompassHeading + userCompass.bearing;
-                
+                  $('#alpha').text(event.webkitCompassHeading);
                   $('#accuracy').text(event.webkitCompassAccuracy);
-                  $('#alpha').text(alpha);
+                  $('#alphaWithBearing').text(alpha);
                   //Rotation is reversed for iOS
                   compass.style.WebkitTransform = 'rotate(-' + alpha  + 'deg)';
                 }
@@ -28,6 +29,7 @@ $(document).ready(function() {
                 else {
                   alpha = event.alpha;
                   webkitAlpha = alpha + userCompass.bearing;
+                  $('webkitAlpha').text(webkitAlpha);
                   if(!window.chrome) {
                     //Assume Android stock (this is crude, but good enough for our example) and apply offset
                     webkitAlpha = alpha-270;
