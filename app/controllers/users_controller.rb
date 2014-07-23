@@ -48,11 +48,12 @@ class UsersController < ApplicationController
 		if @current_user == nil
 			redirect_to(root_path)
 		else
-			flash[:alert] = SIGN IN!
+			flash[:alert] = "SIGN IN!"
 			flash[:notice] = "Welcome back, #{@user.username}!"
       redirect_to(user_path(@user.id))
 		end
 	end
+	
 	def edit
 	end
 

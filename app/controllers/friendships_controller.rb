@@ -16,8 +16,6 @@ class FriendshipsController < ApplicationController
   end
    
   def new
-
-
   end
 
   def destroy
