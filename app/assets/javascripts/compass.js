@@ -26,7 +26,7 @@ $(document).ready(function() {
                   $('#alpha').text(event.webkitCompassHeading);
                   $('#accuracy').text(event.webkitCompassAccuracy);
                   $('#alphaWithBearing').text(alpha);
-                  $('#version').text(1);
+                  $('#version').text(2);
                   //Rotation is reversed for iOS
                   compass.style.WebkitTransform = 'rotate(-' + alpha  + 'deg)';
                 }
