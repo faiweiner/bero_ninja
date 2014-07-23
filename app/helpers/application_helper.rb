@@ -4,7 +4,7 @@ module ApplicationHelper
 		if @current_user.present?
 			links +=	"<li class='dropdown'>"
 			links +=		"<a href=' class='dropdown-toggle' data-toggle='dropdown'>Places <span class='caret'></span></a>"
-			links +=		"<ul class='dropdown-menu' role='menu'>"
+			links +=		"<ul class='dropdown-menu navbar-inverse dropdown-black' role='menu'>"
 			links +=			"<li>"
 			links +=				link_to("Favorites", places_path)
 			links +=			"</li>"
@@ -20,7 +20,7 @@ module ApplicationHelper
 			links +=	"</li>"
 			links +=	"<li class='dropdown'>"
 			links +=		"<a href=' class='dropdown-toggle' data-toggle='dropdown'>Friends <span class='caret'></span></a>"
-			links +=		"<ul class='dropdown-menu' role='menu'>"
+			links +=		"<ul class='dropdown-menu navbar-inverse dropdown-black' role='menu'>"
 			links +=		"<li><a href='#'>Locate friends</a></li>"
 			links +=		"<li><a href='#'>Another action</a></li>"
 			links +=		"<li><a href='#'>Something else here</a></li>"
@@ -49,5 +49,5 @@ module ApplicationHelper
 end
 
 
-					
-						
+
+
