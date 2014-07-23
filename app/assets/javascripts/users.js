@@ -29,8 +29,8 @@ $(document).ready(function() {
 			  },
 			  success: function (u) {
 					$(location).attr('href', '/users/current');
+				};
+			});
 		});
-
 	};
-
 });
