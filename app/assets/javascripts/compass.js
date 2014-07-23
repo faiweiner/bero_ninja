@@ -18,6 +18,9 @@ $(document).ready(function() {
                 //Check for iOS property
                 if(event.webkitCompassHeading) {
                   alpha = event.webkitCompassHeading + userCompass.bearing;
+                
+                  $('#accuracy').text(event.webkitCompassAccuracy);
+                  $('#alpha').text(alpha);
                   //Rotation is reversed for iOS
                   compass.style.WebkitTransform = 'rotate(-' + alpha  + 'deg)';
                 }
