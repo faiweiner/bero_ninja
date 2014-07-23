@@ -1,3 +1,5 @@
+var userCompass = userCompass || {};
+
 $(document).ready(function() {
 
   if (window.location.pathname == '/places/new') {
@@ -7,7 +9,7 @@ $(document).ready(function() {
   if (window.location.pathname.indexOf("/places/", 0) == 0) {
 
 
-    function init() {
+    userCompass.runCompass = function () {
         var compass = document.getElementById('compass');
         if(window.DeviceOrientationEvent) {
 
@@ -15,7 +17,7 @@ $(document).ready(function() {
                 var alpha;
                 //Check for iOS property
                 if(event.webkitCompassHeading) {
-                  alpha = event.webkitCompassHeading - userCompass.bearing;
+                  alpha = event.webkitCompassHeading;
                   //Rotation is reversed for iOS
                   compass.style.WebkitTransform = 'rotate(-' + alpha  + 'deg)';
                 }
@@ -33,16 +35,17 @@ $(document).ready(function() {
                 compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
                 //Rotation is reversed for FF
                 compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
-                var grad = parseInt(userCompass.distance);
-                var compassGradient = '-webkit-gradient(radial, 100 0 , 100, 0 0,' + 900-grad +', from(#FF213D), to(#0E213D))';
-                $('#compass').css('background', compassGradient);
-                $('#compass').css({'-webkit-background-clip': 'text'});
-                $('#compass').css({'-webkit-text-fill-color': transparent});
+                // var grad = parseInt(userCompass.distance);
+                // var compassGradient = '-webkit-gradient(radial, 100 0 , 100, 0 0,' + 900-grad +', from(#FF213D), to(#0E213D))';
+                // $('#compass').css('background', compassGradient);
+                // $('#compass').css({'-webkit-background-clip': 'text'});
+                // $('#compass').css({'-webkit-text-fill-color': transparent});
 
               }, false);
         }
       }
 
-    window.setTimeout(init, 1500);
+    // window.setTimeout(init, 1500);
+    // init();
   }
 });
