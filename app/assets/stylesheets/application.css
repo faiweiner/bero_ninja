@@ -32,7 +32,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   /*background-color: #222222;*/
   /*color: #222222;*/
 }
@@ -54,7 +54,7 @@ li {
 
 .navbar-nav {
   float: right;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -75,7 +75,7 @@ li {
 
 .dropdown-menu > li > a {
   color:#ccc;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .dropdown-menu .divider {
@@ -87,7 +87,7 @@ li {
 }
 
 .btn {
-  font-weight:100;
+  font-weight:300;
 }
 
  /* -------Smartphones: Media Queries -------- */
