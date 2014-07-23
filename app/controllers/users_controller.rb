@@ -30,15 +30,29 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new user_params
+		if @user.instagram_id.present?
+			@user.password = @user.password_confirmation = ""
+			@user.password_digest = "instagram-authorized account"
+		end
 		if @user.save
 			session[:user_id] = @user.id #auto-login
-			raise params.inspect
-			redirect_to user_path(@user.id)
+			# raise params.inspect
+			respond_to do |format|
+				format.html { redirect_to user_path(@user.id) }
+				format.json { render :json => @user }
+			end
 		else
 			render :new
 		end
 	end
 
+	def current
+		if @current_user == nil
+			redirect_to(root_path)
+		else
+			redirect_to(@current_user)
+		end
+	end
 	def edit
 	end
 

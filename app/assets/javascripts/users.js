@@ -12,33 +12,23 @@ $(document).ready(function() {
 	    var instPasswordConfirmation = $('#password_confirmation').val();
 			var valuesToSubmit = $(this).serialize();
 
-			console.log(instUsername, instProfilePicture, instInstagramId, instPassword, instPasswordConfirmation);
+			console.log('hotdogs', instUsername, instProfilePicture, instInstagramId, instPassword, instPasswordConfirmation);
 
 			$.ajax({
 			  url: '/users',
 			  type: 'POST',
 			  dataType: 'json',
 			  data: {
-			    username: instUsername,
-			    profile_picture: instProfilePicture,
-			    instagram_id: instInstagramId,
-			    password: instPassword,
-			    password_confirmation: instPasswordConfirmation
+			    user: {
+				    username: instUsername,
+				    profile_picture: instProfilePicture,
+				    instagram_id: instInstagramId,
+				    password: instPassword,
+				    password_confirmation: instPasswordConfirmation
+				  }
 			  },
 			  success: function (u) {
-			    // Remove this user from the array if the user already exists.
-			    users = _(users).reject(function (user) {
-			      return u.id == user.id;
-			    });
-
-			    // Add the new or updated user to the array.
-			    users.push(u);
-			  }
-  		});
-
-  		var url = "/users/" + 17
-			debugger
-			$(location).attr('href',url);
+					$(location).attr('href', '/users/current');
 		});
 
 	};
