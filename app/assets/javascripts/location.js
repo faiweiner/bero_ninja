@@ -61,7 +61,7 @@ $(document).ready(function() {
 		// STEP 1 - DETECTING GEOLOCATION
 		if (navigator.geolocation) {
 			// var timeoutVal = 4500;
-			navigator.geolocation.getCurrentPosition(
+			navigator.geolocation.watchPosition(
 				// if success
 				displayPosition,
 				// if error
