@@ -29,11 +29,11 @@ $(document).ready(function() {
                 else {
                   alpha = event.alpha;
                   webkitAlpha = alpha + userCompass.bearing;
-                  $('webkitAlpha').text(webkitAlpha);
+                  $('#webkitAlpha').text(webkitAlpha);
                   if(!window.chrome) {
                     //Assume Android stock (this is crude, but good enough for our example) and apply offset
                     webkitAlpha = alpha-270;
-                    $('webkitAlpha').text(webkitAlpha);
+                    $('#webkitAlpha').text(webkitAlpha);
 
                   }
                 }
