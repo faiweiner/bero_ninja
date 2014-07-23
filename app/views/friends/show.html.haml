@@ -1,0 +1,56 @@
+/ %script
+/   = "$(document).ready(function () {"
+/   = "userCompass.userLocation(); userCompass.runCompass();"
+/   = "});"
+%div.container
+  %h1
+    =@friend.username
+
+  %div
+    %h3 Latitude
+    %p#location_latitude
+      = @friend.locations.last.latitude
+    %h3 Longitude
+    %p#location_longitude
+      = @friend.locations.last.longitude
+
+    %h3
+    = @bearing
+
+  %h2.page-header Current Location:
+  %p
+    Lat:
+    %span#user_lat
+  %p
+    Lng:
+    %span#user_lng
+  %p
+    bearing:
+    %span#bearing
+  %p
+    distance:
+    %span#distance
+  %p
+    heading:
+    %span#heading
+  %p
+    webkit ios accuracy:
+    %span#accuracy
+  %p
+    webkit ios alpha + bearing:
+    %span#alphaWithBearing
+  %p
+    webkit ios alpha(north):
+    %span#alpha 
+  %p
+    andriod alpha + bearing:
+    %span#webkitAlpha 
+  %p
+    version:
+    %span#version
+  
+  %div.row
+    %div#compassContainer
+      %div
+        =image_tag('http://www.clipartbest.com/cliparts/zxT/gkL/zxTgkLXiA.png', :id => "compass" );
+

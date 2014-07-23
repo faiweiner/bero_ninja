@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: friends
+# Table name: locations
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
@@ -10,6 +10,6 @@
 #  updated_at :datetime
 #
 
-class Friend < ActiveRecord::Base
+class Location < ActiveRecord::Base
   belongs_to :user
 end
