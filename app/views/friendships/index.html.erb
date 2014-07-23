@@ -1,31 +1,38 @@
-<div class="inner-container">
-	<h3 class="page-header"><%= @current_user.username %>'s Friends</h3>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>User</th>
-				<th>Online</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @current_user.friendships.each do |friendship| %>
-				<tr>
-					<td><%= friendship.friend.username %></td>
-					<td><%= friendship.friend.is_online %></td>
-					<td><%= link_to "Unfollow", friendship, :method => :delete %></td>
-				</tr>
-			<% end%>
-		</tbody>
-	</table> 	
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-md-8">	
+			<h1 class="page-header">Manage Friends</h1>
+			<div class="row placeholders">
+				<%= render partial: "search" %>
+			</div>
+			<div class="row placeholders">
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+				<div class="col-xs-6 col-sm-3 placeholder">
+					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
+					<h4>Label</h4>
+					<span class="text-muted">Something else</span>
+				</div>
+			</div>
+			<%= render partial: "following" %>
+			<%= render partial: "followers" %>
+		</div>
+	</div>
 
-	<div>
-		<%= render partial: "search", locals: { account: @current_user } %>
-	</div>
-	<div>
-		<%= render partial: "list", locals: { account: @current_user } %>
-	</div>
+
+
+
 </div>
-
-
-
