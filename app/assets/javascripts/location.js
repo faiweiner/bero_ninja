@@ -39,7 +39,7 @@ $(document).ready(function() {
 			$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
 			$('#bearing').text(response.bearing);
 			$('#distance').text(response.distance);
-			$('#showDistance').prepend((response.distance).toFixed(3) + " ");
+			$('#showDistance').text((response.distance).toFixed(2) + " km");
 			$('#heading').text(response.compass);
 			userCompass.bearing = response.bearing;
 			userCompass.distance = response.distance;

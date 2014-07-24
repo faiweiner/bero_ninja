@@ -79,19 +79,19 @@ var add_marker = function (latitude, longitude, address) {
   //   };
   
   var pin = {
-    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+    // path: google.maps.SymbolPath.CIRCLE,
     scale: 4,
-    strokeColor: '#82332F',
+    strokeColor: '#C14842',
     fillColor: '#DB524B',
     fillOpacity: 1,
-    strokeWeight: 2
+    strokeWeight: 1
   };
   var latlng = new google.maps.LatLng(latitude, longitude);
   var marker = new google.maps.Marker({
     position: latlng,
     map: map,
     //address: address,
-    icon: pin,
-    animation: google.maps.Animation.BOUNCE
+    // icon: pin,
+    animation: google.maps.Animation.DROP
   });
 };
