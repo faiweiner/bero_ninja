@@ -6,8 +6,8 @@
 
 <!-- all user's friend -->
 <h2 class="sub-header">Friends</h2>
-<div class="table-responsive" id="user-friends">
-	<table class="table table-striped">
+<div class="table-responsive">
+	<table class="table table-striped" id="user-friends">
 		<thead>
 			<tr>
 				<th>User</th>
@@ -23,7 +23,7 @@
 						<td><%= friendship.friend.username %></td>
 						<td><%= friendship.friend.is_online %></td>
 						<td><%= friendship.approved %></td>
-						<td><%= link_to "Cancel Friend Request", friendship, :method => :delete %></td>
+						<td><%= link_to "Remove", friendship, :method => :delete %></td>
 					</tr>
 				<% end %>
 			<% end %>

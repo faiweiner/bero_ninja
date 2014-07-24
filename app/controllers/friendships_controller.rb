@@ -1,16 +1,26 @@
 class FriendshipsController < ApplicationController
 	def index	
+		# Everyone in the DB except for the current user
 		@all_users = User.where.not(id: @current_user.id)
-		@following = @current_user.friendships.all
-		@following_array = []
-		@following.each do |friendship|
-			@following_array << friendship.friend.username
-		end
+
+		# Everyone the user follows (pending their approval)
+		@following = @current_user.friendships.where(approved: false)
+		# For All_users status check
+
+		# Everyone who follows the user
 		@followers = @current_user.inverse_friends
-		@incoming_requests = Friendship.where(friend_id: @current_user.id)
+
+		# Pending friendship request
+		@incoming_requests = Friendship.where(friend_id: @current_user.id).where(:approved => false)
 		@incoming_requests.each do |friendship|
 			requester = User.find(friendship.user_id).username
 		end
+		# MUTUAL FRIENDSHIP
+		@mutual_friendships = Friendship.where(approved: true, friend_id: @current_user)
+
+	end
+
+	def new
 	end
 
 	def create
@@ -24,21 +34,27 @@ class FriendshipsController < ApplicationController
 		end
 	end
 	 
-	def new
-	end
-
 	def update
 		friendship_id = params[:id]
 		friendship_instance = Friendship.find_by(id: friendship_id)
-		inverse_friendship_instance = Friendship.find_by(user_id: @current_user.id, friend_id: friendship_instance.user_id)
+		# If @current hasn't tried to follow the requester then create a new friendship instance for the @current targeting the requester
+		if Friendship.find_by(user_id: @current_user.id, friend_id: friendship_instance.user_id) == nil
+			new_friendship = @current_user.friendships.build(friend_id: friendship_instance.user_id)
+			new_friendship.save
+			inverse_friendship_instance = new_friendship
+		else
+			inverse_friendship_instance = Friendship.find_by(user_id: @current_user.id, friend_id: friendship_instance.user_id)
+		end
+	
 		if friendship_instance.friend_id == @current_user.id
 			friendship_instance.approved = true
 			inverse_friendship_instance.approved = true
-			flash[:notice] = "You and #{friendship_instance.friend.username} are now connected!"
+			friendship_instance.save
+			inverse_friendship_instance.save
+			render :json =>  { :status => 'okay', :notice => "You and #{inverse_friendship_instance.friend.username} are now connected!" }
 		else
-			flash[:error] = "Uh oh, something went wrong."
+			render :json =>  { :status => 'not okay', :notice => "Something went wrong and we can't do this shit." }
 		end
-		raise params
 	end
 
 	def destroy

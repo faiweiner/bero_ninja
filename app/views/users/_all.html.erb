@@ -13,8 +13,10 @@
 				<tr>
 					<td><%= user.username %></td>
 					<td>
-						<% if @following_array.include? user.username %>
+						<% if @following.include? user.username %>
 							<p>Pending friend request</p>
+						<% elsif %> 
+							<p></p>
 						<% else %>
 							<%= link_to "Follow", friendships_path(:friend_id => user.id), :method => :post %>
 						<% end %>
