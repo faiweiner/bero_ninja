@@ -65,14 +65,14 @@ $(document).ready(function() {
                 // distanceNow = (4000/distanceNow);
                 console.log(range);
                 var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + parseInt(range) +', from(#FF213D), to(#0E213D))';
-                $('body').css('background', compassGradient);
+                $('#compass').css('background', compassGradient);
                 console.log(compassGradient);
 
 
                 // var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
                 // $('body').css('background', compassGradient);
-                $('#body').css({'-webkit-background-clip': 'text'});
-                $('#body').css({'-webkit-text-fill-color': 'transparent'});
+                $('#compass').css({'-webkit-background-clip': 'text'});
+                $('#compass').css({'-webkit-text-fill-color': 'transparent'});
 
               }, false);
     }
