@@ -4,9 +4,13 @@ body {
   -moz-transform-origin: 50% 50%;
 }
 
+.container {
+  text-align:center;
+}
 #compassContainer {
   text-align:center;
   padding: 25% 0;
+  padding-top:18%;
 }
 #compass{
   padding:0;
