@@ -1,24 +1,12 @@
 $(document).ready(function(){
 	console.log("Are you included?");
-	var removeFriendRequests = function() {
-	};
-
-	var renderFriendships = function() {
-
-	};
-
-	var updateAllUsersList = function() {
-
-	};
-
-	$('.friendship-accept-request').click(function() {
-		console.log("Hello");
+	$('.button_to').on('ajax:success', function(event, response) {
 		$(this).closest('tr').remove();
-		$('#user-friends').children().css('background-color', 'blue')
-	});
-
-	$('.friendship-accept-request').on('ajax:success', function(event, response) {
-		console.log(response);
+		var appendFriendsTable = $('#user-friends').first().find('tbody');
+		var $tr = $('<tr/>');
+		var $td = $('<td/>');
 	});
 
 });
+
+arget user-friends.first, find tbody and then append the tr with td inside

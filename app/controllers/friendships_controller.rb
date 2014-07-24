@@ -17,7 +17,6 @@ class FriendshipsController < ApplicationController
 		end
 		# MUTUAL FRIENDSHIP
 		@mutual_friendships = Friendship.where(approved: true, friend_id: @current_user)
-
 	end
 
 	def new
@@ -35,8 +34,7 @@ class FriendshipsController < ApplicationController
 	end
 	 
 	def update
-		friendship_id = params[:id]
-		friendship_instance = Friendship.find_by(id: friendship_id)
+		friendship_instance = Friendship.find_by(id: params[:id])
 		# If @current hasn't tried to follow the requester then create a new friendship instance for the @current targeting the requester
 		if Friendship.find_by(user_id: @current_user.id, friend_id: friendship_instance.user_id) == nil
 			new_friendship = @current_user.friendships.build(friend_id: friendship_instance.user_id)
@@ -45,12 +43,13 @@ class FriendshipsController < ApplicationController
 		else
 			inverse_friendship_instance = Friendship.find_by(user_id: @current_user.id, friend_id: friendship_instance.user_id)
 		end
-	
+		
 		if friendship_instance.friend_id == @current_user.id
 			friendship_instance.approved = true
 			inverse_friendship_instance.approved = true
 			friendship_instance.save
 			inverse_friendship_instance.save
+			# raise "Im about to save mutual friendships!"
 			render :json =>  { :status => 'okay', :notice => "You and #{inverse_friendship_instance.friend.username} are now connected!" }
 		else
 			render :json =>  { :status => 'not okay', :notice => "Something went wrong and we can't do this shit." }
@@ -58,10 +57,17 @@ class FriendshipsController < ApplicationController
 	end
 
 	def destroy
-		@friendship = @current_user.friendships.find(params[:id])
-		@friendship.destroy
+		friendship = @current_user.friendships.find(params[:id])
+		inverse_friendship = Friendship.find_by(friend_id: @current_user.id, user_id: friendship.friend_id)
+		inverse_friendship.destroy
+		friendship.destroy
 		flash[:notice] = "Successfully deleted friendship."
 		redirect_to :root
 	end
 
+	def search
+		search_term = params[:user_search]
+		@search_results = User.where(username: search_term).first
+		render :json => @search_results
+	end
 end
