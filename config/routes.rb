@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	resources :sessions, only: [:new, :create, :destroy]
 	
 	get '/friendships/search' => 'friendships#search'
+	get '/friendships/results' => 'friendships#results'
 	post '/friendships/:id' => 'friendships#update'
 	resources :friendships
 	resources :places

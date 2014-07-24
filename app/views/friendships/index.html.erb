@@ -9,7 +9,7 @@
 			<div class="row placeholders">
 				<div class="span4 offset6 right" id="search-container">
 					<%= render partial: "search" %>
-					<% if @search_results %>
+					<% if @search_results.present? %>
 						<%= render partial: "search_results" %>
 					<% end %>
 				</div>

@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-	def index	
+	def index 
 		# Everyone in the DB except for the current user
 		@all_users = User.where.not(id: @current_user.id)
 
@@ -57,7 +57,7 @@ class FriendshipsController < ApplicationController
 			end
 			# =>  { :status => 'okay', :notice => "You and #{inverse_friendship_instance.friend.username} are now connected!" }
 		else
-			render :json =>  { :status => 'not okay', :notice => "Something went wrong and we can't do this shit." }
+			render :json =>  { :status => 'not okay', :notice => "Something went wrong and we can't fix it." }
 		end
 	end
 
@@ -73,11 +73,12 @@ class FriendshipsController < ApplicationController
 	end
 
 	def search
-		search_term = params[:user_search]
-		@search_results = []
-		@search_results << User.where(username: search_term).first
-		User.where("username LIKE ?", "%#{params[:user_search]}%")
-		raise params.inspect
-		render :json => @search_results
+		search_term = params[:search]
+		@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(10)
+		render :json => { :results => @search_results }
+	end
+
+	def results
+		
 	end
 end
