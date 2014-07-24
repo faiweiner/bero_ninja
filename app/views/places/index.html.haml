@@ -16,7 +16,7 @@
 	= "});"
 
 %script
-	= "$(document).ready(function () {"
+	= "var dropPins = function () {"
 	- @places.each do |place|
-		= "add_marker(#{place.latitude}, #{place.longitude}, #{place.address});"
-		= "});"
+		= "add_marker(#{place.latitude}, #{place.longitude});"
+	= "};"

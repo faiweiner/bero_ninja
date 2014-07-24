@@ -13,8 +13,8 @@
 	= "showPlaces();"
 	= "});"
 
-/ %script
-/ 	= "$(document).ready(function () {"
-/ 	- @places.each do |place|
-/ 		= "add_marker(#{place.latitude}, #{place.longitude}, #{place.address});"
-/ 		= "});"
+%script
+	= "$(document).ready(function () {"
+	- @friends.each do |friend|
+		= "add_marker(#{@friend.locations.last.latitude}, #{@friend.locations.last.longitude});"
+		= "});"
