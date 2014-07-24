@@ -15,8 +15,13 @@ $(document).ready(function() {
 
           window.addEventListener('deviceorientation', function(event) {
                 var alpha;
+
+                // var log = (new Date()) + " userCompass webKitCompassHeading: " + event.webkitCompassHeading;
+                // $('.log').prepend('<p>' + log + '</p>');
+
                 //Check for iOS property
-                if(event.webkitCompassHeading) {
+
+                if(event.webkitCompassHeading !== undefined) {
 
                   alpha = -(event.webkitCompassHeading) + userCompass.bearing
                   // alpha = Math.abs(alpha);
