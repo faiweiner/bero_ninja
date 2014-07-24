@@ -1,22 +1,28 @@
+<% if flash[:notice] %>
+	<div class="notice">
+		<h3 class="page-header"><%= flash[:notice] %></h3>
+	</div>
+<% end %>
+
 <!-- User's Followers -->
 <h2 class="sub-header">Followers</h2>
 <div class="table-responsive" id="user-friends">
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>User</th>
-				<th>Online</th>
-				<th>Action</th>
+				<th>Feed</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
-		<tbody>
-			<% @current_user.inverse_friends.each do |friendship| %>
+		<tbody id="tbl-incoming-requests">
+			<% @incoming_requests.each do |friendship|%>
 				<tr>
-					<td><%= friendship.username %></td>
-					<td><%= friendship.is_online %></td>
-					<td><%= link_to "Unfollow", friendship, :method => :delete %></td>
+					<td><%= image_tag(User.find(friendship.user_id).profile_picture, class: "img-circle", :size => "20" ) %></td>
+					<td><%= User.find(friendship.user_id).username %> would like to friend you.</td>
+					<td><%= button_to("Accept-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "friendship-accept-request btn btn-xs btn-primary") %></td> <!-- :remote => true  -->
 				</tr>
-			<% end%>
+			<% end %>
 		</tbody>
 	</table>
 </div>
