@@ -102,6 +102,16 @@ li {
 
 .btn {
   font-weight: 300;
+  margin:10px 0;
+}
+
+.panel-primary {
+  border-color: #d9534f;
+}
+
+.panel-primary > .panel-heading {
+  border-color: #d9534f;
+  background-color: #d9534f;
 }
 
  /* -------Smartphones: Media Queries -------- */

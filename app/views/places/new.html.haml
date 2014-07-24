@@ -1,7 +1,7 @@
 = form_for @place, :remote => true do |f|
   = f.label :address, "Add Yo Place!"
   = f.text_field :address, :class => 'form-control', :required => true
-  = f.submit :value =>"Add Place", :class => "btn btn-lg btn-primary btn-block"
+  = f.submit :value =>"Add Place", :class => "btn btn-lg btn-danger btn-primary btn-block"
 %div#map_canvas
 
 %script
