@@ -16,7 +16,6 @@ class PlacesController < ApplicationController
       @current_user.places << @place
       render :json => @place
     end
-    redirect_to "/places"
   end
 
   def lookup
