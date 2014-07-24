@@ -20,7 +20,7 @@
 				<tr>
 					<td><%= image_tag(User.find(friendship.user_id).profile_picture, class: "img-circle", :size => "20" ) %></td>
 					<td><%= User.find(friendship.user_id).username %> would like to friend you.</td>
-					<td><%= button_to("Accept-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "btn btn-xs btn-primary") %></td> <!--, :remote => true, "data-type" => :json -->
+					<td><%= button_to("Accept-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "btn btn-xs btn-primary", :remote => true ) %></td>
 				</tr>
 			<% end %>
 		</tbody>

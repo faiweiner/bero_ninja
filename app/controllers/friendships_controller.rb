@@ -33,23 +33,12 @@ class FriendshipsController < ApplicationController
 		inverse_friendship_instance = Friendship.find_by(user_id: @current_user.id, friend_id: friendship_instance.user_id)
 		if friendship_instance.friend_id == @current_user.id
 			friendship_instance.approved = true
-			inverse_friendship_instance = true
+			inverse_friendship_instance.approved = true
 			flash[:notice] = "You and #{friendship_instance.friend.username} are now connected!"
 		else
-			raise "You are not the current user"
+			flash[:error] = "Uh oh, something went wrong."
 		end
 		raise params
-
-		flash[:notice] = "You and #{} are now connected!"
-		redirect_to friendships_path
-
-		# flash[:error] = "something went wrong and you were unable to create a friendship"
-	end
-
-	def show
-		respond_to do |format|
-			format.json { render :json =>  @article }
-		end
 	end
 
 	def destroy
