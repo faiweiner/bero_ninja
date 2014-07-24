@@ -74,18 +74,18 @@ var display_map = function (latitude, longitude, zoom) {
 };
 
 var add_marker = function (latitude, longitude, address) {
-  var pin = "/assets/map-marker-red.png", width = "10px", height = "10px";
+  // var pin = "/assets/map-marker-red.png", width = "10px", height = "10px";
     // scale: 5,
 
   
-  // var pin = {
-  //   path: google.maps.SymbolPath.CIRCLE,
-  //   scale: 10,
-  //   strokeColor: '#C14842',
-  //   // fillColor: '#DB524B',
-  //   // fillOpacity: 1,
-  //   strokeWeight: 7
-  // };
+  var pin = {
+    path: google.maps.SymbolPath.CIRCLE,
+    scale: 8,
+    strokeColor: '#C14842',
+    // fillColor: '#DB524B',
+    // fillOpacity: 1,
+    strokeWeight: 4
+  };
 
   var latlng = new google.maps.LatLng(latitude, longitude);
   var marker = new google.maps.Marker({
