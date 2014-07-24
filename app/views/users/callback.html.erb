@@ -10,14 +10,14 @@
     </div>
     <div class="input-group">
       <%= f.hidden_field :instagram_id, :class => "form-control", :id => "instagram_id", :value => session[:instagram_id] %>
-    </div>  
+    </div>
     <div class="input-group">
       <%= f.hidden_field :password, :class => "form-control", :id => "password", :value => nil %>
     </div>
     <div class="input-group">
       <%= f.hidden_field :password_confirmation, :class => "form-control", :id => "password_confirmation", :value => nil %>
     </div>
-    
+
   <!-- Display for user -->
     <h3 class="text-center">Confirm Sign Up with Instagram</h3>
     <div class="panel-heading text-centered row">
@@ -28,11 +28,11 @@
         <%= image_tag(session[:profile_picture], alt: "profile picture", class: "img-circle", size: "75" ) %>
       </div>
     </div>
-    <div class="panel-body text-center row"> 
-      <p class="form-control-static"><%= session[:instagram_username] %></p>  
+    <div class="panel-body text-center row">
+      <p class="form-control-static"><%= session[:instagram_username] %></p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil itaque dolore inventore quae error? Ut laborum dignissimos, omnis nulla, nam, sunt ipsa perferendis sequi nisi cumque magnam autem facilis placeat.</p>
       <br>
-      <%= f.submit 'Confirm Signup', :class => "btn btn-md btn-primary", :id => "btn-confirm-submit", :method => "post" %>
+      <%= f.submit 'Confirm Signup', :class => "btn btn-md btn-primary btn-danger", :id => "btn-confirm-submit", :method => "post" %>
     </div>
   </div>
   <% end %>

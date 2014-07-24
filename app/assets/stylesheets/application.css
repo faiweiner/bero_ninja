@@ -104,6 +104,15 @@ li {
   font-weight: 300;
 }
 
+.panel-primary {
+  border-color: #d9534f;
+}
+
+.panel-primary > .panel-heading {
+  border-color: #d9534f;
+  background-color: #d9534f;
+}
+
  /* -------Smartphones: Media Queries -------- */
 
 @media only screen and (max-width : 767px) {
