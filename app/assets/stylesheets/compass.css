@@ -6,6 +6,7 @@ body {
 
 #compassContainer {
   text-align:center;
+  padding: 25% 0;
 }
 #compass{
   padding:0;

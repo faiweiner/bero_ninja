@@ -2,7 +2,7 @@
   = "$(document).ready(function () {"
   = "userCompass.userLocation(); userCompass.runCompass();"
   = "});"
-%div.container
+%div.container.invisible
   %h1
     =@friend.username
 
@@ -51,7 +51,7 @@
 
   %p.log
 
-  %div.row
-    %div#compassContainer
-      %i.fa.fa-arrow-circle-up#compass
+%div.container
+  %div#compassContainer
+    %i.fa.fa-arrow-circle-up#compass
 
