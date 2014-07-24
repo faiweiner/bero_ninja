@@ -11,8 +11,8 @@
 	position: relative;
 	z-index: 0;
 }
-.jumbotron-desktop{
+.jumbotron{
 	position: absolute;
-	width: 100%;
 	z-index: 1;
+	opacity: .9;
 }
