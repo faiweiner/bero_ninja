@@ -2,26 +2,24 @@ var userCompass = userCompass || {};
 
 $(document).ready(function() {
 
-  if (window.location.pathname == '/places/new') {
-    return;
-  }
-
   if (window.location.pathname.indexOf("/places/", 0) == 0) {
+    userCompass.runCompass;
+  } else if (window.location.pathname.indexOf("/friends/", 0) == 0) {
+    userCompass.runCompass;
+  } else {
+    return;
+  };
 
+  userCompass.runCompass = function () {
+    var compass = document.getElementById('compass');
+    if(window.DeviceOrientationEvent) {
 
-    userCompass.runCompass = function () {
-        var compass = document.getElementById('compass');
-        if(window.DeviceOrientationEvent) {
-
-          window.addEventListener('deviceorientation', function(event) {
-                var alpha;
-
-                // var log = (new Date()) + " userCompass webKitCompassHeading: " + event.webkitCompassHeading;
-                // $('.log').prepend('<p>' + log + '</p>');
-
+      window.addEventListener('deviceorientation', function(event) {
+        var alpha;
                 //Check for iOS property
+
                 if(event.webkitCompassHeading !== undefined) {
-                  
+
                   alpha = -(event.webkitCompassHeading) + userCompass.bearing
                   // alpha = Math.abs(alpha);
                   $('#alpha').text(event.webkitCompassHeading);
@@ -37,7 +35,7 @@ $(document).ready(function() {
                   webkitAlpha = alpha + userCompass.bearing;
                   $('#webkitAlpha').text(webkitAlpha);
                   if(!window.chrome) {
-                    //Assume Android stock (this is crude, but good enough for our example) and apply offset
+                    //Assume (make an ass out of u and me) Android stock and apply offset
                     webkitAlpha = alpha-270;
                     $('#webkitAlpha').text(webkitAlpha);
 
@@ -48,17 +46,26 @@ $(document).ready(function() {
                 compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
                 //Rotation is reversed for FF
                 compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
-                // var grad = parseInt(userCompass.distance);
-                // var compassGradient = '-webkit-gradient(radial, 100 0 , 100, 0 0,' + 900-grad +', from(#FF213D), to(#0E213D))';
+
+                console.log(userCompass.distance)
+                var distanceNow = parseInt(userCompass.distance);
+                userCompass.distanceOrig = userCompass.distanceOrig || distanceNow;
+                console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow);
+                // Finding the range of colors in percentage for distance.
+                var range = 3000 * (1- (distanceNow/userCompass.distanceOrig));
+                // distanceNow = (4000/distanceNow);
+                console.log(range);
+                var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + range +', from(#FF213D), to(#0E213D))';
+                $('#compass').css('background', compassGradient);
+                console.log(compassGradient);
+
+                // var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
                 // $('#compass').css('background', compassGradient);
                 // $('#compass').css({'-webkit-background-clip': 'text'});
                 // $('#compass').css({'-webkit-text-fill-color': transparent});
 
               }, false);
-        }
-      }
-
-    // window.setTimeout(init, 1500);
-    // init();
+    }
   }
 });
+
