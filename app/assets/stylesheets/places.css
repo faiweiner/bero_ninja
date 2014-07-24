@@ -6,6 +6,13 @@
 	height: 9em;
 }
 .big-map{
+	min-width: 100%;
+	min-height: 100%;
+	position: relative;
+	z-index: 0;
+}
+.jumbotron-desktop{
+	position: absolute;
 	width: 100%;
-	height: 20em;
+	z-index: 1;
 }

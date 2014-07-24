@@ -88,6 +88,4 @@ var add_marker = function (latitude, longitude, address) {
     icon: pin,
     animation: google.maps.Animation.DROP
   });
-  console.log('map', map)
-  console.log('adding marker', latitude, longitude, latlng, marker, map);
 };

@@ -1,20 +1,21 @@
-<div class="container-fluid">
-    <div class="jumbotron">
+<div id="login" class="container-fluid">
+    <div class="jumbotron jumbotron-desktop">
       <h1 class="page-header">Welcome to Bero.</h1>
       <p class="lead">
         <a href="sessions/new" class="btn btn-lg btn-danger">Sign In</a>
         <a href="users/new" class="btn btn-lg btn-danger">Sign Up</a>
       </p>
       <p class="lead">
-        Stalk your friends in more colorful way.
+        Stalk your friends in a more colorful way.
       </p>
     </div>
-
-
 </div>
-<div id = "map_canvas" class = "hidden-xs bigmap"></div>
+
+<div id = "map_canvas" class = "big-map hidden-xs"></div>
+
 <script>
   $(document).ready(function() {
     showPlaces();
   });
+
 </script>

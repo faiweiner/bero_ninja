@@ -23,7 +23,12 @@
   src: url(asset_path('glyphicons-halflings-regular.eot'));
   src: url(asset_path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'), url(asset_path('glyphicons-halflings-regular.woff')) format('woff'), url(asset_path('glyphicons-halflings-regular.ttf')) format('truetype'), url(asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
 }
-
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+}
 	/*input[type="submit"].btn-block{
 		width: 90%;
 	}*/
@@ -112,4 +117,7 @@ li {
   }
 }
 
+.invisible{
+  opacity: 1;
+}
 
