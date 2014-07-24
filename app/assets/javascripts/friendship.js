@@ -1,7 +1,7 @@
-$(function() {
-	$('.friendship-accept-request').click(removeRow);
-});
+// $(function() {
+// 	$('.friendship-accept-request').click(removeRow);
+// });
 
-var removeRow = function(event) {
-	$(this).closest('tr').remove();
-};
+// var removeRow = function(event) {
+// 	$(this).fadeOut().closest('tr').remove();
+// };

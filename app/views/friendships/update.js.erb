@@ -20,3 +20,5 @@ $td2.appendTo($tr);
 $td3.appendTo($tr);
 $td4.appendTo($tr);
 $tr.appendTo($friendsTable);
+
+$('#btn-accept-request-<%= @friendship_id %>').closest('tr').remove();

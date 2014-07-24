@@ -45,13 +45,13 @@ class FriendshipsController < ApplicationController
 		end
 		
 		if friendship_instance.friend_id == @current_user.id
-			# friendship_instance.approved = true
-			# inverse_friendship_instance.approved = true
-			# friendship_instance.save
-			# inverse_friendship_instance.save
-			# requester_id = friendship_instance.user_id
-			# @friendship_id = friendship_instance.id
-			# @requester = User.where(id: requester_id).first
+			friendship_instance.approved = true
+			inverse_friendship_instance.approved = true
+			friendship_instance.save
+			inverse_friendship_instance.save
+			requester_id = friendship_instance.user_id
+			@friendship_id = friendship_instance.id
+			@requester = User.where(id: requester_id).first
 			respond_to do |format|
 				format.js
 			end
