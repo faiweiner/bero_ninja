@@ -1,5 +1,5 @@
 / Form to sign in
-<<<<<<< HEAD
+
 %div.container-fluid
   -if flash[:notice]
     %div.notice
@@ -19,30 +19,6 @@
         %input{:tag => "input", :type => "checkbox", :checked => false, :value => "remember-me" }
         = label_tag :remember_me
       .input-group
-        = submit_tag 'Login', :class => "btn btn-md btn-primary btn-block"
+        = submit_tag 'Login', :class => "btn btn-md btn-danger btn-block"
   
-        = link_to('Sign in with instagram', "/oauth/authorize", :class =>"btn btn-md btn-primary")
-=======
-
--if flash[:notice]
-  %div.notice
-    %h3.page-header
-      =flash[:notice]
-%div.col-md-12
-  %h3.form-signin-heading Sign In
-%div.col-md-6
-  = form_tag sessions_path, :class => "form-signin", :roll => "form" do
-    .input-group
-      = label_tag :username
-      = text_field_tag :username, nil, :class => "form-control", :required => true, :autofocus => true
-    .input-group
-      = label_tag :password
-      = password_field_tag :password, nil, :class => "form-control", :required => true
-    .checkbox
-      %input{:tag => "input", :type => "checkbox", :checked => false, :value => "remember-me" }
-      = label_tag :remember_me
-    .input-group
-      = submit_tag 'Login', :class => "btn btn-md btn-danger btn-primary btn-block"
-%div.col-md-6
-  = link_to('Sign in with instagram', "/oauth/authorize", :class =>"btn btn-md btn-danger btn-primary")
->>>>>>> f5223af32ee3b56f6c239c4be8c6fd0ceed2a05b
+        = link_to('Sign in with instagram', "/oauth/authorize", :class =>"btn btn-md btn-danger btn-block")
