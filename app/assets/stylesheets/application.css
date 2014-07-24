@@ -91,13 +91,17 @@ li {
 .dropdown-menu .divider {
   background-color:#312F2F;
 }
+
+#showDistance {
+  font-size:3em;
+}
 /* ----- Buttons and alerts ------ */
 .alert {
   margin:20px 0;
 }
 
 .btn {
-  font-weight:300;
+  font-weight: 300;
 }
 
  /* -------Smartphones: Media Queries -------- */
@@ -116,7 +120,7 @@ li {
   }
 }
 
-.invisible{
+.invisible {
   display:none;
 }
 
