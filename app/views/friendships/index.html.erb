@@ -6,13 +6,15 @@
 					<h3 class="page-header"><%= flash[:notice] %></h3>
 				</div>
 			<% end %>
-			<h1 class="page-header">Manage Friends</h1>
 			<div class="row placeholders">
-				<%= render partial: "search" %>
-				<% if @search_results %>
-					<%= render partial: "search_results" %>
-				<% end %>
+				<div class="span4 offset6 right" id="search-container">
+					<%= render partial: "search" %>
+					<% if @search_results %>
+						<%= render partial: "search_results" %>
+					<% end %>
+				</div>
 			</div>
+			<h1 class="page-header">Manage Friends</h1>
 			<div class="row placeholders">
 				<div class="col-xs-6 col-sm-3 placeholder">
 					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
