@@ -45,6 +45,31 @@ $(document).ready(function() {
 					userCompass.lat = response.coords.user_lat;
 					userCompass.lng = response.coords.user_lng;
 
+					console.log(userCompass.distance)
+                var distanceNow = userCompass.distance;
+                userCompass.distanceOrig = userCompass.distanceOrig || distanceNow;
+                // $('#compassContainer').text('original distance: '+ userCompass.distanceOrig + ' distance now: '+ distanceNow)
+                console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow, userCompass.distanceOrig != distanceNow);
+                // Finding the range of colors in percentage for distance.
+                if (userCompass.distanceOrig != distanceNow) {
+                  range = 3000 * (1 - (distanceNow/userCompass.distanceOrig));
+                  // return range;
+                  console.log('new range', range, 'distance', distanceNow);
+                } else {
+                  range = 3000 * (1 - (0.9));
+
+                  console.log('some magic ros range', range);
+                }
+
+                console.log('range: '+ range);
+                var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + parseInt(range) +', from(#FF213D), to(#0E213D))';
+                $('#compass').css('background', compassGradient);
+                console.log(compassGradient);
+
+                $('#compass').css({'-webkit-background-clip': 'text'});
+                $('#compass').css({'-webkit-text-fill-color': 'transparent'});
+
+
 				}
 			});
 		};
