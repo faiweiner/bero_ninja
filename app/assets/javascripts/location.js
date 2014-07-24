@@ -51,12 +51,12 @@ $(document).ready(function() {
                 // $('#compassContainer').text('original distance: '+ userCompass.distanceOrig + ' distance now: '+ distanceNow)
                 console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow, userCompass.distanceOrig != distanceNow);
                 // Finding the range of colors in percentage for distance.
-                if (userCompass.distanceOrig != distanceNow) {
+                if ((userCompass.distanceOrig != distanceNow) && (userCompass.distanceOrig > distanceNow)) {
                   range = 3000 * (1 - (distanceNow/userCompass.distanceOrig));
                   // return range;
                   console.log('new range', range, 'distance', distanceNow);
                 } else {
-                  range = 3000 * (1 - (0.9));
+                  range = 0;
 
                   console.log('some magic ros range', range);
                 }
