@@ -1,5 +1,5 @@
-<div id="login" class="container-fluid">
-    <div class="jumbotron jumbotron-desktop">
+<div id="login" class="container">
+    <div class="jumbotron-login">
       <h1 class="page-header">Welcome to Bero.</h1>
       <p class="lead">
         <a href="sessions/new" class="btn btn-lg btn-danger">Sign In</a>
@@ -11,8 +11,9 @@
     </div>
 </div>
 
-<div id = "map_canvas" class = "big-map hidden-xs"></div>
-
+<!-- <div class="map-blocker"> -->
+  <div id = "map_canvas" class = "big-map hidden-xs"></div>
+<!-- </div> -->
 <script>
   $(document).ready(function() {
     showPlaces();

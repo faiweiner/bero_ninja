@@ -74,11 +74,17 @@ var display_map = function (latitude, longitude, zoom) {
 };
 
 var add_marker = function (latitude, longitude, address) {
+  // var pin = { "http://simpleicon.com/wp-content/uploads/map-marker-2.png",
+  //   scale: 5
+  //   };
+  
   var pin = {
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 5,
-    strokeColor: '#1D5170',
-    strokeWeight: 5
+    path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+    scale: 4,
+    strokeColor: '#82332F',
+    fillColor: '#DB524B',
+    fillOpacity: 1,
+    strokeWeight: 2
   };
   var latlng = new google.maps.LatLng(latitude, longitude);
   var marker = new google.maps.Marker({
@@ -86,6 +92,6 @@ var add_marker = function (latitude, longitude, address) {
     map: map,
     //address: address,
     icon: pin,
-    animation: google.maps.Animation.DROP
+    animation: google.maps.Animation.BOUNCE
   });
 };
