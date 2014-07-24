@@ -56,7 +56,7 @@ $(document).ready(function() {
                 // distanceNow = (4000/distanceNow);
                 console.log(range);
                 var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + range +', from(#FF213D), to(#0E213D))';
-                $('#compass').css('background', compassGradient);
+                $('#compass').css('background-color', compassGradient);
                 console.log(compassGradient);
 
                 // var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
