@@ -16,7 +16,7 @@ u10 = User.create :username => "fon", :password => "fon", :password_confirmation
 u7 = User.create :username => "adam", :password => "adam", :password_confirmation => "adam"
 u7 = User.create :username => "russ", :password => "russ", :password_confirmation => "russ"
 
-p1 = Place.create :latitude => -33.888122, :longitude => 151.213237, :address => "Four Ate Five", :category => 'Cafe', :favorite => true
+
 p2 = Place.create :latitude => -33.862721, :longitude => 151.173475, :address => "The Welcome Hotel", :category => 'Pub', :favorite => true
 p3 = Place.create :latitude => -33.860082, :longitude => 151.208894, :address => "Museum of Contemporary Art", :category => 'Art Gallery', :favorite => true
 
@@ -27,8 +27,8 @@ f3 = Location.create :user_id => u3.id, :latitude => -33.860082, :longitude => 1
 fs1 = Friendship.create :user_id => u1.id, :friend_id => u3.id
 fs2 = Friendship.create :user_id => u3.id, :friend_id => u1.id
 
-u1.places << p1 << p2 << p3
+u1.places << p2 << p3
 
-u2.places << p1 << p2 << p3
+u2.places << p2 << p3
 
-u3.places << p1 << p2 << p3
+u3.places << p2 << p3

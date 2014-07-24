@@ -2,7 +2,7 @@
   = "$(document).ready(function () {"
   = "userCompass.userLocation(); userCompass.runCompass();"
   = "});"
-%div.container
+%div.container.invisible
   %h1
     =@friend.username
 
@@ -41,18 +41,19 @@
     %span#alphaWithBearing
   %p
     webkit ios alpha(north):
-    %span#alpha 
+    %span#alpha
   %p
     andriod alpha + bearing:
-    %span#webkitAlpha 
+    %span#webkitAlpha
   %p
     version:
     %span#version
-  
+
   %p.log
-  
-  %div.row
-    %div#compassContainer
-      %div
-        =image_tag('http://www.clipartbest.com/cliparts/zxT/gkL/zxTgkLXiA.png', :id => "compass" );
+
+%div.container
+  %span#showDistance
+  %div#compassContainer
+    %i.fa.fa-arrow-circle-up#compass
+
 

@@ -5,19 +5,9 @@ class FriendsController < ApplicationController
   end
 
   def create
-    # @friends = @current_user.friends.build(:longitude => params[:user_lng], :latitude => params[:user_lat])
-    # @friends = Friends.new
-    # lat = params[:user_lat]
-    # lng = params[:user_lng]
-    # @current_user.friends.user_id << @current_user.id
-    # @current_user.friends.latitude << lat
-    # @current_user.friends.longitude << lng
-    # raise params.inspect
-
   end
 
   def new
-    # raise params.inspect
   end
 
   def lookup
@@ -39,12 +29,11 @@ class FriendsController < ApplicationController
     @location = {"coords" => @coordinates, "bearing" => @bearing, "distance" => @distance, "compass" => @compass};
     # @location << @coordinates << @compass << @distance
     
-    # binding.pry
-    # @current_user.locations.update(@current_user.locations.last.id, :latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
-    update
+    @current_user.locations.first.update(:latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
+    # update
 
     render :json => @location
-    # render :json => @bearing
+    
   end
 
   def show
@@ -52,18 +41,12 @@ class FriendsController < ApplicationController
     # binding.pry
   end
 
-
-
   private
-  # not needed here?
-  # def place_params
-  #   params.require(:place).permit(:address, :category, :favorite)
-  # end
-  def update
-    update_user_location = Location.new( :latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
-    @current_user.locations << update_user_location
-  end
 
+  # def update
+  #   update_user_loation = Location.new( :latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
+  #   @current_user.locations << update_user_location
+  # end
 
   def check_if_logged_in
     redirect_to(root_path) unless @current_user

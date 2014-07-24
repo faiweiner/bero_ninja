@@ -5,7 +5,11 @@ var showPlaces = function(userLocation){
 var success = function(position) {
   var userLocation = position.coords;
   display_map(userLocation.latitude, userLocation.longitude, 15);
-  add_marker(userLocation.latitude, userLocation.longitude)
+  add_marker(userLocation.latitude, userLocation.longitude);
+
+  if (typeof dropPins === 'function') {
+    dropPins();
+  }
 };
 
 var error = function(err) {
@@ -16,7 +20,8 @@ navigator.geolocation.getCurrentPosition(success, error);
 
   $('#new_place').on('ajax:success', function (event,place){
     $('#new_place').get(0).reset();
-    add_marker(place.latitude, place.longitude, place.address);
+    place_marker(place.latitude, place.longitude, place.address);
+    binding.pry
   });
 };
 var map;
@@ -32,7 +37,7 @@ var display_map = function (latitude, longitude, zoom) {
         "featureType": "all",
         "stylers": [
             {
-                "saturation": -95
+                "saturation": -100
             },
             {
                 "gamma": 0.5
@@ -47,9 +52,9 @@ var display_map = function (latitude, longitude, zoom) {
 
   map = new google.maps.Map(canvas, mapOptions);
 
-  google.maps.event.addListener(map, 'click', function(e) {
-    placeMarker(e.latLng, map);
-  });
+  // google.maps.event.addListener(map, 'click', function(e) {
+  //   placeMarker(e.latLng, map);
+  // });
 
   function placeMarker(position, map) {
      var pin = {
@@ -69,17 +74,24 @@ var display_map = function (latitude, longitude, zoom) {
 };
 
 var add_marker = function (latitude, longitude, address) {
-  var pin = {
-    path: google.maps.SymbolPath.CIRCLE,
-    scale: 5,
-    strokeColor: '#1D5170',
-    strokeWeight: 5
-  };
+  var pin = "/assets/map-marker-red.png", width = "10px", height = "10px";
+    // scale: 5,
+
+  
+  // var pin = {
+  //   path: google.maps.SymbolPath.CIRCLE,
+  //   scale: 10,
+  //   strokeColor: '#C14842',
+  //   // fillColor: '#DB524B',
+  //   // fillOpacity: 1,
+  //   strokeWeight: 7
+  // };
+
   var latlng = new google.maps.LatLng(latitude, longitude);
   var marker = new google.maps.Marker({
     position: latlng,
     map: map,
-    address: address,
+    //address: address,
     icon: pin,
     animation: google.maps.Animation.DROP
   });

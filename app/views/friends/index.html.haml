@@ -1,4 +1,4 @@
-%div#map_canvas
+%div#map_canvas.small-map
 %div.container
 	%ul
 		-@friends.each do |friend|
@@ -13,8 +13,9 @@
 	= "showPlaces();"
 	= "});"
 
-/ %script
-/ 	= "$(document).ready(function () {"
-/ 	- @places.each do |place|
-/ 		= "add_marker(#{place.latitude}, #{place.longitude}, #{place.address});"
-/ 		= "});"
+%script
+	= "var dropPins = function () {"
+	- @friends.each do |friend|
+		- location = friend.locations.last
+		= "add_marker(#{location.latitude}, #{location.longitude});"
+	= "};"

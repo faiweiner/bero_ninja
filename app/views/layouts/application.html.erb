@@ -6,7 +6,10 @@
   <%= javascript_include_tag 'modernizr', 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCOyQtlbaBQsKX9Q3BGWIl_FVU5MGCKguM'%>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+
   <%= csrf_meta_tags %>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
   <!-- Nav Bar -->
@@ -30,10 +33,7 @@
   <!-- BEGIN Page Content -->
     <%= yield %>
     <!-- below DIV detects the size  of the screen -->
-      <div id="desktopTest" class="hidden-xs"></div>
-      <footer>
-        <p class="text-muted">Team RBF - WDI5</p>
-      </footer>
+      <!-- <div id="desktopTest" class="hidden-xs"></div> -->
   </div>
 </div>
 <!-- Footer -->

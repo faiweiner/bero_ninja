@@ -1,11 +1,22 @@
-#compass{
-  width:200px;
-  height: 200px;
-  margin:0 auto;
-  /*font-size:50em;*/
+body {
+  transform-origin: 50% 50%;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+}
+
+.container {
   text-align:center;
+}
+#compassContainer {
+  text-align:center;
+  padding: 25% 0;
+  padding-top:18%;
+}
+#compass{
   padding:0;
-  background: -webkit-gradient(radial, 100 0 , 100, 0 0, 900, from(#FF213D), to(#0E213D));
+  font-size:20em;
+  text-align:center;
+  background-color: -webkit-gradient(radial, 100 0 , 100, 0 0, 900, from(#FF213D), to(#0E213D));
  /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;*/
   transform-origin: 50% 50%;

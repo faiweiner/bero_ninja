@@ -17,7 +17,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100);
-
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(asset_path('glyphicons-halflings-regular.eot'));
+  src: url(asset_path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'), url(asset_path('glyphicons-halflings-regular.woff')) format('woff'), url(asset_path('glyphicons-halflings-regular.ttf')) format('truetype'), url(asset_path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
+}
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+}
 	/*input[type="submit"].btn-block{
 		width: 90%;
 	}*/
@@ -81,13 +91,27 @@ li {
 .dropdown-menu .divider {
   background-color:#312F2F;
 }
+
+#showDistance {
+  font-size:3em;
+}
 /* ----- Buttons and alerts ------ */
 .alert {
   margin:20px 0;
 }
 
 .btn {
-  font-weight:300;
+  font-weight: 300;
+  margin:10px 0;
+}
+
+.panel-primary {
+  border-color: #d9534f;
+}
+
+.panel-primary > .panel-heading {
+  border-color: #d9534f;
+  background-color: #d9534f;
 }
 
  /* -------Smartphones: Media Queries -------- */
@@ -106,4 +130,10 @@ li {
   }
 }
 
+.invisible {
+  display:none;
+}
+.checkbox input[type="checkbox"] {
+  margin-left: 0;
+}
 

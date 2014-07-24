@@ -1,23 +1,24 @@
 / Form to sign in
 
--if flash[:notice]
-  %div.notice
-    %h3.page-header
-      =flash[:notice]
-%div.col-md-12
-  %h3.form-signin-heading Sign In
-%div.col-md-6
-  = form_tag sessions_path, :class => "form-signin", :roll => "form" do
-    .input-group
-      = label_tag :username
-      = text_field_tag :username, nil, :class => "form-control", :required => true, :autofocus => true
-    .input-group
-      = label_tag :password
-      = password_field_tag :password, nil, :class => "form-control", :required => true
-    .checkbox
-      %input{:tag => "input", :type => "checkbox", :checked => false, :value => "remember-me" }
-      = label_tag :remember_me
-    .input-group
-      = submit_tag 'Login', :class => "btn btn-md btn-primary btn-block"
-%div.col-md-6
-  = link_to('Sign in with instagram', "/oauth/authorize", :class =>"btn btn-md btn-primary")
+%div.container-fluid
+  -if flash[:notice]
+    %div.notice
+      %h3.page-header
+        =flash[:notice]
+  %div.row      
+  %div.col-sm-3.col-sm-offset-5
+    %h3.form-signin-heading Sign In
+    = form_tag sessions_path, :class => "form-signin", :roll => "form" do
+      .input-group
+        = label_tag :username
+        = text_field_tag :username, nil, :class => "form-control", :required => true, :autofocus => true
+      .input-group
+        = label_tag :password
+        = password_field_tag :password, nil, :class => "form-control", :required => true
+      .checkbox
+        %input{:tag => "input", :type => "checkbox", :checked => false, :value => "remember-me" }
+        = label_tag :remember_me
+      .input-group
+        = submit_tag 'Login', :class => "btn btn-md btn-danger btn-block"
+  
+        = link_to('Sign in with instagram', "/oauth/authorize", :class =>"btn btn-md btn-danger btn-block")

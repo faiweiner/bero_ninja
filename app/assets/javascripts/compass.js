@@ -47,22 +47,7 @@ $(document).ready(function() {
                 //Rotation is reversed for FF
                 compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
 
-                console.log(userCompass.distance)
-                var distanceNow = parseInt(userCompass.distance);
-                userCompass.distanceOrig = userCompass.distanceOrig || distanceNow;
-                console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow);
-                // Finding the range of colors in percentage for distance.
-                var range = 3000 * (1- (distanceNow/userCompass.distanceOrig));
-                // distanceNow = (4000/distanceNow);
-                console.log(range);
-                var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + range +', from(#FF213D), to(#0E213D))';
-                $('#compass').css('background', compassGradient);
-                console.log(compassGradient);
 
-                // var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
-                // $('#compass').css('background', compassGradient);
-                // $('#compass').css({'-webkit-background-clip': 'text'});
-                // $('#compass').css({'-webkit-text-fill-color': transparent});
 
               }, false);
     }
