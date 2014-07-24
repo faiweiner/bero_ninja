@@ -1,18 +1,18 @@
 %script
   = "$(document).ready(function () {"
-  = "userCompass.userLocation(); userCompass.runCompass();"
+  = "friendsCompass.userLocation(); friendsCompass.runCompass();"
   = "});"
 %div.container
   %h1
-    =@place.address
+    =@friend.username
 
   %div
     %h3 Latitude
     %p#location_latitude
-      = @place.latitude
+      = @friend.locations.last.latitude
     %h3 Longitude
     %p#location_longitude
-      = @place.longitude
+      = @friend.locations.last.longitude
 
     %h3
     = @bearing
@@ -48,7 +48,7 @@
   %p
     version:
     %span#version
-
+  
   %p.log
   
   %div.row

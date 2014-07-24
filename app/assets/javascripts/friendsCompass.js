@@ -1,4 +1,4 @@
-var userCompass = userCompass || {};
+var friendsCompass = friendsCompass || {};
 
 $(document).ready(function() {
 
@@ -6,23 +6,23 @@ $(document).ready(function() {
     return;
   }
 
-  if (window.location.pathname.indexOf("/places/", 0) == 0) {
+  if (window.location.pathname.indexOf("/friends/", 0) == 0) {
 
 
-    userCompass.runCompass = function () {
+    friendsCompass.runCompass = function () {
         var compass = document.getElementById('compass');
         if(window.DeviceOrientationEvent) {
 
           window.addEventListener('deviceorientation', function(event) {
                 var alpha;
 
-                // var log = (new Date()) + " userCompass webKitCompassHeading: " + event.webkitCompassHeading;
+                // var log = (new Date()) + " friendsCompass webKitCompassHeading: " + event.webkitCompassHeading;
                 // $('.log').prepend('<p>' + log + '</p>');
 
                 //Check for iOS property
                 if(event.webkitCompassHeading !== undefined) {
                   
-                  alpha = -(event.webkitCompassHeading) + userCompass.bearing
+                  alpha = -(event.webkitCompassHeading) + friendsCompass.bearing
                   // alpha = Math.abs(alpha);
                   $('#alpha').text(event.webkitCompassHeading);
                   $('#accuracy').text(event.webkitCompassAccuracy);
@@ -34,7 +34,7 @@ $(document).ready(function() {
                 //non iOS
                 else {
                   alpha = event.alpha;
-                  webkitAlpha = alpha + userCompass.bearing;
+                  webkitAlpha = alpha + friendsCompass.bearing;
                   $('#webkitAlpha').text(webkitAlpha);
                   if(!window.chrome) {
                     //Assume Android stock (this is crude, but good enough for our example) and apply offset

@@ -29,14 +29,24 @@
  .btn-block{
  	width: 90%;
  }*/
-ul{
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  /*background-color: #222222;*/
+  /*color: #222222;*/
+}
+ /* ----- List Styles ----- */
+
+ul {
 	padding: 0;
 }
 
-li{
+li {
 	list-style: none;
 }
 
+/* ----- Nav bar styles ---- */
 .navbar {
   border-radius: 0;
   margin-bottom: 0;
@@ -44,8 +54,7 @@ li{
 
 .navbar-nav {
   float: right;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -54,8 +63,10 @@ li{
 
 .navbar-inverse .navbar-brand {
   color: #d9534f;
-  font-size: 2em;
-  text-shadow: 0px -1px 0px rgba(140,54,51,0.9); ;
+  font-size: 2.5em;
+  font-weight:400;
+  font-family:'helvetica', sans-serif;
+  text-shadow: 0px -1px 0px rgba(140,54,51,0.9);
 }
 
 .dropdown-black {
@@ -64,8 +75,35 @@ li{
 
 .dropdown-menu > li > a {
   color:#ccc;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
 }
 
- /* Smartphones ----------- */
+.dropdown-menu .divider {
+  background-color:#312F2F;
+}
+/* ----- Buttons and alerts ------ */
+.alert {
+  margin:20px 0;
+}
+
+.btn {
+  font-weight:300;
+}
+
+ /* -------Smartphones: Media Queries -------- */
+
+@media only screen and (max-width : 767px) {
+
+  /* ----- Media queries nav bar styles ---- */
+
+  .navbar-nav {
+    float:left;
+    width:100%;
+  }
+
+  .dropdown-black {
+    background-color: #090909;
+  }
+}
+
+
