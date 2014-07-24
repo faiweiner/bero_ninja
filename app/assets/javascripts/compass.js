@@ -49,12 +49,12 @@ $(document).ready(function() {
                 compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
                 //Rotation is reversed for FF
                 compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
-
+                console.log(userCompass.distance.first)
                 var distanceNow = parseInt(userCompass.distance);
                 // Finding the range of colors in percentage for distance.
                 // range = 3000(1- (distanceNow/distanceOrig));
-                dist = (4000/dist);
-                var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
+                distanceNow = (4000/distanceNow);
+                var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + distanceNow +', from(#FF213D), to(#0E213D))';
                 $('#compass').css('background', compassGradient);
                 console.log(compassGradient);
 
