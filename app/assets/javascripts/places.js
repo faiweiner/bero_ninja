@@ -4,7 +4,7 @@ var showPlaces = function(userLocation){
 // and drop a marker on current location.
 var success = function(position) {
   var userLocation = position.coords;
-  showPlaces(userLocation);
+  display_map(userLocation.latitude, userLocation.longitude, 10);
 };
 
 var error = function(err) {
@@ -13,8 +13,8 @@ var error = function(err) {
 
 navigator.geolocation.getCurrentPosition(success, error);
 
-display_map(userLocation.latitude, userLocation.longitude, 12);
-add_marker(userLocation.latitude, userLocation.longitude, "ME");
+// display_map(userLocation.latitude, userLocation.longitude, 12);
+// add_marker(userLocation.latitude, userLocation.longitude, "ME");
 
   $('#new_place').on('ajax:success', function (event,place){
     $('#new_place').get(0).reset();
