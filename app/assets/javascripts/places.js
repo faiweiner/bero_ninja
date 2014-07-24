@@ -4,7 +4,8 @@ var showPlaces = function(userLocation){
 // and drop a marker on current location.
 var success = function(position) {
   var userLocation = position.coords;
-  display_map(userLocation.latitude, userLocation.longitude, 10);
+  display_map(userLocation.latitude, userLocation.longitude, 16);
+  add_marker(userLocation.latitude, userLocation.longitude)
 };
 
 var error = function(err) {
@@ -12,9 +13,6 @@ var error = function(err) {
 };
 
 navigator.geolocation.getCurrentPosition(success, error);
-
-// display_map(userLocation.latitude, userLocation.longitude, 12);
-// add_marker(userLocation.latitude, userLocation.longitude, "ME");
 
   $('#new_place').on('ajax:success', function (event,place){
     $('#new_place').get(0).reset();
@@ -27,56 +25,22 @@ var display_map = function (latitude, longitude, zoom) {
   var mapOptions = {
     center: new google.maps.LatLng(latitude, longitude),
     zoom: zoom,
+    disableDefaultUI: true,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    styles: [{
-      "featureType": "landscape.natural",
-      "elementType": "geometry.fill",
-      "stylers": [{
-        "visibility": "on"
-      }, {
-        "color": "#e0efef"
-      }]
-    }, {
-      "featureType": "poi",
-      "elementType": "geometry.fill",
-      "stylers": [{
-        "visibility": "on"
-      }, {
-        "hue": "#1900ff"
-      }, {
-        "color": "#c0e8e8"
-      }]
-    }, {
-      "featureType": "landscape.man_made",
-      "elementType": "geometry.fill"
-    }, {
-      "featureType": "road",
-      "elementType": "geometry",
-      "stylers": [{
-        "lightness": 100
-      }, {
-        "visibility": "simplified"
-      }]
-    }, {
-      "featureType": "road",
-      "elementType": "labels",
-      "stylers": [{
-        "visibility": "off"
-      }]
-    }, {
-      "featureType": "water",
-      "stylers": [{
-        "color": "#7dcdcd"
-      }]
-    }, {
-      "featureType": "transit.line",
-      "elementType": "geometry",
-      "stylers": [{
-        "visibility": "on"
-      }, {
-        "lightness": 700
-      }]
-    }]
+    styles: [
+    {
+        "featureType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "gamma": 0.5
+            }
+        ]
+    }
+]
+
   };
 
   var canvas = $('#map_canvas').get(0);
@@ -103,7 +67,6 @@ var display_map = function (latitude, longitude, zoom) {
     });
   }
 };
-
 
 var add_marker = function (latitude, longitude, address) {
   var pin = {
