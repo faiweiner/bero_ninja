@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 	get '/users/current' => 'users#current'
 	resources :users, except: :update
 	resources :sessions, only: [:new, :create, :destroy]
-	resources :friendships
+	
+	get '/friendships/search' => 'friendships#search'
 	post '/friendships/:id' => 'friendships#update'
+	resources :friendships
 	resources :places
 	resources :friends
 	
