@@ -14,7 +14,8 @@
 	= "});"
 
 %script
-	= "$(document).ready(function () {"
+	= "var dropPins = function () {"
 	- @friends.each do |friend|
-		= "add_marker(#{@friend.locations.last.latitude}, #{@friend.locations.last.longitude});"
-		= "});"
+		- location = friend.locations.last
+		= "add_marker(#{location.latitude}, #{location.longitude});"
+	= "};"

@@ -40,8 +40,8 @@ class FriendsController < ApplicationController
     # @location << @coordinates << @compass << @distance
     
     # binding.pry
-    # @current_user.locations.update(@current_user.locations.last.id, :latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
-    update
+    @current_user.locations.first.update(:latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
+    # update
 
     render :json => @location
     # render :json => @bearing
