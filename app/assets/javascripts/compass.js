@@ -16,7 +16,7 @@ $(document).ready(function() {
           window.addEventListener('deviceorientation', function(event) {
                 var alpha;
 
-                var log = (new Date()) + " userCompass webKitCompassHeading: " + event.webKitCompassHeading;
+                var log = (new Date()) + " userCompass webKitCompassHeading: " + event.webkitCompassHeading;
                 $('.log').prepend('<p>' + log + '</p>');
 
                 //Check for iOS property
