@@ -4,7 +4,7 @@ var showPlaces = function(userLocation){
 // and drop a marker on current location.
 var success = function(position) {
   var userLocation = position.coords;
-  display_map(userLocation.latitude, userLocation.longitude, 16);
+  display_map(userLocation.latitude, userLocation.longitude, 15);
   add_marker(userLocation.latitude, userLocation.longitude)
 };
 
@@ -32,7 +32,7 @@ var display_map = function (latitude, longitude, zoom) {
         "featureType": "all",
         "stylers": [
             {
-                "saturation": -100
+                "saturation": -95
             },
             {
                 "gamma": 0.5
