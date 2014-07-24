@@ -2,23 +2,20 @@ var userCompass = userCompass || {};
 
 $(document).ready(function() {
 
-  if (window.location.pathname == '/places/new') {
-    return;
-  }
-
   if (window.location.pathname.indexOf("/places/", 0) == 0) {
+    userCompass.runCompass;
+  } else if (window.location.pathname.indexOf("/friends/", 0) == 0) {
+    userCompass.runCompass;
+  } else {
+    return;
+  };
 
+  userCompass.runCompass = function () {
+    var compass = document.getElementById('compass');
+    if(window.DeviceOrientationEvent) {
 
-    userCompass.runCompass = function () {
-        var compass = document.getElementById('compass');
-        if(window.DeviceOrientationEvent) {
-
-          window.addEventListener('deviceorientation', function(event) {
-                var alpha;
-
-                // var log = (new Date()) + " userCompass webKitCompassHeading: " + event.webkitCompassHeading;
-                // $('.log').prepend('<p>' + log + '</p>');
-
+      window.addEventListener('deviceorientation', function(event) {
+        var alpha;
                 //Check for iOS property
 
                 if(event.webkitCompassHeading !== undefined) {
@@ -38,7 +35,7 @@ $(document).ready(function() {
                   webkitAlpha = alpha + userCompass.bearing;
                   $('#webkitAlpha').text(webkitAlpha);
                   if(!window.chrome) {
-                    //Assume Android stock (this is crude, but good enough for our example) and apply offset
+                    //Assume (make an ass out of u and me) Android stock and apply offset
                     webkitAlpha = alpha-270;
                     $('#webkitAlpha').text(webkitAlpha);
 
@@ -68,10 +65,7 @@ $(document).ready(function() {
                 // $('#compass').css({'-webkit-text-fill-color': transparent});
 
               }, false);
-        }
-      }
-
-    // window.setTimeout(init, 1500);
-    // init();
+    }
   }
 });
+
