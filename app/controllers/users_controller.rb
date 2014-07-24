@@ -48,9 +48,14 @@ class UsersController < ApplicationController
 		if @current_user == nil
 			redirect_to(root_path)
 		else
-			flash[:alert] = "SIGN IN!"
-			flash[:notice] = "Welcome back, #{@user.username}!"
-      redirect_to(user_path(@user.id))
+			if @user.present?
+				flash[:alert] = "SIGN IN!"
+				flash[:notice] = "Welcome back, #{@user.username}!"
+	      redirect_to(user_path(@user.id))
+	    else
+	    	flash[:notice] = "Welcome #{@current_user.username}!"
+	    	redirect_to(user_path(@current_user.id))
+	    end
 		end
 	end
 	

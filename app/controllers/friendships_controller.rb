@@ -63,19 +63,21 @@ class FriendshipsController < ApplicationController
 
 	def destroy
 		friendship = Friendship.find(params[:id])
-		# if Friendship.where(friend_id: @current_user.id, user_id: friendship.friend_id).present?
-		# 	inverse_friendship = Friendship.find_by(friend_id: @current_user.id, user_id: friendship.friend_id)
-		# 	inverse_friendship.destroy
-		# end
-		# raise params
-		# friendship.destroy
-		# flash[:notice] = "Successfully deleted friendship."
+		if Friendship.where(friend_id: @current_user.id, user_id: friendship.friend_id).present?
+			inverse_friendship = Friendship.find_by(friend_id: @current_user.id, user_id: friendship.friend_id)
+			inverse_friendship.destroy
+		end
+		friendship.destroy
+		flash[:notice] = "Successfully deleted friendship."
 		redirect_to friendships_path
 	end
 
 	def search
 		search_term = params[:user_search]
-		@search_results = User.where(username: search_term).first
+		@search_results = []
+		@search_results << User.where(username: search_term).first
+		User.where("username LIKE ?", "%#{params[:user_search]}%")
+		raise params.inspect
 		render :json => @search_results
 	end
 end

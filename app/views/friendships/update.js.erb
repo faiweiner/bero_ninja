@@ -2,23 +2,27 @@ var friend_username = "<%= @requester.username %>";
 var friend_id = "<%= @requester.id %>";
 var friend_is_online = "<%= @requester.is_online %>";
 
-$friendsTable = $('#user-friends').find('tbody');
+friendsTable = $('#user-friends').find('tbody');
 var $tr = $("<tr/>");
 var $td1 = $("<td/>");
 var $td2 = $("<td/>");
-var $td3 = $("<td/>");
 var $td4 = $("<td/>");
-var $a = $("<a data-method='delete' href='/friendships/<%= @friendship_id %>' rel='nofollow'>Remove</a>");
+var $a = $("<a/>");
+var friendship_id = "<%= @friendship_id %>";
 
 $td1.text(friend_username);
 $td2.text(friend_is_online);
-$td3.text("no go");
-$td4.text($a);
+$a.attr({
+	"data-method": "delete",
+	href: "/friendships/" + friendship_id,
+	rel: "nofollow"
+});
+$a.text("Remove");
 
 $td1.appendTo($tr);
 $td2.appendTo($tr);
-$td3.appendTo($tr);
+$a.appendTo($td4);
 $td4.appendTo($tr);
-$tr.appendTo($friendsTable);
+$tr.appendTo(friendsTable);
 
 $('#btn-accept-request-<%= @friendship_id %>').closest('tr').remove();

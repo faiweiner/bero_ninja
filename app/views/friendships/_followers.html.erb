@@ -15,29 +15,29 @@
 					<td><%= image_tag(User.find(friendship.user_id).profile_picture, class: "img-circle", :size => "20" ) %></td>
 					<td><%= User.find(friendship.user_id).username %> would like to friend you.</td>
 					<td><%= button_to("Accept", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "friendship-accept-request btn btn-xs btn-primary", :remote => true) %></td>
-					<td><%= button_to("Deny-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-deny-#{friendship.id}", :class => "friendship-deny-request btn btn-xs btn-primary", :method => "delete", "data-toggle" => "modal", "data-target" => "#denyFriendModal") %></td>
+					<td><%= button_to("Deny-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-deny-#{friendship.id}", :class => "friendship-deny-request modal-trigger-btn btn btn-xs btn-primary", :method => "delete", "data-toggle" => "modal", "data-target" => "#denyFriendModal") %></td>
+					<!-- <td> --><%#= content_tag(:div, "Deny-#{friendship.id}", :id => "btn-accept-deny-#{friendship.id}", :class => "friendship-deny-request modal-trigger-btn btn btn-xs btn-primary", "data-toggle" => "modal", "data-target" => "#denyFriendModal", "data-id" => "#{friendship.id}") %><!-- </td> -->
 				</tr>
 			<% end %>
 		</tbody>
 	</table>
 </div>
-<!-- /User's Followers -->
 
 <!-- Modal -->
-<div class="modal fade" id="denyFriendModal" tabindex="-1" role="dialog" aria-labelledby="denyFriendModal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- <div class="modal" id="denyFriendModal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="myModalLabel">Warning!</h4>
+			</div>
+			<div class="modal-body">
+				Are you sure you want to deny this request? <span class="hidden" id="friendship-id"></span>?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-primary">Confirm</button>
+			</div>
+		</div>
+	</div>
+</div> -->

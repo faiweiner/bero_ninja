@@ -15,5 +15,3 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require_tree .
-
-$(".alert").alert()
