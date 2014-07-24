@@ -20,7 +20,7 @@ $(document).ready(function() {
                 $('.log').prepend('<p>' + log + '</p>');
 
                 //Check for iOS property
-                if(event.webkitCompassHeading) {
+                if(event.webkitCompassHeading !== undefined) {
                   
                   alpha = -(event.webkitCompassHeading) + friendsCompass.bearing
                   // alpha = Math.abs(alpha);
