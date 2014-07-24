@@ -1,11 +1,11 @@
-<!-- all user's requested friendship -->
 <% if flash[:notice] %>
 	<div class="notice">
 		<h3 class="page-header"><%= flash[:notice] %></h3>
 	</div>
 <% end %>
 
-<h2 class="sub-header">Following</h2>
+<!-- all user's friend -->
+<h2 class="sub-header">Friends</h2>
 <div class="table-responsive" id="user-friends">
 	<table class="table table-striped">
 		<thead>
@@ -17,8 +17,8 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @following.each do |friendship| %>
-				<% if friendship.approved == false %>
+			<% @current_user.friendships.each do |friendship| %>
+				<% if friendship.approved == true %>
 					<tr>
 						<td><%= friendship.friend.username %></td>
 						<td><%= friendship.friend.is_online %></td>
@@ -30,4 +30,4 @@
 		</tbody>
 	</table>
 </div>
-<!-- /all users being followed -->
+<!-- /all user's friend -->

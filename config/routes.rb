@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	resources :users, except: :update
 	resources :sessions, only: [:new, :create, :destroy]
 	resources :friendships
+	post '/friendships/:id' => 'friendships#update'
 	resources :places
 	resources :friends
 	get '/places/:id/lookup' => 'places#lookup'

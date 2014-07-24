@@ -1,6 +1,11 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12 col-md-8">	
+			<% if flash[:notice] %>
+				<div class="notice">
+					<h3 class="page-header"><%= flash[:notice] %></h3>
+				</div>
+			<% end %>
 			<h1 class="page-header">Manage Friends</h1>
 			<div class="row placeholders">
 				<%= render partial: "search" %>
@@ -27,8 +32,10 @@
 					<span class="text-muted">Something else</span>
 				</div>
 			</div>
+			<%= render partial: "friendships" %>
 			<%= render partial: "following" %>
 			<%= render partial: "followers" %>
+			<%= render partial: "users/all" %>
 		</div>
 	</div>
 
