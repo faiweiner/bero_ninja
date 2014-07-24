@@ -17,7 +17,7 @@ $(document).ready(function() {
                 var alpha;
                 //Check for iOS property
                 if(event.webkitCompassHeading) {
-                  
+
                   alpha = -(event.webkitCompassHeading) + userCompass.bearing
                   // alpha = Math.abs(alpha);
                   $('#alpha').text(event.webkitCompassHeading);
@@ -44,8 +44,16 @@ $(document).ready(function() {
                 compass.style.WebkitTransform = 'rotate('+ webkitAlpha + 'deg)';
                 //Rotation is reversed for FF
                 compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
-                // var grad = parseInt(userCompass.distance);
-                // var compassGradient = '-webkit-gradient(radial, 100 0 , 100, 0 0,' + 900-grad +', from(#FF213D), to(#0E213D))';
+
+                var distanceNow = parseInt(userCompass.distance);
+                // Finding the range of colors in percentage for distance.
+                // range = 3000(1- (distanceNow/distanceOrig));
+                dist = (4000/dist);
+                var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
+                $('#compass').css('background', compassGradient);
+                console.log(compassGradient);
+
+                // var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
                 // $('#compass').css('background', compassGradient);
                 // $('#compass').css({'-webkit-background-clip': 'text'});
                 // $('#compass').css({'-webkit-text-fill-color': transparent});
