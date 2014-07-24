@@ -5,7 +5,7 @@
   /*font-size:50em;*/
   text-align:center;
   padding:0;
-  background: -webkit-gradient(radial, 100 0 , 100, 0 0, 900, from(#FF213D), to(#0E213D));
+  background-color: -webkit-gradient(radial, 100 0 , 100, 0 0, 900, from(#FF213D), to(#0E213D));
  /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;*/
   transform-origin: 50% 50%;
