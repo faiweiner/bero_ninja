@@ -20,7 +20,7 @@ module ApplicationHelper
 			links +=	"</li>"
 			links +=	"<li class='dropdown'>"
 			links +=		"<a href=' class='dropdown-toggle' data-toggle='dropdown'>Friends <span class='caret'></span></a>"
-			links +=		"<ul class='dropdown-menu navbar-inverse dropdown-black' role='menu'>"
+			links +=		"<ul class='dropdown-menu navbar-inverse' role='menu'>"
 			links +=			"<li>"
 			links +=				link_to("Bero a friend", friends_path)
 			links +=			"</li>"
