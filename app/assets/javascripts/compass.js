@@ -48,8 +48,9 @@ $(document).ready(function() {
                 compass.style.MozTransform = 'rotate(-' + alpha + 'deg)';
 
                 console.log(userCompass.distance)
-                var distanceNow = parseInt(userCompass.distance);
+                var distanceNow = userCompass.distance;
                 userCompass.distanceOrig = userCompass.distanceOrig || distanceNow;
+                $('#compassContainer').text('original distance: '+ userCompass.distanceOrig + ' distance now: '+ distanceNow)
                 console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow);
                 // Finding the range of colors in percentage for distance.
 
@@ -59,18 +60,15 @@ $(document).ready(function() {
                   console.log(range);
                 } else {
                   range = 3000 * (1 - (0.9));
-                  // return range;
+
                   console.log(range);
                 }
-                // distanceNow = (4000/distanceNow);
+
                 console.log('range: '+ range);
                 var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + parseInt(range) +', from(#FF213D), to(#0E213D))';
                 $('#compass').css('background', compassGradient);
                 console.log(compassGradient);
 
-
-                // var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + dist +', from(#FF213D), to(#0E213D))';
-                // $('body').css('background', compassGradient);
                 $('#compass').css({'-webkit-background-clip': 'text'});
                 $('#compass').css({'-webkit-text-fill-color': 'transparent'});
 
