@@ -1,0 +1,22 @@
+var friend_username = "<%= @requester.username %>";
+var friend_id = "<%= @requester.id %>";
+var friend_is_online = "<%= @requester.is_online %>";
+
+$friendsTable = $('#user-friends').find('tbody');
+var $tr = $("<tr/>");
+var $td1 = $("<td/>");
+var $td2 = $("<td/>");
+var $td3 = $("<td/>");
+var $td4 = $("<td/>");
+var $a = $("<a data-method='delete' href='/friendships/<%= @friendship_id %>' rel='nofollow'>Remove</a>");
+
+$td1.text(friend_username);
+$td2.text(friend_is_online);
+$td3.text("no go");
+$td4.text($a);
+
+$td1.appendTo($tr);
+$td2.appendTo($tr);
+$td3.appendTo($tr);
+$td4.appendTo($tr);
+$tr.appendTo($friendsTable);

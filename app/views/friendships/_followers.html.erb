@@ -1,12 +1,7 @@
-<% if flash[:notice] %>
-	<div class="notice">
-		<h3 class="page-header"><%= flash[:notice] %></h3>
-	</div>
-<% end %>
-
 <!-- User's Followers -->
 <h2 class="sub-header">Followers</h2>
 <div class="table-responsive" id="user-friends">
+<button class="btn btn-lg" id="test"> Hello </button>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -20,7 +15,7 @@
 				<tr>
 					<td><%= image_tag(User.find(friendship.user_id).profile_picture, class: "img-circle", :size => "20" ) %></td>
 					<td><%= User.find(friendship.user_id).username %> would like to friend you.</td>
-					<td><%= button_to("Accept-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "friendship-accept-request btn btn-xs btn-primary", :remote => true ) %></td>
+					<td><%= button_to("Accept-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "friendship-accept-request btn btn-xs btn-primary", :remote => true) %></td>
 					<td><%= button_to("Deny-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-deny-#{friendship.id}", :class => "friendship-deny-request btn btn-xs btn-primary") %></td>
 				</tr>
 			<% end %>

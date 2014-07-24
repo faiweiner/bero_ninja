@@ -45,12 +45,17 @@ class FriendshipsController < ApplicationController
 		end
 		
 		if friendship_instance.friend_id == @current_user.id
-			friendship_instance.approved = true
-			inverse_friendship_instance.approved = true
-			friendship_instance.save
-			inverse_friendship_instance.save
-			# raise "Im about to save mutual friendships!"
-			render :json =>  { :status => 'okay', :notice => "You and #{inverse_friendship_instance.friend.username} are now connected!" }
+			# friendship_instance.approved = true
+			# inverse_friendship_instance.approved = true
+			# friendship_instance.save
+			# inverse_friendship_instance.save
+			# requester_id = friendship_instance.user_id
+			# @friendship_id = friendship_instance.id
+			# @requester = User.where(id: requester_id).first
+			respond_to do |format|
+				format.js
+			end
+			# =>  { :status => 'okay', :notice => "You and #{inverse_friendship_instance.friend.username} are now connected!" }
 		else
 			render :json =>  { :status => 'not okay', :notice => "Something went wrong and we can't do this shit." }
 		end
@@ -62,7 +67,7 @@ class FriendshipsController < ApplicationController
 		inverse_friendship.destroy
 		friendship.destroy
 		flash[:notice] = "Successfully deleted friendship."
-		redirect_to :root
+		redirect_to friendships_path
 	end
 
 	def search
