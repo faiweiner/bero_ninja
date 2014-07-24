@@ -32,7 +32,7 @@ var display_map = function (latitude, longitude, zoom) {
         "featureType": "all",
         "stylers": [
             {
-                "saturation": -95
+                "saturation": -100
             },
             {
                 "gamma": 0.5
