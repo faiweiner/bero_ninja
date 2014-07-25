@@ -1,6 +1,9 @@
 <div class="container-fluid">
-		<div class="col-sm-6 col-sm-offset-3">
-	<h3>Search Results for "<%= params[:search] %>"</h3>
+	<div class="col-sm-6 col-sm-offset-3">
+		<h3>Search Results for "<%= params[:search] %>"</h3>
+		<% if @search_results.empty? %>
+			No results matching your search.
+		<% else %>
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -23,6 +26,9 @@
 					<% end %>
 				</tbody>
 			</table>
+		<% end %>
+		<div>
 			<%= link_to("Return", friendships_path, class: "btn btn-primary")%>
 		</div>
+	</div>
 </div>

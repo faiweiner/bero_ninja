@@ -6,17 +6,14 @@
 			<thead>
 				<tr>
 					<th>Feed</th>
-					<th></th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody id="tbl-incoming-requests" class="text-left">
 				<% @incoming_requests.each do |friendship|%>
 				<tr>
-					<td><%= image_tag(User.find(friendship.user_id).profile_picture, class: "img-circle", :size => "20" ) %></td>
-					<td><%= User.find(friendship.user_id).username %> would like to friend you.</td>
-					<td><%= button_to("Accept", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "friendship-accept-request btn btn-xs btn-primary", :remote => true) %></td>
-					<td><%= button_to("Deny-#{friendship.id}", friendship_path(friendship.id), :id => "btn-accept-deny-#{friendship.id}", :class => "friendship-deny-request modal-trigger-btn btn btn-xs btn-primary", :method => "delete", "data-toggle" => "modal", "data-target" => "#denyFriendModal") %></td>
+					<td><%= image_tag(User.find(friendship.user_id).profile_picture, class: "img-circle", :size => "20" ) %><%= User.find(friendship.user_id).username %> would like to friend you.</td>
+					<td><%= button_to("Accept", friendship_path(friendship.id), :id => "btn-accept-request-#{friendship.id}", :class => "friendship-accept-request btn btn-sm btn-primary", :remote => true) %></td>
+					<td><%= button_to("Deny", friendship_path(friendship.id), :id => "btn-accept-deny-#{friendship.id}", :class => "friendship-deny-request modal-trigger-btn btn btn-sm btn-primary", :method => "delete", "data-toggle" => "modal", "data-target" => "#denyFriendModal") %></td>
 					<!-- <td> --><%#= content_tag(:div, "Deny-#{friendship.id}", :id => "btn-accept-deny-#{friendship.id}", :class => "friendship-deny-request modal-trigger-btn btn btn-xs btn-primary", "data-toggle" => "modal", "data-target" => "#denyFriendModal", "data-id" => "#{friendship.id}") %><!-- </td> -->
 				</tr>
 				<% end %>
