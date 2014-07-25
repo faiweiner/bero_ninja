@@ -79,6 +79,12 @@ class FriendshipsController < ApplicationController
 	end
 
 	def results
-		
+		search_term = params[:search]
+		@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(10)
+		friends = @current_user.friends
+		@friends_username = []
+		friends.each do |friend|
+			@friends_username << friend.username
+		end
 	end
 end

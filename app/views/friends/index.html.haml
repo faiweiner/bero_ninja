@@ -17,5 +17,6 @@
 	= "var dropPins = function () {"
 	- @friends.each do |friend|
 		- location = friend.locations.last
-		= "add_marker(#{location.latitude}, #{location.longitude});"
+		- if location != nil
+			= "add_marker(#{location.latitude}, #{location.longitude});"
 	= "};"
