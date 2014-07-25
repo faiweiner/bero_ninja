@@ -1,11 +1,11 @@
 %div#map_canvas.small-map
-%div.container
+%div.container-fluid
 	%ul
 		-@friends.each do |friend|
 			%li.lead.text-center
 				=link_to("#{friend.username}", "/friends/#{friend.id}")
 
-	%a.btn.btn-danger.btn-lg.btn-block{:href => '/friendships'}> See friendships
+	%a.btn.btn-danger.btn-lg.btn-block.fixed-bottom{:href => '/friendships'}> See friendships
 
 
 %script
