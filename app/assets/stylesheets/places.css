@@ -27,9 +27,16 @@
 	z-index: 1;
 	background-color: #F1F1F1;
 	padding: 2em 4em;
-
 }
 
+.items-list{
+	position: absolute;
+	margin: 0 50%;
+	z-index: 1;
+	background-color: rgba(241, 241, 241, .9);
+	padding: 2em 4em;
+	width: 100%
+}
 .lead a {
 	text-transform:capitalize;
 }
