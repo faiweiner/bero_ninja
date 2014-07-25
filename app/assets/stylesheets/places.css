@@ -1,16 +1,19 @@
 #new_place {
   margin: 10px;
 }
+
 .small-map{
 	width: 100%;
 	height: 9em;
 }
+
 .big-map{
 	min-width: 100%;
 	min-height: 100%;
 	position: relative;
 	z-index: -10;
 }
+
 .map-blocker{
 	min-width: 100%;
 	min-height: 100%;
@@ -18,10 +21,15 @@
 	z-index: 0;
 	opacity: 0;
 }
+
 .jumbotron-login{
 	position: absolute;
 	z-index: 1;
 	background-color: #F1F1F1;
 	padding: 2em 4em;
 
+}
+
+.lead a {
+	text-transform:capitalize;
 }

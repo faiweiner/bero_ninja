@@ -1,9 +1,10 @@
 / THIS TINY THING CALLS THE WHOLE MAP!
 %div#map_canvas.small-map
 %div.container
+	%h3 Your Places:
 	%ul
 		-@places.each do |place|
-			%li.lead.text-center
+			%li.lead.text-left
 				= link_to("#{place.address}", "/places/#{place.id}")
 
 

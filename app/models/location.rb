@@ -4,8 +4,8 @@
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  latitude   :float
-#  longitude  :float
+#  latitude   :float            default(-33.86)
+#  longitude  :float            default(151.2094)
 #  created_at :datetime
 #  updated_at :datetime
 #
