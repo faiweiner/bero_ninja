@@ -69,7 +69,7 @@ class FriendshipsController < ApplicationController
 			inverse_friendship.destroy
 		end
 		friendship.destroy
-		flash[:notice] = "Successfully deleted friendship."
+		flash[:notice] = "Successfully canceled friendship."
 		redirect_to friendships_path
 	end
 
