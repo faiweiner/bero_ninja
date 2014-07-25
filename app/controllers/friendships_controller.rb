@@ -72,15 +72,15 @@ class FriendshipsController < ApplicationController
 		redirect_to friendships_path
 	end
 
-	def search
-		search_term = params[:search]
-		@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(10)
-		render :json => { :results => @search_results }
-	end
+	# def search
+	# 	search_term = params[:search]
+	# 	@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(10)
+	# 	render :json => { :results => @search_results }
+	# end
 
 	def results
 		search_term = params[:search]
-		@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(10)
+		@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(5)
 		friends = @current_user.friends
 		@friends_username = []
 		friends.each do |friend|
