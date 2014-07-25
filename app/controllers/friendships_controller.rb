@@ -17,7 +17,6 @@ class FriendshipsController < ApplicationController
 		end
 		# MUTUAL FRIENDSHIP
 		@mutual_friendships = Friendship.where(approved: true, friend_id: @current_user)
-
 	end
 
 	def new
@@ -81,11 +80,9 @@ class FriendshipsController < ApplicationController
 
 	def results
 		search_term = params[:search]
-		@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(5)
-		friends = @current_user.friends
+		@search_results = User.where("username LIKE ?", "%#{params[:search]}%").limit(5).where.not(username: @current_user.username)
+		mutual_friendships = @current_user.friendships.where(approved: "true")
 		@friends_username = []
-		friends.each do |friend|
-			@friends_username << friend.username
-		end
+		@friends_username = mutual_friendships.map {|friendship| friendship.friend.username }
 	end
 end
