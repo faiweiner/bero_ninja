@@ -10,13 +10,13 @@
 				<th>Action</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="text-left">
 			<% @current_user.friendships.each do |friendship| %>
 				<% if friendship.approved == true %>
 					<tr>
 						<td><%= friendship.friend.username %></td>
 						<td><%= friendship.friend.is_online %></td>
-						<td><%= link_to "Remove", friendship, :method => :delete %></td>
+						<td><%= link_to "Remove", friendship, :method => :delete, :data => { :confirm => "Are you sure you want to remove this friendship?" } %></td>
 					</tr>
 				<% end %>
 			<% end %>

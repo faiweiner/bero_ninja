@@ -10,7 +10,7 @@
 					<th></th>
 				</tr>
 			</thead>
-			<tbody id="tbl-incoming-requests">
+			<tbody id="tbl-incoming-requests" class="text-left">
 				<% @incoming_requests.each do |friendship|%>
 				<tr>
 					<td><%= image_tag(User.find(friendship.user_id).profile_picture, class: "img-circle", :size => "20" ) %></td>

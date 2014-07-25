@@ -17,9 +17,13 @@
 			<h1 class="page-header">Manage Friends</h1>
 		</div>
 	</div>
-	<%= render partial: "friendships" %>
+	<% if @mutual_friendships.any? %>
+		<%= render partial: "friendships" %>
+	<% end %>
 	<%= render partial: "following" %>
-	<%= render partial: "followers" %>
+	<% if @incoming_requests.any? %>
+		<%= render partial: "followers" %>
+	<% end %>
 	<%# render partial: "users/all" %>
 </div>
 </div>

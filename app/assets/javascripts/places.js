@@ -20,8 +20,7 @@ navigator.geolocation.getCurrentPosition(success, error);
 
   $('#new_place').on('ajax:success', function (event,place){
     $('#new_place').get(0).reset();
-    place_marker(place.latitude, place.longitude, place.address);
-    binding.pry
+    // place_marker(place.latitude, place.longitude, place.address);
   });
 };
 var map;

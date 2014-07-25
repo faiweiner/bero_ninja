@@ -17,6 +17,7 @@ class FriendshipsController < ApplicationController
 		end
 		# MUTUAL FRIENDSHIP
 		@mutual_friendships = Friendship.where(approved: true, friend_id: @current_user)
+
 	end
 
 	def new
