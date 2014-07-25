@@ -1,5 +1,4 @@
-%div#map_canvas.small-map
-%div.container-fluid#friends-display
+%div.container-fluid.items-list
 	%h3 Your Friends:
 	%ul
 		-@friends.each do |friend|
@@ -7,6 +6,7 @@
 				=link_to("#{friend.username}", "/friends/#{friend.id}")
 
 	%a.btn.btn-danger.btn-lg.btn-block.fixed-bottom{:href => '/friendships'}> See friendships
+%div#map_canvas.big-map
 
 
 %script

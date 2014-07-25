@@ -1,8 +1,8 @@
+%div#map_canvas.small-map
 = form_for @place, :remote => true do |f|
   = f.label :address, "Where do you want to go? Add an address!"
   = f.text_field :address, :class => 'form-control', :required => true
   = f.submit :value =>"Add Place", :class => "btn btn-lg btn-danger btn-primary btn-block", :onclick => "location.href='/places';"
-%div#map_canvas
 
 %script
   = "$(document).ready(function() {"
@@ -11,8 +11,6 @@
 
 %script
   = "$(document).ready(function () {"
-  = "$('btn')addEventListener('click', superAwesomeFunction);"
-  = "$('btn').attr('href', '/places')"
   - @places.each do |place|
     = "add_marker(#{place.latitude}, #{place.longitude}, '#{place.address}');"
   = "});"

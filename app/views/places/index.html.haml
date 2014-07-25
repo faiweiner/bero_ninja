@@ -1,14 +1,13 @@
 / THIS TINY THING CALLS THE WHOLE MAP!
-%div#map_canvas.small-map
-%div.container
+%div.container-fluid.items-list
 	%h3 Your Places:
 	%ul
 		-@places.each do |place|
 			%li.lead.text-center
 				= link_to("#{place.address}", "/places/#{place.id}")
 
-
 	%a.btn.btn-danger.btn-lg.btn-block.fixed-bottom{:href => '/places/new'}> Add a Place
+%div#map_canvas.big-map
 
 
 %script
