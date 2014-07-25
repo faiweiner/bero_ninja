@@ -13,13 +13,14 @@
 					<tr>
 						<td><%= result.username %></td>
 						<% if @friends_username.include? result.username %>
-						<td><a class="follow" data-method="post" href="/friendships?friend_id=<%=result.id%>" rel="nofollow">Follow</a></td>
+							<td>Already connected</td>
 						<% else %>
-						<td>Already connected</td>
+							<td><a class="follow" data-method="post" href="/friendships?friend_id=<%=result.id%>" rel="nofollow">Follow</a></td>
 						<% end %>
 					</tr>
 					<% end %>
 				</tbody>
 			</table>
+			<%= link_to("Return", friendships_path, class: "btn btn-primary")%>
 		</div>
 </div>
