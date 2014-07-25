@@ -1,48 +1,28 @@
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-md-8">	
+		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">	
 			<% if flash[:notice] %>
-				<div class="notice">
-					<h3 class="page-header"><%= flash[:notice] %></h3>
-				</div>
+			<div class="notice">
+				<h3 class="page-header"><%= flash[:notice] %></h3>
+			</div>
 			<% end %>
 			<div class="row placeholders">
 				<div class="span4 offset6 right" id="search-container">
 					<%= render partial: "search" %>
 					<% if @search_results.present? %>
-						<%= render partial: "search_results" %>
+					<%= render partial: "search_results" %>
 					<% end %>
 				</div>
 			</div>
 			<h1 class="page-header">Manage Friends</h1>
-			<div class="row placeholders">
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<!-- <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="200x200" src=""> -->
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-			</div>
-			<%= render partial: "friendships" %>
-			<%= render partial: "following" %>
-			<%= render partial: "followers" %>
-			<%# render partial: "users/all" %>
 		</div>
 	</div>
+	<%= render partial: "friendships" %>
+	<%= render partial: "following" %>
+	<%= render partial: "followers" %>
+	<%# render partial: "users/all" %>
+</div>
+</div>
 
 
 

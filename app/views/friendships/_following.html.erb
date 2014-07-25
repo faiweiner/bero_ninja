@@ -1,27 +1,29 @@
 <!-- all user's requested friendship -->
-<h2 class="sub-header">Following</h2>
-<div class="table-responsive" id="user-friends">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>User</th>
-				<th>Online</th>
-				<th>Action</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @following.each do |friendship| %>
+<div class="container-fluid">
+	<h2 class="sub-header">Following</h2>
+	<div class="table-responsive" id="user-friends">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>User</th>
+					<th>Online</th>
+					<th>Action</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @following.each do |friendship| %>
 				<% if friendship.approved == false %>
-					<tr>
-						<td><%= friendship.friend.username %></td>
-						<td><%= friendship.friend.is_online %></td>
-						<td><%= friendship.approved %></td>
-						<td><%= link_to "Cancel Friend Request", friendship, :method => :delete %></td>
-					</tr>
+				<tr>
+					<td><%= friendship.friend.username %></td>
+					<td><%= friendship.friend.is_online %></td>
+					<td><%= friendship.approved %></td>
+					<td><%= link_to "Cancel Friend Request", friendship, :method => :delete %></td>
+				</tr>
 				<% end %>
-			<% end %>
-		</tbody>
-	</table>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 </div>
 <!-- /all users being followed -->

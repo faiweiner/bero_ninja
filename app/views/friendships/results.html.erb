@@ -1,22 +1,27 @@
-<h3>Search Results</h3>
-
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>User</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody id="tbl-incoming-requests">
-		<% @search_results.each do |result| %>
-			<tr>
-				<td><%= result.username %></td>
-				<% if @friends_username.include? result.username %>
-					<td><a class="follow" data-method="post" href="/friendships?friend_id=<%=result.id%>" rel="nofollow">Follow</a></td>
-				<% else %>
-					<td>Already connected</td>
-				<% end %>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+	<h3>Search Results</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>User</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody id="tbl-incoming-requests">
+					<% @search_results.each do |result| %>
+					<tr>
+						<td><%= result.username %></td>
+						<% if @friends_username.include? result.username %>
+						<td><a class="follow" data-method="post" href="/friendships?friend_id=<%=result.id%>" rel="nofollow">Follow</a></td>
+						<% else %>
+						<td>Already connected</td>
+						<% end %>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
