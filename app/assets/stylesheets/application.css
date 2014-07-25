@@ -77,13 +77,13 @@ li {
 }
 
 .navbar-nav {
-	float: right;
+	/*float: right;*/
 	font-weight: 300;
 }
 
-.navbar-nav > li {
+/*.navbar-nav > li {
     float:right;
-}
+}*/
 
 .navbar-inverse .navbar-nav > li > a {
 	color: #ccc;
@@ -158,10 +158,10 @@ li {
 
 	/* ----- Media queries nav bar styles ---- */
 
-	.navbar-nav {
+/*	.navbar-nav {
 		float:left;
 		width:100%;
-	}
+	}*/
 
 	.dropdown-black {
 		background-color: #090909;
