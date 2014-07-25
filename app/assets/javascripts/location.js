@@ -62,7 +62,7 @@ $(document).ready(function() {
         var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + parseInt(range) +', from(#FF213D), to(#0E213D))';
         // $('#compass').css('background', compassGradient);
         console.log(compassGradient);
-
+        $('#compass').css('background', compassGradient);
         $('#backgroundCompass').css('background', compassGradient);
         // $('#compass').css({'-webkit-background-clip': 'text'});
         // $('#compass').css({'-webkit-text-fill-color': 'transparent'});
