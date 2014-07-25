@@ -4,7 +4,7 @@
 	%h3 Your Places:
 	%ul
 		-@places.each do |place|
-			%li.lead.text-left
+			%li.lead.text-center
 				= link_to("#{place.address}", "/places/#{place.id}")
 
 
