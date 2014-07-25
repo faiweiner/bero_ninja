@@ -53,13 +53,9 @@ $(document).ready(function() {
         console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow, userCompass.distanceOrig != distanceNow);
         // Finding the range of colors in percentage for distance.
         if ((userCompass.distanceOrig != distanceNow) && (userCompass.distanceOrig > distanceNow)) {
-          range = 3000 * (1 - (distanceNow/userCompass.distanceOrig));
-          // return range;
-          console.log('new range', range, 'distance', distanceNow);
+          range = 3000 * Math.log((1 - (distanceNow/userCompass.distanceOrig)));
         } else {
           range = 1;
-
-          console.log('some magic ros range', range);
         }
 
         console.log('range: '+ range);
