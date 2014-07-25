@@ -5,7 +5,8 @@ class FriendshipsController < ApplicationController
 
 		# Everyone the user follows (pending their approval)
 		@following = @current_user.friendships.where(approved: false)
-		# For All_users status check
+		@following_array = []
+		@following_array = @current_user.friendships.where(approved: false).map{|friendship| friendship.friend.username}
 
 		# Everyone who follows the user
 		@followers = @current_user.inverse_friends
@@ -84,5 +85,7 @@ class FriendshipsController < ApplicationController
 		mutual_friendships = @current_user.friendships.where(approved: "true")
 		@friends_username = []
 		@friends_username = mutual_friendships.map {|friendship| friendship.friend.username }
+		@following_array = []
+		@following_array = @current_user.friendships.where(approved: false).map{|friendship| friendship.friend.username}
 	end
 end

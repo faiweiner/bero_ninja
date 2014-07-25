@@ -20,7 +20,9 @@
 	<% if @mutual_friendships.any? %>
 		<%= render partial: "friendships" %>
 	<% end %>
-	<%= render partial: "following" %>
+	<% if @following.any? %>
+		<%= render partial: "following" %>
+	<% end %>
 	<% if @incoming_requests.any? %>
 		<%= render partial: "followers" %>
 	<% end %>

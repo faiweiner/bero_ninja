@@ -14,6 +14,8 @@
 						<td><%= result.username %></td>
 						<% if @friends_username.include? result.username %>
 							<td>Already connected</td>
+						<% elsif @following_array.include? result.username %>
+							<td>Pending friend request</td>
 						<% else %>
 							<td><a class="follow" data-method="post" href="/friendships?friend_id=<%=result.id%>" rel="nofollow">Follow</a></td>
 						<% end %>
