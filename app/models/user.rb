@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
   has_many :locations
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+  after_create :add_location
+
+  private
+  def add_location
+  	self.locations << Location.new
+  end
 end
