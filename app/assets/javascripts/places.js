@@ -1,5 +1,5 @@
 var showPlaces = function(userLocation){
-  
+
 // Gets current user loction, passed into showPlace and used to center the map
 // and drop a marker on current location.
 var success = function(position) {
@@ -77,7 +77,7 @@ var add_marker = function (latitude, longitude, address) {
   // var pin = "/assets/map-marker-red.png", width = "10px", height = "10px";
     // scale: 5,
 
-  
+
   var pin = {
     path: google.maps.SymbolPath.CIRCLE,
     scale: 8,

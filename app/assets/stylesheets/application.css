@@ -46,10 +46,24 @@ body {
 	background-color: #F5F5F5;
 	/*color: #222222;*/
 }
+
+.vertAlign {
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  -webkit-transform: translate(-50%, -50%);
+  width: 40%;
+  height: 50%;
+
+}
+
  /* ----- List Styles ----- */
+
 
 ul {
 	padding: 0;
+  width: 50%;
+  margin: 0 auto;
 }
 
 li {
@@ -65,6 +79,10 @@ li {
 .navbar-nav {
 	float: right;
 	font-weight: 300;
+}
+
+.navbar-nav > li {
+    float:right;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -114,6 +132,19 @@ li {
 	background-color: #d9534f;
 }
 
+/*----- Misc -----*/
+.invisible {
+  display:none;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-left: 0;
+}
+
+.vertAlign {
+  width:100%;
+}
+
  /* -------Smartphones: Media Queries -------- */
 
 @media only screen and (max-width : 767px) {
@@ -130,10 +161,4 @@ li {
 	}
 }
 
-.invisible {
-	display:none;
-}
-.checkbox input[type="checkbox"] {
-	margin-left: 0;
-}
 
