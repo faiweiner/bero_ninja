@@ -26,11 +26,13 @@ class FriendsController < ApplicationController
     # # #to km
     @distance= Geocoder::Calculations.to_kilometers(@distance) # => "1.7" km
 
-    @location = {"coords" => @coordinates, "bearing" => @bearing, "distance" => @distance, "compass" => @compass};
-    # @location << @coordinates << @compass << @distance
+    @timestamp = @friend.locations.last.updated_at
+
+    @location = {"coords" => @coordinates, "bearing" => @bearing, "distance" => @distance, "compass" => @compass, "timestamp" => @timestamp};
     
+    # Updating the user location to the database
     @current_user.locations.first.update(:latitude => @coordinates["user_lat"], :longitude => @coordinates["user_lng"])
-    # update
+
 
     render :json => @location
     

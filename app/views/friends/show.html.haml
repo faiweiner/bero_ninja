@@ -1,8 +1,8 @@
 %script
   = "$(document).ready(function () {"
   = "userCompass.userLocation(); userCompass.runCompass();"
-  = "});"
-%div.container.invisible
+  = "});" 
+%div.container
   %h1
     =@friend.username
 
@@ -55,5 +55,8 @@
   %span#showDistance
   %div#compassContainer
     %i.fa.fa-arrow-up#compass
+  %p
+    =@friend.username was last seen at :   
+  %span#timeStamp
 
 

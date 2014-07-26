@@ -41,6 +41,7 @@ $(document).ready(function() {
 			$('#distance').text(response.distance);
 			$('#showDistance').text((response.distance).toFixed(2) + " km");
 			$('#heading').text(response.compass);
+			$('#timeStamp').text(response.timestamp);
 			userCompass.bearing = response.bearing;
 			userCompass.distance = response.distance;
 			userCompass.lat = response.coords.user_lat;

@@ -114,6 +114,10 @@ li {
 	font-size:3em;
 	color:#FFF;
 }
+#timeStamp {
+	font-size: 2em;
+	color: #FFF
+}
 /* ----- Buttons and alerts ------ */
 .alert {
 	margin:20px 0;
