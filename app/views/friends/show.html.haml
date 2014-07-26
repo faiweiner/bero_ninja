@@ -2,7 +2,7 @@
   = "$(document).ready(function () {"
   = "userCompass.userLocation(); userCompass.runCompass();"
   = "});" 
-%div.container
+%div.container.invisible
   %h1
     =@friend.username
 
@@ -55,9 +55,9 @@
   %span#showDistance
   %div#compassContainer
     %i.fa.fa-arrow-up#compass
-  %p
+  %p.timeStamp
     =@friend.username
     was last seen at: 
-  %span#timeStamp
+  %span#timeStamp.timeStamp
 
 
