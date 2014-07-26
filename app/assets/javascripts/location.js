@@ -48,11 +48,11 @@ $(document).ready(function() {
 			userCompass.lat = response.coords.user_lat;
 			userCompass.lng = response.coords.user_lng;
 
-			console.log(userCompass.distance)
+			// console.log(userCompass.distance)
         var distanceNow = userCompass.distance;
         userCompass.distanceOrig = userCompass.distanceOrig || distanceNow;
         // $('#compassContainer').text('original distance: '+ userCompass.distanceOrig + ' distance now: '+ distanceNow)
-        console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow, userCompass.distanceOrig != distanceNow);
+        // console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow, userCompass.distanceOrig != distanceNow);
         // Finding the range of colors in percentage for distance.
         if ((userCompass.distanceOrig != distanceNow) && (userCompass.distanceOrig > distanceNow)) {
           range = 3000 *(1 - (distanceNow/userCompass.distanceOrig));
@@ -60,10 +60,10 @@ $(document).ready(function() {
           range = 1;
         }
 
-        console.log('range: '+ range);
+        // console.log('range: '+ range);
         var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + parseInt(range) +', from(#FF213D), to(#0E213D))';
         // $('#compass').css('background', compassGradient);
-        console.log(compassGradient);
+        // console.log(compassGradient);
         $('#compass').css('background', compassGradient);
         $('#backgroundCompass').css('background', compassGradient);
         // $('#compass').css({'-webkit-background-clip': 'text'});
@@ -81,8 +81,8 @@ $(document).ready(function() {
 			2: 'Position unavailable',
 			3: 'Request timeout'
 		};
-		console.log("Error: " + errors[error.code]);
-		var errorMessage = "Error: " + errors[error.code];
+		alert("Error: " + errors[error.code]);
+		// var errorMessage = "Error: " + errors[error.code];
 	};
 
 	// checks if geolocation enabled
