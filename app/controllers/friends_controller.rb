@@ -27,7 +27,7 @@ class FriendsController < ApplicationController
     @distance= Geocoder::Calculations.to_kilometers(@distance) # => "1.7" km
 
     @timestamp = @friend.locations.last.updated_at
-    @timestamp = @timestamp.strftime("%e %b %H:%M:%S%p")
+    @timestamp = @timestamp
     @location = {"coords" => @coordinates, "bearing" => @bearing, "distance" => @distance, "compass" => @compass, "timestamp" => @timestamp};
     
     # Updating the user location to the database
