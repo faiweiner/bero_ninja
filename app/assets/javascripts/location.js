@@ -85,6 +85,8 @@ $(document).ready(function() {
 		// var errorMessage = "Error: " + errors[error.code];
 	};
 
+	var options = { enableHighAccuracy: true }
+
 	// checks if geolocation enabled
 	userCompass.userLocation = function() {
 		// STEP 1 - DETECTING GEOLOCATION
@@ -94,9 +96,9 @@ $(document).ready(function() {
 				// if success
 				displayPosition,
 				// if error
-				displayError
+				displayError,
 
-			  // { enableHighAccuracy: true }
+			  options
 			  );
 		} else {
 			alert("Geolocation is not supported by this browser");
