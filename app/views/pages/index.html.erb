@@ -1,19 +1,22 @@
-<div id="login" class="">
-    <div class="jumbotron-login">
-      <h1 class="page-header">Welcome to Bero.</h1>
-      <p class="lead">
-        <a href="sessions/new" class="btn btn-lg btn-danger">Sign In</a>
-        <a href="users/new" class="btn btn-lg btn-danger">Sign Up</a>
-      </p>
-      <p class="lead">
-        Stalk your friends in a more colorful way.
-      </p>
+<div id="login" class="col-md-4 col-sm-6 col-xs-12">
+  <div class="jumbotron-login">
+    <h1 class="page-header">Welcome to Bero.</h1>
+    <p class="lead">
+      <a href="sessions/new" class="btn btn-lg btn-danger">Sign In</a>
+      <a href="users/new" class="btn btn-lg btn-danger">Sign Up</a>
+    </p>
+    <div class="lead">
+      <p>Never lose your friends again.</p>
+      <p>Use Bero, your social compass.</p>
+        <img src="assets/directions.jpg" alt="directions" class="img-responsive">
     </div>
+  </div>
 </div>
 
-<!-- <div class="map-blocker"> -->
-  <div id = "map_canvas" class = "big-map hidden-xs"></div>
-<!-- </div> -->
+
+
+<div id = "map_canvas" class = "big-map hidden-xs"></div>
+
 <script>
   $(document).ready(function() {
     showPlaces();

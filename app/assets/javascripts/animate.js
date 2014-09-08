@@ -1,6 +1,6 @@
 var toggleSignUp = function(event) {
 	event && event.preventDefault && event.preventDefault(); // Short circuit evaluation.
-	console.log(this);
+	// console.log(this);
   // $('.panel').fadeToggle(function () {
   //   $('#signup-organic').toggle();
   // });

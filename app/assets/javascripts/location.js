@@ -1,7 +1,7 @@
+// set up global object
 var userCompass = userCompass || {};
 
 $(document).ready(function() {
-
 	var pathArray = window.location.pathname.split( '/' );
 	var pathId = pathArray[2];
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
 	var displayPosition = function(position) {
 		var user_lat = position.coords.latitude;
 		var user_lng = position.coords.longitude;
-			// AJAX gets location data from device and converts for use in ruby.
+		// AJAX gets location data from device and converts for use in ruby.
 	$.ajax({
 		// Step 1
 		url: stitchURL,
@@ -34,47 +34,45 @@ $(document).ready(function() {
 	},
 		// Step 2
 		success: function(response) {
-			console.log(response);
-			$('#user_lat').text(response.coords.user_lat); // push data to user_lat id on page
-			$('#user_lng').text(response.coords.user_lng); // push data to user_lng id on page
-			$('#bearing').text(response.bearing);
-			$('#distance').text(response.distance);
+			// console.log(response);
+			// optional display data:
+			// $('#user_lat').text(response.coords.user_lat); 
+			// $('#user_lng').text(response.coords.user_lng); 
+			// $('#heading').text(response.compass);
+			// $('#bearing').text(response.bearing);
+			// $('#distance').text(response.distance);
+			// display distance to destination
 			$('#showDistance').text((response.distance).toFixed(2) + " km");
-			$('#heading').text(response.compass);
+			// display user last seen timestamp
 			var date = new Date(response.timestamp);
 			$('#timeStamp').text(date.toString());
+			// feed compass the coordinates, bearing and distance data
 			userCompass.bearing = response.bearing;
 			userCompass.distance = response.distance;
 			userCompass.lat = response.coords.user_lat;
 			userCompass.lng = response.coords.user_lng;
 
-			// console.log(userCompass.distance)
         var distanceNow = userCompass.distance;
         userCompass.distanceOrig = userCompass.distanceOrig || distanceNow;
+        // option to show original distance and current distance: 
         // $('#compassContainer').text('original distance: '+ userCompass.distanceOrig + ' distance now: '+ distanceNow)
         // console.log('original distance', userCompass.distanceOrig, 'distance now', distanceNow, userCompass.distanceOrig != distanceNow);
+
         // Finding the range of colors in percentage for distance.
         if ((userCompass.distanceOrig != distanceNow) && (userCompass.distanceOrig > distanceNow)) {
           range = 3000 *(1 - (distanceNow/userCompass.distanceOrig));
         } else {
           range = 1;
         }
-
-        // console.log('range: '+ range);
+        // apply changing color gradient to compass arrow and page background
         var compassGradient = '-webkit-gradient(radial, 50% 0 , 0, 50% 0,' + parseInt(range) +', from(#FF213D), to(#0E213D))';
-        // $('#compass').css('background', compassGradient);
-        // console.log(compassGradient);
         $('#compass').css('background', compassGradient);
         $('#backgroundCompass').css('background', compassGradient);
-        // $('#compass').css({'-webkit-background-clip': 'text'});
-        // $('#compass').css({'-webkit-text-fill-color': 'transparent'});
-
-
 				}
 			});
 		};
 
-	// Error message disapayed
+	// error message displayed if location fails
 	var displayError = function(error) {
 		var errors = {
 			1: 'Permission denied',
@@ -82,16 +80,15 @@ $(document).ready(function() {
 			3: 'Request timeout'
 		};
 		alert("Error: " + errors[error.code]);
-		// var errorMessage = "Error: " + errors[error.code];
 	};
 
 	var options = { enableHighAccuracy: true }
 
 	// checks if geolocation enabled
 	userCompass.userLocation = function() {
-		// STEP 1 - DETECTING GEOLOCATION
+		// dectect geolaction support
 		if (navigator.geolocation) {
-			// var timeoutVal = 4500;
+			// postion updated with watchPosition - auto updates on location change over polling getCurrentPosition
 			navigator.geolocation.watchPosition(
 				// if success
 				displayPosition,
@@ -102,7 +99,6 @@ $(document).ready(function() {
 			  );
 		} else {
 			alert("Geolocation is not supported by this browser");
-			// PUSH THIS INTO THE PAGE!!!
 		};
 	};
 });

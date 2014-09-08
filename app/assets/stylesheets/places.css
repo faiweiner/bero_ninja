@@ -25,7 +25,8 @@
 .jumbotron-login{
 	position: absolute;
 	z-index: 1;
-	background-color: #F1F1F1;
+	left: 0;
+	background-color: #FFFFFF;
 	padding: 2em 4em;
 }
 
